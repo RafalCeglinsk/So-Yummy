@@ -1,8 +1,41 @@
+@import-normalize;
+
+:root {
+  --color-default-1: #fafafa;
+  --color-default-2: #000000;
+
+  --color-text-1: #001833;
+  --color-text-2: #3e4462;
+  --color-text-3: #23262a;
+  --color-text-4: rgba(0, 0, 0, 0.8);
+  --color-text-5: #8baa36;
+  --coloer-text-6: #22252a;
+  --color-text-7: #fafafa;
+
+  --color-icons-1: #22252a;
+  --color-icons-2: #c4c4c4;
+  --color-icons-3: #8baa36;
+
+  --color-bg-footer: #22252a;
+  --color-bg-input: #d9d9d9;
+  --color-bg-start: #2a2c36;
+  --color-bg-pages: #656565;
+  --color-bg-modal:#fafafa;
+  
+
+  --color-warning: #e74a3b;
+  --color-placeholder: #d9d9d9;
+  --color-tabs: #e0e0e0;
+
+  --transition-time: 200ms;
+  --cubic: cubic-bezier(0.3, 0.1, 0.4, 1);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 16px;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +43,57 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: local('Poppins');
+  font-weight: 400, url(./fonts/Poppins/Poppins-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+
+  src: local('Poppins'),
+    url(./fonts/Poppins/Poppins-Medium.ttf) format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 600;
+  src: local('Poppins'),
+    url(./fonts/Poppins/Poppins-SemiBold.ttf) format('truetype');
 }
