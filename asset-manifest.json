@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/SoYummy/static/css/main.e6c13ad2.css",
+    "main.css": "/SoYummy/static/css/main.45536692.css",
     "main.js": "/SoYummy/static/js/main.4efedb05.js",
+    "static/media/Poppins-Regular.ttf": "/SoYummy/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
+    "static/media/Poppins-Medium.ttf": "/SoYummy/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
+    "static/media/Poppins-SemiBold.ttf": "/SoYummy/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
     "index.html": "/SoYummy/index.html",
-    "main.e6c13ad2.css.map": "/SoYummy/static/css/main.e6c13ad2.css.map",
+    "main.45536692.css.map": "/SoYummy/static/css/main.45536692.css.map",
     "main.4efedb05.js.map": "/SoYummy/static/js/main.4efedb05.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
+    "static/css/main.45536692.css",
     "static/js/main.4efedb05.js"
   ]
 }
