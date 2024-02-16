@@ -5,7 +5,7 @@ import {
   RenderYoutube,
   RenderTwitter,
   RenderInstargram,
-} from 'components/RenderSvg/RenderSvg.jsx';
+} from '../RenderSvg/RenderSvg.jsx';
 
 import { SocialWrapper, SocialIconStyle } from './SocialMediaBar.styled.jsx';
 
