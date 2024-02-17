@@ -10,6 +10,7 @@ import {
   IngredientField,
   unitSelect,
   ingredientSelect,
+  Span,
 } from "./styles";
 
 const unitOptions = [
@@ -74,37 +75,43 @@ const RecipeIngredientsFields = ({ recipeData, setRecipeData }) => {
     <IngredientsContainer>
       <IngredientsHeader>
         <h2>Ingredients</h2>
-        <AddIngredientButton onClick={addIngredient}>Add</AddIngredientButton>
+        <AddIngredientButton onClick={addIngredient}>
+          Add ingredients
+        </AddIngredientButton>
       </IngredientsHeader>
       {recipeData.ingredients.map((ingredient, index) => (
         <IngredientField key={index}>
-          <Select
-            styles={ingredientSelect}
-            options={ingredientOptions}
-            value={ingredientOptions.find(
-              (option) => option.value === ingredient.name
-            )}
-            onChange={(selectedOption) =>
-              handleSelectNameChange(index, selectedOption)
-            }
-            placeholder="Select..."
-          />
           <SizeGroup>
-            <IngredientInput
-              type="text"
-              placeholder="0"
-              value={ingredient.quantity}
-              onChange={(e) => handleChange(index, "quantity", e.target.value)}
-            />
             <Select
-              styles={unitSelect}
-              options={unitOptions}
-              placeholder=""
-              value={unitOptions.find(
-                (option) => option.value === ingredient.unit
+              styles={ingredientSelect}
+              options={ingredientOptions}
+              value={ingredientOptions.find(
+                (option) => option.value === ingredient.name
               )}
-              onChange={(value) => handleSelectChange(index, value)}
+              onChange={(selectedOption) =>
+                handleSelectNameChange(index, selectedOption)
+              }
+              placeholder="Select..."
             />
+            <Span>
+              <IngredientInput
+                type="text"
+                placeholder="0"
+                value={ingredient.quantity}
+                onChange={(e) =>
+                  handleChange(index, "quantity", e.target.value)
+                }
+              />
+              <Select
+                styles={unitSelect}
+                options={unitOptions}
+                placeholder=""
+                value={unitOptions.find(
+                  (option) => option.value === ingredient.unit
+                )}
+                onChange={(value) => handleSelectChange(index, value)}
+              />
+            </Span>
           </SizeGroup>
           <RemoveIngredientButton onClick={() => removeIngredient(index)}>
             X
