@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ChooseYourBreakfast } from "./ChooseYourBreakfast/ChooseYourBreakfast";
-import { HeroWrapper, MainTitle, TextContent,TitleWrapper } from "./MainPage.styled";
+import { HeroWrapper, MainTitle, TextContent,TitleWrapper ,SbStyle} from "./MainPage.styled";
 import SearchBar from "../SearchBar/SearchBar";
 export function MainPage() {
   return (
@@ -23,8 +23,7 @@ export function MainPage() {
       </TitleWrapper>
       
       <ChooseYourBreakfast/>
-     
-      <SearchBar />
+
       </HeroWrapper>
 
 

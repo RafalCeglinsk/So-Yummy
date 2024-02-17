@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
  import BgImg from "../../../images/MainPageHero/ChooseYour1x.png"
 import BgImg2x from '../../../images/MainPageHero/ChooseYour2x.png'
-
+import BgTb2x from "../../../images/MainPageHero/Choose-Tb-2x.png"
 
 export const SaladContainer = styled.div`
 
@@ -20,7 +20,17 @@ export const SaladContainer = styled.div`
     url(${BgImg}) 1x,
     url(${BgImg2x}) 2x
   );
- 
+  @media screen and (min-width: 768px) {
+  
+  background-image: -webkit-image-set(
+     
+      url(${BgTb2x}) 2x
+    );
+    width: 378px;
+    height: 351px;
+    margin-bottom: 0;
+    margin-right: -10px;
+    }
 `
 
 export const TextContainer = styled.div`
@@ -38,6 +48,14 @@ export const TextContainer = styled.div`
 
   & span {
     color: var(--color-text-5);
+  }
+  @media screen and (min-width: 768px) {
+    padding: 12px;
+    top: 210px;
+    right: 0;
+    left: 75px;
+    width: 260px;
+    font-size: 14px;
   }
 `;
 
