@@ -1,6 +1,11 @@
 import {createSlice, isAnyOf} from "@reduxjs/toolkit"
-import { deleteShoppingThunk, getShoppingThunk } from "./thunkShopping.js"
+import { deleteShoppingThunk, getShoppingThunk, addShoppingThunk } from "./thunkShopping.js"
 
+const handleFulfilledAdd = (state, {payload}) => {
+    state.shopping.isLoading = false
+    state.shopping.items = [...payload]
+    state.shopping.error = ''
+}
 const handlePending = (state) => {
     state.shopping.isLoading = true
 }
@@ -34,14 +39,15 @@ export const shoppingSlice = createSlice({
     extraReducers: (builder) => {
         builder
            .addCase(getShoppingThunk.fulfilled, handleFulfilledGet)
-
            .addCase(deleteShoppingThunk.fulfilled, handleFulfilledDel)
+           .addCase(addShoppingThunk.fulfilled, handleFulfilledAdd)
   
            .addMatcher(
               isAnyOf(
      
                  getShoppingThunk.pending,
-                 deleteShoppingThunk.pending
+                 deleteShoppingThunk.pending,
+                 addShoppingThunk.pending,
               ),
               handlePending
            )
@@ -49,7 +55,8 @@ export const shoppingSlice = createSlice({
               isAnyOf(
 
                  getShoppingThunk.rejected,
-                 deleteShoppingThunk.rejected
+                 deleteShoppingThunk.rejected,
+                 addShoppingThunk.rejected,
               ),
               handleRejected
               );
