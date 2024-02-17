@@ -6,6 +6,7 @@ export const Div = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  color: var(--color-default-1);
 `;
 
 export const BackgroundSection = styled.div`
@@ -17,8 +18,13 @@ export const BackgroundSection = styled.div`
   background-repeat: no-repeat;
 `;
 
-export const Logo = styled.div`
-  width: 68px;
-  height: 68px;
-  background-color: #8baa36;
+export const H1 = styled.h1`
+  padding: 24px 0 14px;
+  font-size: 24px;
+`;
+
+export const P = styled.p`
+  margin: 0px 35px;
+  text-align: center;
+  padding-bottom: 44px;
 `;
