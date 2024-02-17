@@ -74,7 +74,7 @@ const RecipeIngredientsFields = ({ recipeData, setRecipeData }) => {
     <IngredientsContainer>
       <IngredientsHeader>
         <h2>Ingredients</h2>
-        <AddIngredientButton onClick={addIngredient}>+ Add</AddIngredientButton>
+        <AddIngredientButton onClick={addIngredient}>Add</AddIngredientButton>
       </IngredientsHeader>
       {recipeData.ingredients.map((ingredient, index) => (
         <IngredientField key={index}>
@@ -100,6 +100,9 @@ const RecipeIngredientsFields = ({ recipeData, setRecipeData }) => {
               styles={unitSelect}
               options={unitOptions}
               placeholder=""
+              value={unitOptions.find(
+                (option) => option.value === ingredient.unit
+              )}
               onChange={(value) => handleSelectChange(index, value)}
             />
           </SizeGroup>

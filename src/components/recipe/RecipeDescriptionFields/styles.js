@@ -63,10 +63,11 @@ export const SelectContainer = styled.div`
 `;
 
 export const customSelectStyles = {
-  control: (provided) => ({
+  control: (provided, state) => ({
     ...provided,
     border: "none",
     fontSize: "16px",
+    boxShadow: state.isFocused ? "none" : provided.boxShadow,
     "&:hover": { borderColor: "#aaa" }, // zmiana koloru ramki przy najechaniu
   }),
   option: (provided, state) => ({

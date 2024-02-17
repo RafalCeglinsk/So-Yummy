@@ -12,7 +12,7 @@ export const IngredientsHeader = styled.div`
 
 export const SizeGroup = styled.div`
   display: flex;
-  justify-content: center;
+  align-items: center;
 `;
 
 export const IngredientField = styled.div`
@@ -27,9 +27,12 @@ export const IngredientInput = styled.input`
   margin-right: 0px;
   border: none;
   border-radius: 4px 0 0 4px;
-  width: 40px;
+  width: 10vw;
   background-color: #d9d9d9;
   font-size: 16px;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const AddIngredientButton = styled.button`
@@ -37,13 +40,17 @@ export const AddIngredientButton = styled.button`
   color: white;
   padding: 10px 15px;
   height: 50%;
+  width: 25%;
   border: none;
-  border-radius: 4px;
+  border-radius: 24px 44px;
   cursor: pointer;
   align-self: center;
 
   &:hover {
     background-color: #45a049;
+  }
+  &:focus {
+    background-color: var(--color-text-5);
   }
 `;
 
@@ -53,22 +60,18 @@ export const RemoveIngredientButton = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
-
-  &:hover {
-    background-color: #d32f2f;
-  }
 `;
 
 export const unitSelect = {
-  control: (provided) => ({
+  control: (provided, state) => ({
     ...provided,
     padding: "0",
-    width: "80px",
-    border: "none",
-    boxShadow: "none",
+    width: "25vw",
+    border: state.isFocused ? "none" : "1px solid transparent",
     backgroundColor: "#D9D9D9",
     borderRadius: "0 4px 4px 0",
     fontSize: " 16px",
+    boxShadow: "none",
     "&:hover": {
       border: "1px solid #aaa",
     },
@@ -85,12 +88,12 @@ export const unitSelect = {
 };
 
 export const ingredientSelect = {
-  control: (provided) => ({
+  control: (provided, state) => ({
     ...provided,
-    border: "none",
-    boxShadow: "none",
-    width: "150px",
+    border: state.isFocused ? "0px solid white" : "none",
+    width: "35vw",
     fontSize: " 16px",
+    boxShadow: state.isFocused ? "none" : provided.boxShadow,
     "&:hover": {
       border: "1px solid #aaa",
     },
