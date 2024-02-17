@@ -36,6 +36,10 @@ export const ImageUploadContainer = styled.div`
     width: 50vw;
     aspect-ratio: 1/1;
   }
+  @media screen and (min-width: 768px) {
+    width: 40vw;
+    height: 100%;
+  }
 `;
 
 export const ImageUploadButton = styled.button`
