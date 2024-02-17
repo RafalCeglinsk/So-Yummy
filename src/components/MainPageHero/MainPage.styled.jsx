@@ -10,6 +10,7 @@ import BgTriangle from "../../images/MainPageHero/Triangle-TB-2x.png";
 
 import BgDskLeft from "../../images/MainPageHero/bg.left.DSK2x.png";
 import BgDskDown from "../../images/MainPageHero/down-right-DSK2x.png";
+import BgTriDesk from "../../images/MainPageHero/Triangle-desktop.png";
 
 export const MainWrapper = styled.div`
   display: flex;
@@ -31,7 +32,7 @@ export const MainWrapper = styled.div`
   }
   @media screen and (min-width: 1440px) {
     background-image: -webkit-image-set(url(${BgDskLeft}) 2x),
-    -webkit-image-set(url(${BgDskDown}) 2x), url(${BgTriangle});
+    -webkit-image-set(url(${BgDskDown}) 2x), url(${BgTriDesk});
             background-position: top left, top  right , top right ;
   }
 `;
