@@ -4,6 +4,8 @@ import styled from "styled-components";
 export const Main = styled.div`
   display: flex;
   flex-direction: column;
+  @media screen and (min-width: 768px) {
+  }
   @media screen and (min-width: 1440px) {
     flex-direction: row;
   }
@@ -34,6 +36,10 @@ export const SubmitButton = styled.button`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   @media screen and (min-width: 768px) {
     width: 20vw;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 10vw;
   }
 
   &:hover {
