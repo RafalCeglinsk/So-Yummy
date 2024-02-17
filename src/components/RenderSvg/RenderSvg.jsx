@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export function RenderFacebook() {
   return (
@@ -59,7 +59,6 @@ export function RenderArrow() {
       width="19"
       height="18"
       viewBox="0 0 19 18"
-
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -118,4 +117,72 @@ export function SearchLens() {
       />
     </svg>
   );
+}
+
+
+export function ArrowHeroMain(){
+  return(
+    <svg width="220" height="148" viewBox="0 0 220 148" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_3_944)">
+<g clip-path="url(#clip0_3_944)">
+<path d="M179.163 64.9629C179.163 64.9633 179.163 64.9637 179.163 64.9641L177.071 74.8318C177.047 74.9452 177.053 75.0629 177.089 75.1729C177.125 75.2829 177.19 75.3815 177.276 75.4586L184.599 81.9757C185.269 82.5864 186.344 82.0544 186.262 81.1523L183.867 54.7053C183.85 54.5222 183.783 54.3474 183.672 54.2006C183.561 54.0539 183.412 53.9409 183.24 53.8743C183.068 53.8078 182.881 53.7904 182.699 53.824C182.518 53.8576 182.349 53.9409 182.212 54.0646L162.412 71.9182C161.737 72.5272 162.167 73.6421 163.074 73.642L172.909 73.7664C173.025 73.768 173.14 73.7391 173.242 73.6824C173.344 73.6258 173.429 73.5434 173.489 73.4436L178.678 64.7741C178.71 64.721 178.76 64.6808 178.819 64.6608C178.879 64.6408 178.943 64.6421 179.001 64.6646C179.059 64.687 179.107 64.7292 179.137 64.7836C179.166 64.8379 179.176 64.9009 179.164 64.9616C179.164 64.962 179.164 64.9625 179.163 64.9629Z" fill="#8BAA36"/>
+</g>
+<path d="M21.2759 65.2521C41.29 78.3115 91.1259 124.262 107.267 89.8204C127.443 46.7683 59.4988 52.9009 66.5662 87.0832C73.6336 121.265 139.08 138.569 174.961 76.9952" stroke="#8BAA36" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 8"/>
+</g>
+<defs>
+<filter id="filter0_d_3_944" x="0.456055" y="29.3765" width="218.668" height="114.122" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="10"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_3_944"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_3_944" result="shape"/>
+</filter>
+<clipPath id="clip0_3_944">
+<rect width="31.7311" height="31.7349" fill="white" transform="matrix(0.365657 -0.93075 0.932546 0.36105 157.928 74.9102)"/>
+</clipPath>
+</defs>
+</svg>
+
+  )
+}
+
+
+
+export function FormLock() {
+  return (
+    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.8">
+    <path d="M17 11.5V8.5C17 5.73858 14.7614 3.5 12 3.5C9.23858 3.5 7 5.73858 7 8.5V11.5M7.8 21.5H16.2C17.8802 21.5 18.7202 21.5 19.362 21.173C19.9265 20.8854 20.3854 20.4265 20.673 19.862C21 19.2202 21 18.3802 21 16.7V16.3C21 14.6198 21 13.7798 20.673 13.138C20.3854 12.5735 19.9265 12.1146 19.362 11.827C18.7202 11.5 17.8802 11.5 16.2 11.5H7.8C6.11984 11.5 5.27976 11.5 4.63803 11.827C4.07354 12.1146 3.6146 12.5735 3.32698 13.138C3 13.7798 3 14.6198 3 16.3V16.7C3 18.3802 3 19.2202 3.32698 19.862C3.6146 20.4265 4.07354 20.8854 4.63803 21.173C5.27976 21.5 6.11984 21.5 7.8 21.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    </svg>
+    
+  );
+}
+
+export function FormEnvelope() {
+  return (
+    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.8">
+    <path d="M2 7.5L10.1649 13.2154C10.8261 13.6783 11.1567 13.9097 11.5163 13.9993C11.8339 14.0785 12.1661 14.0785 12.4837 13.9993C12.8433 13.9097 13.1739 13.6783 13.8351 13.2154L22 7.5M6.8 20.5H17.2C18.8802 20.5 19.7202 20.5 20.362 20.173C20.9265 19.8854 21.3854 19.4265 21.673 18.862C22 18.2202 22 17.3802 22 15.7V9.3C22 7.61984 22 6.77976 21.673 6.13803C21.3854 5.57354 20.9265 5.1146 20.362 4.82698C19.7202 4.5 18.8802 4.5 17.2 4.5H6.8C5.11984 4.5 4.27976 4.5 3.63803 4.82698C3.07354 5.1146 2.6146 5.57354 2.32698 6.13803C2 6.77976 2 7.61984 2 9.3V15.7C2 17.3802 2 18.2202 2.32698 18.862C2.6146 19.4265 3.07354 19.8854 3.63803 20.173C4.27976 20.5 5.11984 20.5 6.8 20.5Z" stroke="#FAFAFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    </svg>
+    
+    
+  );
+}
+
+export function FormUser(){
+
+  return(
+
+    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.8">
+<path d="M20 21.5C20 20.1044 20 19.4067 19.8278 18.8389C19.44 17.5605 18.4395 16.56 17.1611 16.1722C16.5933 16 15.8956 16 14.5 16H9.5C8.10444 16 7.40665 16 6.83886 16.1722C5.56045 16.56 4.56004 17.5605 4.17224 18.8389C4 19.4067 4 20.1044 4 21.5M16.5 8C16.5 10.4853 14.4853 12.5 12 12.5C9.51472 12.5 7.5 10.4853 7.5 8C7.5 5.51472 9.51472 3.5 12 3.5C14.4853 3.5 16.5 5.51472 16.5 8Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>
+
+  )
 }
