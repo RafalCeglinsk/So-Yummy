@@ -4,7 +4,9 @@ import styled from "styled-components";
 export const Main = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   @media screen and (min-width: 768px) {
+    margin: 0 32px;
   }
   @media screen and (min-width: 1440px) {
     flex-direction: row;
@@ -16,7 +18,6 @@ export const Form = styled.form`
   flex-direction: column;
   margin-bottom: 72px;
   @media screen and (min-width: 768px) {
-    margin: 0 100px;
   }
   @media screen and (min-width: 1440px) {
     margin: 0 100px;
