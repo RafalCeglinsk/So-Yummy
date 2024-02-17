@@ -129,7 +129,7 @@ export function ArrowHeroMain() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <g filter="url(#filter0_d_3_944)">
-        <g clip-path="url(#clip0_3_944)">
+        <g clipPath="url(#clip0_3_944)">
           <path
             d="M179.163 64.9629C179.163 64.9633 179.163 64.9637 179.163 64.9641L177.071 74.8318C177.047 74.9452 177.053 75.0629 177.089 75.1729C177.125 75.2829 177.19 75.3815 177.276 75.4586L184.599 81.9757C185.269 82.5864 186.344 82.0544 186.262 81.1523L183.867 54.7053C183.85 54.5222 183.783 54.3474 183.672 54.2006C183.561 54.0539 183.412 53.9409 183.24 53.8743C183.068 53.8078 182.881 53.7904 182.699 53.824C182.518 53.8576 182.349 53.9409 182.212 54.0646L162.412 71.9182C161.737 72.5272 162.167 73.6421 163.074 73.642L172.909 73.7664C173.025 73.768 173.14 73.7391 173.242 73.6824C173.344 73.6258 173.429 73.5434 173.489 73.4436L178.678 64.7741C178.71 64.721 178.76 64.6808 178.819 64.6608C178.879 64.6408 178.943 64.6421 179.001 64.6646C179.059 64.687 179.107 64.7292 179.137 64.7836C179.166 64.8379 179.176 64.9009 179.164 64.9616C179.164 64.962 179.164 64.9625 179.163 64.9629Z"
             fill="#8BAA36"
@@ -140,7 +140,7 @@ export function ArrowHeroMain() {
           stroke="#8BAA36"
           strokeWidth="3"
           strokeLinejoin="round"
-          stroke-dasharray="8 8"
+          strokeDasharray="8 8"
         />
       </g>
       <defs>
@@ -151,9 +151,9 @@ export function ArrowHeroMain() {
           width="218.668"
           height="114.122"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+    
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
