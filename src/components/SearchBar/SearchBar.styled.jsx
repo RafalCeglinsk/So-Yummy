@@ -5,7 +5,7 @@ const SearchBarStyled = styled.div`
   align-items: center;
   width: 100%;
   max-width: 295px;
-  background-color: #fff;
+  
   position: relative;
   @media screen and (min-width: 768px) {
     max-width: 368px;
