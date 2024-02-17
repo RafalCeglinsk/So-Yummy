@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export function RenderFacebook() {
   return (
@@ -59,7 +59,6 @@ export function RenderArrow() {
       width="19"
       height="18"
       viewBox="0 0 19 18"
-
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
