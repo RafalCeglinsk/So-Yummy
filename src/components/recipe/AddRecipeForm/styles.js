@@ -9,7 +9,7 @@ export const Form = styled.form`
 
 export const SubmitButton = styled.button`
   padding: 10px 20px;
-  width: 30%;
+  width: 30vw;
   background-color: var(--color-bg-footer);
   color: white;
   border: none;

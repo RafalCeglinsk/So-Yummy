@@ -24,4 +24,8 @@ export const PreparationTextarea = styled.textarea`
   &:focus {
     outline: none;
   }
+
+  @media screen and (min-width: 768px) {
+    max-width: 70vw;
+  }
 `;

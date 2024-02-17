@@ -4,6 +4,41 @@ export const FieldContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 44px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    height: 260px;
+  }
+`;
+export const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 32px;
+  width: 100%;
+  height: 100%;
+`;
+
+export const ImageUploadContainer = styled.div`
+  background-color: var(--color-text-5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  width: 70vw;
+  height: 230px;
+  border-radius: 18px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  @media screen and (min-width: 768px) {
+    width: 50vw;
+    aspect-ratio: 1/1;
+  }
+`;
+
+export const ImageUploadButton = styled.button`
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 `;
 
 export const Input = styled.input`
@@ -16,7 +51,6 @@ export const Input = styled.input`
   border-radius: 0;
   padding-bottom: 18px;
   padding-top: 24px;
-
   font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
 
   &:focus {
@@ -25,6 +59,10 @@ export const Input = styled.input`
 
   &::placeholder {
     opacity: 50%;
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-direction: column;
   }
 `;
 
