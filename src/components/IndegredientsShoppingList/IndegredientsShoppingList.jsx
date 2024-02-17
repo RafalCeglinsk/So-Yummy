@@ -43,7 +43,7 @@ const IngredientsShoppingList = () => {
                        <source
                               srcSet={`${vegetableBasket}, ${vegetableBasket2x} 2x`}
                               media="(min-width: 768px)"
-                              sizes="(min-width: 498px) 498px, 100vw"
+                              sizes="(min-width: 480px) 480px, 100vw"
                            />
                       <img src={vegetableBasket} alt="No recipe" />
                     </picture>
