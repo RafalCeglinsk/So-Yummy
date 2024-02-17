@@ -95,7 +95,10 @@ export const unitSelect = {
       border: "1px solid #aaa",
     },
     "@media screen and (min-width: 768px)": {
-      width: "100%",
+      width: "10vw",
+    },
+    "@media screen and (min-width: 1440px)": {
+      width: "5vw",
     },
   }),
   indicatorSeparator: () => ({
@@ -120,7 +123,10 @@ export const ingredientSelect = {
       border: "1px solid #aaa",
     },
     "@media screen and (min-width: 768px)": {
-      width: "150%",
+      width: "15vw",
+    },
+    "@media screen and (min-width: 1440px)": {
+      width: "10vw",
     },
   }),
   indicatorSeparator: () => ({
