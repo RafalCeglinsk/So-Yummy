@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Form, SubmitButton } from "./styles"; // Import stylizowanych komponentów
+import { Form, SubmitButton, Main } from "./styles"; // Import stylizowanych komponentów
 import RecipeDescriptionFields from "../RecipeDescriptionFields/RecipeDescriptionFields";
 import RecipeIngredientsFields from "../RecipeIngredientsFields/RecipeIngredientsFields";
 import RecipePreparationFields from "../RecipePreparationFields/RecipePreparationFields";
+import PopularRecipe from "../PopularRecipe/PopularRecipe";
 
 const AddRecipeForm = () => {
   const [recipeData, setRecipeData] = useState({
@@ -19,21 +20,25 @@ const AddRecipeForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <RecipeDescriptionFields
-        recipeData={recipeData}
-        setRecipeData={setRecipeData}
-      />
-      <RecipeIngredientsFields
-        recipeData={recipeData}
-        setRecipeData={setRecipeData}
-      />
-      <RecipePreparationFields
-        recipeData={recipeData}
-        setRecipeData={setRecipeData}
-      />
-      <SubmitButton type="submit">Add</SubmitButton>
-    </Form>
+    <Main>
+      <Form onSubmit={handleSubmit}>
+        <h1 style={{ marginBottom: "72px" }}>Add Recipe</h1>
+        <RecipeDescriptionFields
+          recipeData={recipeData}
+          setRecipeData={setRecipeData}
+        />
+        <RecipeIngredientsFields
+          recipeData={recipeData}
+          setRecipeData={setRecipeData}
+        />
+        <RecipePreparationFields
+          recipeData={recipeData}
+          setRecipeData={setRecipeData}
+        />
+        <SubmitButton type="submit">Add recipe</SubmitButton>
+      </Form>
+      <PopularRecipe></PopularRecipe>
+    </Main>
   );
 };
 

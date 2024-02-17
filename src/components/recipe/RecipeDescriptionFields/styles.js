@@ -13,9 +13,12 @@ export const FieldContainer = styled.div`
 export const Form = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 32px;
+
   width: 100%;
   height: 100%;
+  @media screen and (min-width: 768px) {
+    margin-left: 32px;
+  }
 `;
 
 export const ImageUploadContainer = styled.div`

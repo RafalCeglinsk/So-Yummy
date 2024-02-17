@@ -20,6 +20,7 @@ export const IngredientField = styled.div`
   justify-content: space-between;
   margin-bottom: 10px;
   align-items: center;
+  max-width: 800px;
 `;
 
 export const IngredientInput = styled.input`
@@ -40,11 +41,14 @@ export const AddIngredientButton = styled.button`
   color: white;
   padding: 10px 15px;
   height: 50%;
-  width: 25%;
+  width: 40vw;
   border: none;
   border-radius: 24px 44px;
   cursor: pointer;
   align-self: center;
+  @media screen and (min-width: 768px) {
+    width: 20vw;
+  }
 
   &:hover {
     background-color: #45a049;
@@ -66,7 +70,7 @@ export const unitSelect = {
   control: (provided, state) => ({
     ...provided,
     padding: "0",
-    width: "25vw",
+    width: "100%",
     border: state.isFocused ? "none" : "1px solid transparent",
     backgroundColor: "#D9D9D9",
     borderRadius: "0 4px 4px 0",
@@ -91,7 +95,7 @@ export const ingredientSelect = {
   control: (provided, state) => ({
     ...provided,
     border: state.isFocused ? "0px solid white" : "none",
-    width: "35vw",
+    width: "150%",
     fontSize: " 16px",
     boxShadow: state.isFocused ? "none" : provided.boxShadow,
     "&:hover": {

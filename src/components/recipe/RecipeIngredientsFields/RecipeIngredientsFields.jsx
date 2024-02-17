@@ -74,7 +74,9 @@ const RecipeIngredientsFields = ({ recipeData, setRecipeData }) => {
     <IngredientsContainer>
       <IngredientsHeader>
         <h2>Ingredients</h2>
-        <AddIngredientButton onClick={addIngredient}>Add</AddIngredientButton>
+        <AddIngredientButton onClick={addIngredient}>
+          Add ingredients
+        </AddIngredientButton>
       </IngredientsHeader>
       {recipeData.ingredients.map((ingredient, index) => (
         <IngredientField key={index}>

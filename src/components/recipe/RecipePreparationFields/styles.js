@@ -26,6 +26,6 @@ export const PreparationTextarea = styled.textarea`
   }
 
   @media screen and (min-width: 768px) {
-    max-width: 70vw;
+    max-width: 50vw;
   }
 `;
