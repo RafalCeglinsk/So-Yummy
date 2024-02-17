@@ -52,20 +52,20 @@ const IngredientsShoppingList = () => {
                 ) : (
                   shopping.items?.map((item) => {
                     return (
-                      <li key={item.ingredientId}>
+                      <li key={item.Id}>
                         <div>
                           <img
-                            src={item.ingredient.img}
+                            src={item.img}
                             alt={item.desc}
                             height="60"
                           />
-                          <p>{item.ingredient.name}</p>
+                          <p>{item.name}</p>
                         </div>
                         <div>
                           {item.measure.split("/r/n").map((el) => (
                             <div key={nanoid()}>
                               <p>{el}</p>
-                              <button onClick={() => deleteButton(item.ingredientId)}>
+                              <button onClick={() => deleteButton(item.Id)}>
                                 Delete
                               </button>
                             </div>
