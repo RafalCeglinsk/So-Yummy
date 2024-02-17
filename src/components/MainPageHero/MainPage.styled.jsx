@@ -5,6 +5,7 @@ export const MainWrapper = styled.div`
 display: flex;
 flex-direction: column;
 gap:24px;
+align-items: center;
 `
 export const HeroWrapper = styled.div`
   display: flex;
