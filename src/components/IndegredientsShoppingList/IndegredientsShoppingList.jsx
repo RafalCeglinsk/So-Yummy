@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import vegetableBasket from "../../images/IndegredientsShoppingList/vegetableBasket.jpg"
 import vegetableBasket2x from "../../images/IndegredientsShoppingList/vegetableBasket2x.jpg"
 
-
 import {getShoppingThunk, deleteShoppingThunk} from "../../redux/shoppingList/thunkShopping.js"
+import { EmptyStyled, PictrueContainerStyled } from "./IndegredientsShoppingListStyled.js";
 
 const IngredientsShoppingList = () => {
     const dispatch = useDispatch()
@@ -33,7 +33,7 @@ const IngredientsShoppingList = () => {
               )}
               <ul>
                 {shopping.items.length === 0 ? (
-                  <div>
+                  <PictrueContainerStyled>
                     <picture>
                       <source
                         srcSet={`${vegetableBasket}, ${vegetableBasket2x} 2x`}
@@ -43,12 +43,12 @@ const IngredientsShoppingList = () => {
                        <source
                               srcSet={`${vegetableBasket}, ${vegetableBasket2x} 2x`}
                               media="(min-width: 768px)"
-                              sizes="(min-width: 480px) 480px, 100vw"
+                              sizes="(min-width: 498px) 498px, 100vw"
                            />
                       <img src={vegetableBasket} alt="No recipe" />
                     </picture>
-                    <p>Shopping list is empty</p>
-                  </div>
+                    <EmptyStyled>Shopping list is empty</EmptyStyled>
+                  </PictrueContainerStyled>
                 ) : (
                   shopping.items?.map((item) => {
                     return (

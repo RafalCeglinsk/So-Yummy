@@ -1,11 +1,12 @@
 
 import IngredientsShoppingList from "../../components/IndegredientsShoppingList/IndegredientsShoppingList"
+import { ShoppingPageStyled, TitleShoppingPage } from "./ShoppingListPageStyled.js"
 const ShoppingListPage = () => {
     return (
-        <div>
-            <h2>Shopping list</h2>
+        <ShoppingPageStyled>
+            <TitleShoppingPage>Shopping list</TitleShoppingPage>
             <IngredientsShoppingList/>
-        </div>
+        </ShoppingPageStyled>
     )
 }
 
