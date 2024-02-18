@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export function RenderFacebook() {
   return (
@@ -59,12 +59,11 @@ export function RenderArrow() {
       width="19"
       height="18"
       viewBox="0 0 19 18"
-
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
         d="M3.5 9H15.5M15.5 9L11 4.5M15.5 9L11 13.5"
-        stroke="#3E4462"
+        stroke="#ffff"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
