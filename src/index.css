@@ -9,7 +9,7 @@
   --color-text-3: #23262a;
   --color-text-4: rgba(0, 0, 0, 0.8);
   --color-text-5: #8baa36;
-  --coloer-text-6: #22252a;
+  --color-text-6: #22252a;
   --color-text-7: #fafafa;
 
   --color-icons-1: #22252a;
@@ -32,7 +32,6 @@
 
 body {
   margin: 0;
-  padding: 16px;
   font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
@@ -63,6 +62,7 @@ ul,
 ol {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 img {
