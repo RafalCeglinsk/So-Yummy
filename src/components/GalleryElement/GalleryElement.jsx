@@ -1,7 +1,3 @@
-import { Link } from "react-router-dom";
-
-import { ButtonSeeAll } from "./GalleryButtonSeeAll";
-
 import NoImage from "../../images/NoImage/NoImageSmall.png";
 
 import {
@@ -13,6 +9,9 @@ import {
 export const GalleryElement = () => {
   return (
     <GalleryUl>
+      {/* {recipes.map(({ _id, title, thumb, favorite }) => {
+          return (  */}
+
       <GalleryLi>
         {/* <link> */}
         {/* <RecipeImg  src={thumb ? thumb : NoImage}>  */}
