@@ -15,7 +15,7 @@ import BgTriDesk from "../../images/MainPageHero/Triangle-desktop.png";
 export const MainWrapper = styled.div`
   display: flex;
   flex-direction: column;
-
+gap:30px;
   align-items: center;
   padding: 132px 10px 83px 10px;
   background-image: -webkit-image-set(url(${BgMbLeft}) 2x),
@@ -29,6 +29,7 @@ export const MainWrapper = styled.div`
       -webkit-image-set(url(${BgTbDown}) 2x), url(${BgTriangle});
     background-position: top left, top -25px right, top -480px right -350px;
     padding-top: 159px;
+    gap:50px;
   }
   @media screen and (min-width: 1440px) {
     background-image: -webkit-image-set(url(${BgDskLeft}) 2x),
@@ -108,7 +109,7 @@ export const TextContent = styled.div`
   }
 `;
 export const SbMobileStyle = styled.div`
-  padding-top: 34px;
+
 
   @media screen and (min-width: 768px) {
     display: none;
