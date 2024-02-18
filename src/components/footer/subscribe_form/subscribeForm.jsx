@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import {
+  SubscribeFormContainer,
+  EmailInput,
+  SubscribeButton,
+} from './subscribeForm.styled';
 
 export const SubscribeForm = () => {
   const [email, setEmail] = useState('');
@@ -14,7 +19,7 @@ export const SubscribeForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (validEmail) {
       console.log('Wysyłanie formularza z adresem email:', email);
     } else {
@@ -23,16 +28,16 @@ export const SubscribeForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <SubscribeFormContainer onSubmit={handleSubmit}>
+      <EmailInput
         type="email"
         placeholder="Enter your email address"
         value={email}
         onChange={handleEmailChange}
       />
-      <button type="submit" disabled={!validEmail}>
+      <SubscribeButton type="submit" disabled={!validEmail}>
         Subscribe
-      </button>
-    </form>
+      </SubscribeButton>
+    </SubscribeFormContainer>
   );
 };
