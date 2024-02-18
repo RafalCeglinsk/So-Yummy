@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 const ShoppingPageStyled = styled.div`
+padding-top: 72px;
 margin: 0 auto;
 padding-left: 16px;
 padding-right: 16px;
