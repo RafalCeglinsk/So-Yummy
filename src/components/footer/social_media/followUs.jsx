@@ -1,21 +1,31 @@
 import React from 'react';
+import { StyledIcon, FollowUsContainer } from './followUs.styled';  // Importujemy StyledIcon i FollowUsContainer z pliku stylizowanego
+
 import { RenderFacebook, RenderYoutube, RenderTwitter, RenderInstargram } from '../../RenderSvg/RenderSvg';
 
 export const FollowUs = () => {
   return (
-    <div className="follow-us">
+    <FollowUsContainer>
       <a href="link-do-facebooka">
-        <RenderFacebook />
+        <StyledIcon>
+          <RenderFacebook />
+        </StyledIcon>
       </a>
       <a href="link-do-youtube">
-        <RenderYoutube />
+        <StyledIcon>
+          <RenderYoutube />
+        </StyledIcon>
       </a>
       <a href="link-do-twittera">
-        <RenderTwitter />
+        <StyledIcon>
+          <RenderTwitter />
+        </StyledIcon>
       </a>
       <a href="link-do-instagrama">
-        <RenderInstargram />
+        <StyledIcon>
+          <RenderInstargram />
+        </StyledIcon>
       </a>
-    </div>
+    </FollowUsContainer>
   );
 };

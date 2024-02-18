@@ -2,6 +2,7 @@ import React from 'react';
 import { Nav } from './navigation/nav';
 import { FollowUs } from './social_media/followUs';
 import { SubscribeForm } from './subscribe_form/subscribeForm';
+import { StartLogoSmall } from '../RenderSvg/RenderSvg';
 import {
   StyledFooter,
   FooterContainer,
@@ -10,6 +11,8 @@ import {
   SoYummyHeading,
   FeaturesList,
   FeatureListItem,
+  SubscribeHeading,
+  SubscribeText,
 } from './footer.styled';
 
 const Footer = () => {
@@ -17,7 +20,7 @@ const Footer = () => {
     <StyledFooter>
       <FooterContainer>
         <Column>
-          <SoYummyHeading>So Yummy</SoYummyHeading>
+          <SoYummyHeading><StartLogoSmall />So Yummy</SoYummyHeading>
           <FeaturesList>
             <FeatureListItem>Baza przepisów, którą można uzupełniać</FeatureListItem>
             <FeatureListItem>Elastyczne wyszukiwanie pożądanych i niechcianych składników</FeatureListItem>
@@ -32,8 +35,8 @@ const Footer = () => {
         </Column>
 
         <Column>
-          <h3>Zapisz się do naszego biuletynu</h3>
-          <p>Zapisz się do naszego biuletynu. Bądź na bieżąco z najnowszymi informacjami i ofertami specjalnymi, itp.</p>
+          <SubscribeHeading>Zapisz się do naszego biuletynu</SubscribeHeading>
+          <SubscribeText>Zapisz się do naszego biuletynu. Bądź na bieżąco z najnowszymi informacjami i ofertami specjalnymi, itp.</SubscribeText>
           <SubscribeForm />
         </Column>
       </FooterContainer>
