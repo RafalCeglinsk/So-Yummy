@@ -3,7 +3,6 @@ import {nanoid} from "nanoid"
 import { useSelector, useDispatch } from "react-redux";
 import vegetableBasket from "../../images/IndegredientsShoppingList/vegetableBasket.jpg"
 import vegetableBasket2x from "../../images/IndegredientsShoppingList/vegetableBasket2x.jpg"
-
 import {getShoppingThunk, deleteShoppingThunk} from "../../redux/shoppingList/thunkShopping.js"
 import { EmptyStyled, PictrueContainerStyled } from "./IndegredientsShoppingListStyled.js";
 
@@ -79,6 +78,8 @@ const IngredientsShoppingList = () => {
             </>
           )}
         </div>
+        
+
       );
 
                 }
