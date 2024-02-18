@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const GalleryUl = styled.ul`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 32px;
 
   @media screen and (min-width: 768px) {
