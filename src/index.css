@@ -9,7 +9,7 @@
   --color-text-3: #23262a;
   --color-text-4: rgba(0, 0, 0, 0.8);
   --color-text-5: #8baa36;
-  --coloer-text-6: #22252a;
+  --color-text-6: #22252a;
   --color-text-7: #fafafa;
 
   --color-icons-1: #22252a;
@@ -20,8 +20,7 @@
   --color-bg-input: #d9d9d9;
   --color-bg-start: #2a2c36;
   --color-bg-pages: #656565;
-  --color-bg-modal:#fafafa;
-  
+  --color-bg-modal: #fafafa;
 
   --color-warning: #e74a3b;
   --color-placeholder: #d9d9d9;
@@ -33,15 +32,14 @@
 
 body {
   margin: 0;
-  padding: 16px;
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 h1,
@@ -54,10 +52,17 @@ p {
   margin: 0;
 }
 
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text-2);
+}
+
 ul,
 ol {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 img {
@@ -78,22 +83,22 @@ a {
 }
 
 @font-face {
-  font-family: 'Poppins';
-  src: local('Poppins');
-  font-weight: 400, url(./fonts/Poppins/Poppins-Regular.ttf) format('truetype');
+  font-family: "Poppins";
+  src: local("Poppins");
+  font-weight: 400, url(./fonts/Poppins/Poppins-Regular.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
 
-  src: local('Poppins'),
-    url(./fonts/Poppins/Poppins-Medium.ttf) format('truetype');
+  src: local("Poppins"),
+    url(./fonts/Poppins/Poppins-Medium.ttf) format("truetype");
   font-weight: 500;
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 600;
-  src: local('Poppins'),
-    url(./fonts/Poppins/Poppins-SemiBold.ttf) format('truetype');
+  src: local("Poppins"),
+    url(./fonts/Poppins/Poppins-SemiBold.ttf) format("truetype");
 }
