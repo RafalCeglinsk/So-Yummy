@@ -2,7 +2,7 @@ import React from "react";
 import Select from "react-select";
 
 // Zakładam, że RenderSvg to komponent zwracający poprawny kod SVG.
-import { RenderFacebook } from "../../RenderSvg/RenderSvg";
+import { CameraIcon } from "../../RenderSvg/RenderSvg";
 
 import {
   FieldContainer,
@@ -42,7 +42,7 @@ const ImageUploadField = ({ onImageUpload }) => {
       <label htmlFor="image-upload" style={{ cursor: "pointer" }}>
         <ImageUploadButton>
           {/* Tutaj bezpośrednio używamy SVG lub inny element, który wskazuje na akcję uploadu */}
-          <RenderFacebook />
+          <CameraIcon />
         </ImageUploadButton>
       </label>
       <input
