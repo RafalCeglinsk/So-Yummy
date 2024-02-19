@@ -278,9 +278,9 @@ export function CameraIcon() {
         fill="#FAFAFA"
       />
     </svg>
-  )};
   );
 }
+
 export function StartLogoSmall() {
   return (
     <svg
