@@ -279,7 +279,7 @@ export function CameraIcon() {
       />
     </svg>
   );
-
+}
 export function StartLogoSmall() {
   return (
     <svg
