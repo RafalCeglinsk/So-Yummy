@@ -9,7 +9,7 @@ import {
   FavoriteContainer,
   FavoriteList,
   FavoriteItem,
-} from './FavoriteRecipes.styled';
+} from './FavoriteRecipies.styled';
 
 const FavoriteRecipes = () => {
   const [allRecipes, setAllRecipes] = useState([]);
@@ -20,35 +20,38 @@ const FavoriteRecipes = () => {
   };
 
   return (
-    <>
-      <Container>
-        <FavoriteContainer>
-          <FavoriteTitle>Favorites</FavoriteTitle>
-          <FavoriteList>
-            {allRecipes.length !== 0 ? (
-              allRecipes.map(recipe => {
-                return (
-                  <FavoriteItem key={recipe._id}>
-                    <FavoriteCard
-                      recipe={recipe}
-                      onDelete={() => {
-                        handleDelete(recipe._id);
-                      }}
-                      to={`/recipe/${recipe._id}`}
-                    />
-                  </FavoriteItem>
-                );
-              })
-            ) : (
-              <NotFoundRecipe
-                message={"You don't have favorites recipes yet..."}
-              />
-            )}
-          </FavoriteList>
-        </FavoriteContainer>
-      </Container>
-    </>
+    <Container>
+    <FavoriteContainer>
+      <FavoriteTitle>Favorites</FavoriteTitle>
+      <FavoriteList>
+        {allRecipes.length !== 0 ? (
+          allRecipes.map(recipe => {
+            return (
+              <FavoriteItem key={recipe._id}>
+                <FavoriteCard
+                  recipe={recipe}
+                  onDelete={() => {
+                    handleDelete(recipe._id);
+                  }}
+                  to={`/recipe/${recipe._id}`}
+                />
+              </FavoriteItem>
+            );
+          })
+        ) : (
+          <NotFoundRecipe
+            message={"You don't have favorites recipes yet..."}
+          />
+        )}
+      </FavoriteList>
+    </FavoriteContainer>
+  </Container>
+  
   );
 };
 
 export default FavoriteRecipes;
+
+
+{/* <>
+ */}

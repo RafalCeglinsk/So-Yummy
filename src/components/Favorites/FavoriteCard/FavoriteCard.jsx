@@ -12,7 +12,7 @@ import {
   FavoriteCardTitle,
   FavoriteCardStyle,
   FavoriteCardWrapper,
-} from './FavoriteCard.styled';
+} from './FavoriteCard.stytled';
 
 export default function FavoriteCard({ owner, to, onDelete, recipe }) {
   const { thumb, title, time, description } = recipe;
