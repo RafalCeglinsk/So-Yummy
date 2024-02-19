@@ -6,8 +6,8 @@ export const AuthForm = () => {
   const location = useLocation().pathname;
   return (
     <Form>
-      <h2>{location === "/signin" ? "Sign In" : "Registration"}</h2>
-      {location === "/register" && (
+      <h2>{location === "/auth/login" ? "Sign In" : "Registration"}</h2>
+      {location === "/auth/register" && (
         <label>
           <span>Name</span>
           <input
@@ -44,7 +44,7 @@ export const AuthForm = () => {
         />
       </label>
       <button type="submit">
-        {location === "/register" ? "Sign up" : "Sign in"}
+        {location === "/auth/register" ? "Sign up" : "Sign In"}
       </button>
     </Form>
   );
