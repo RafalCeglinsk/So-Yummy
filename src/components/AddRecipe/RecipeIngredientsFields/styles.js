@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const IngredientsContainer = styled.div`
   margin-bottom: 44px;
+
+  @media screen and (min-width: 1440px) {
+    max-width: 35vw;
+  }
 `;
 
 export const IngredientsHeader = styled.div`
@@ -39,8 +43,9 @@ export const IngredientInput = styled.input`
   border: none;
   border-radius: 4px 0 0 4px;
   width: 10vw;
-  background-color: #d9d9d9;
+  background-color: rgba(217, 217, 217, 0.157);
   font-size: 16px;
+
   &:focus {
     outline: none;
   }
@@ -73,27 +78,23 @@ export const AddIngredientButton = styled.button`
 `;
 
 export const RemoveIngredientButton = styled.button`
-  color: black;
   padding: 10px 15px;
-  border: none;
   border-radius: 4px;
   cursor: pointer;
   justify-self: right;
+  background-color: white;
 `;
 
 export const unitSelect = {
   control: (provided, state) => ({
     ...provided,
     padding: "0",
-    width: "20vw",
+    width: "25vw",
     border: state.isFocused ? "none" : "1px solid transparent",
-    backgroundColor: "#D9D9D9",
+    backgroundColor: "rgba(217, 217, 217, 0.157)",
     borderRadius: "0 4px 4px 0",
     fontSize: " 16px",
     boxShadow: "none",
-    "&:hover": {
-      border: "1px solid #aaa",
-    },
     "@media screen and (min-width: 768px)": {
       width: "10vw",
     },
@@ -117,13 +118,11 @@ export const ingredientSelect = {
     ...provided,
     border: state.isFocused ? "0px solid white" : "none",
     width: "40vw",
+    backgroundColor: "rgba(217, 217, 217, 0.157)",
     fontSize: " 16px",
     boxShadow: state.isFocused ? "none" : provided.boxShadow,
-    "&:hover": {
-      border: "1px solid #aaa",
-    },
     "@media screen and (min-width: 768px)": {
-      width: "15vw",
+      width: "25vw",
     },
     "@media screen and (min-width: 1440px)": {
       width: "10vw",
