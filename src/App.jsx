@@ -1,5 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import { HomePage } from "./pages/HomePage/HomePage";
+<<<<<<< Updated upstream
+=======
+import Favorite from "./pages/FavoritePage/Favorite.jsx";
+>>>>>>> Stashed changes
 import Main from "./pages/Main";
 // import Footer from './components/footer/footer'
 import ShoppingListPage from './pages/ShoppingListPage/ShoppingListPage.jsx'
