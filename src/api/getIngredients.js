@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { RecipeIngredientsList } from "../components/RecipePage/RecipeIngredientsList/RecipeIngredientsList";
-
 export const IngredientsContainer = ({}) => {
   const [ingredients, setIngredients] = useState([]);
 
@@ -22,5 +21,9 @@ export const IngredientsContainer = ({}) => {
     getIngredients();
   }, []);
 
-  return <RecipeIngredientsList ingredients={ingredients} />;
+  return (
+    <>
+      <RecipeIngredientsList ingredients={ingredients} />;
+    </>
+  );
 };
