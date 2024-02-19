@@ -1,11 +1,14 @@
 import { SectionWrapper } from "./RecipeIngredients.styled";
 import {
-  TableBody,
+  IngredientsListContainer,
   HeadUl,
   HeadContainer,
   LiIngredients,
   LiNumber,
   LiAdd,
+  IngredientsListUl,
+  IngredientsListLi,
+  Checkbox,
 } from "./RecipeIngredients.styled";
 
 export const RecipeIngredientsList = ({ ingredients }) => {
@@ -18,19 +21,23 @@ export const RecipeIngredientsList = ({ ingredients }) => {
           <LiAdd>Add to list</LiAdd>
         </HeadUl>
       </HeadContainer>
-      <TableBody>
+      <IngredientsListContainer>
         {ingredients.map((ingredient) => (
-          <ul key={ingredient._id.$oid}>
-            <li>
+          <IngredientsListUl key={ingredient._id.$oid}>
+            <IngredientsListLi>
               <img src={ingredient.thb} alt={ingredient.ttl} />
 
-              {ingredient.ttl}
+              <span>{ingredient.ttl}</span>
+              <div>2 chopped</div>
 
-              <input type="checkbox" />
-            </li>
-          </ul>
+              <Checkbox className="checkbox">
+                <input type="checkbox" id={`checkbox-${ingredient.ttl}`} />
+                <label htmlFor={`checkbox-${ingredient.ttl}`}></label>
+              </Checkbox>
+            </IngredientsListLi>
+          </IngredientsListUl>
         ))}
-      </TableBody>
+      </IngredientsListContainer>
     </SectionWrapper>
   );
 };
