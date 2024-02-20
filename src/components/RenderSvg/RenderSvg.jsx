@@ -378,6 +378,7 @@ export function Clock() {
         <rect width="14" height="14" fill="white" />
       </clipPath>
     </defs>
+  </svg>;
 }
 
 export function RemoveButton() {
