@@ -5,6 +5,7 @@ import {
 } from "../Buttons/CurvedButton";
 import { StartLogoSmall } from "../RenderSvg/RenderSvg";
 import bgPhoto from "../../images/HomePage/mobileStartx1.png";
+import { NavLink } from "react-router-dom";
 
 export const Home = () => {
   return (
@@ -18,8 +19,12 @@ export const Home = () => {
           retrieve your own recipes at any time.
         </P>
         <div>
-          <CurvedButtonColor text="Register" />
-          <CurvedButtonTransparent text="Sign in" />
+          <NavLink to="/auth/register">
+            <CurvedButtonColor text="Register" />
+          </NavLink>
+          <NavLink to="/auth/login">
+            <CurvedButtonTransparent text="Sign in" />
+          </NavLink>
         </div>
       </Div>
     </BackgroundSection>
