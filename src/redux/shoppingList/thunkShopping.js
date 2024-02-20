@@ -4,12 +4,13 @@ import axios from "axios"
 
 export const deleteShoppingThunk = createAsyncThunk("shopping/delete", async (id) => {
     try {
-        const {data} = await axios.delete(`/api/shopping-lists/${id}`)
-        return id
+        await axios.delete(`/api/shopping-lists/${id}`);
+        return id;
     } catch(error) {
-        console.log(error.message)
+        console.log(error.message);
+        throw error;
     }
-})
+});
 
 export const getShoppingThunk = createAsyncThunk("shopping/get", async () => {
     try {
