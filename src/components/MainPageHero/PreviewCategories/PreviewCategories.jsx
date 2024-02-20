@@ -1,26 +1,10 @@
-// import { CurvedButtonColor } from "../../Buttons/CurvedButton"
+import React from "react";
+import { MainGallery } from "./MainGallery";
 
-// const PreviewCategories = ({ByCategory})=>{
-//     return(
-//     <>
-//     <CategoriesGalleryWrapper>
+export function PreviewCategories (){
 
-// <CategoryBarWrapper>
+    return(
+<MainGallery/>
 
-// <CategoryTitle>
-
-
-// </CategoryTitle>
-
-
-// </CategoryBarWrapper>
-
-
-
-//     </CategoriesGalleryWrapper>
-
-//     </>
-//     )
-// }
-
-// export default PreviewCategories
+    )
+}
