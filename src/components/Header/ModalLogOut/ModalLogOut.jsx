@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import useModalOutsideClick from "./ModalClose";
+import useModalOutsideClick from "../ModalClose";
 import {
   LogOutContainer,
   LogOutText,
@@ -9,6 +9,7 @@ import {
   BtnContainer,
   ModalBackGround,
   ModalContent,
+  IconClose,
 } from "./ModalLogOut.styled";
 const Modal4 = ({ isOpen, onClose }) => {
   const modalRef = useRef(null);
@@ -20,7 +21,9 @@ const Modal4 = ({ isOpen, onClose }) => {
   return (
     <ModalBackGround ref={modalRef}>
       <LogOutContainer>
-        <BtnClose onClick={onClose}>X</BtnClose>
+        <BtnClose onClick={onClose}>
+          <IconClose />
+        </BtnClose>
         <ModalContent>
           <LogOutText>Are you sure you want to log out?</LogOutText>
           <BtnContainer>
