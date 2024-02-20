@@ -1,4 +1,10 @@
 import { SectionWrapper } from "./RecipeIngredients.styled";
+import { ingredients as importedIngredients } from "./indegredients.js";
+
+import { useDispatch} from "react-redux";
+import { useEffect, useState } from "react";
+
+import { addShoppingThunk, getShoppingThunk, deleteShoppingThunk } from "../../../redux/shoppingList/thunkShopping.js"
 import {
   IngredientsListContainer,
   HeadUl,
@@ -12,6 +18,26 @@ import {
 } from "./RecipeIngredients.styled";
 
 export const RecipeIngredientsList = ({ ingredients }) => {
+
+  const dispatch = useDispatch()
+
+ 
+ 
+  const [isChecked, setIsChecked] = useState(false); 
+
+  useEffect(() => {
+    dispatch(getShoppingThunk())
+  }, [dispatch])
+
+  const handleClickCheckbox = (ingredientId) => { 
+    setIsChecked(!isChecked); 
+    if (!isChecked) {
+      dispatch(addShoppingThunk(ingredientId));
+    } else {
+      dispatch(deleteShoppingThunk(ingredientId));
+    }
+  };
+
   return (
     <SectionWrapper>
       <HeadContainer>
@@ -22,16 +48,16 @@ export const RecipeIngredientsList = ({ ingredients }) => {
         </HeadUl>
       </HeadContainer>
       <IngredientsListContainer>
-        {ingredients.map((ingredient) => (
+        {importedIngredients.map((ingredient) => (
           <IngredientsListUl key={ingredient._id.$oid}>
             <IngredientsListLi>
               <img src={ingredient.thb} alt={ingredient.ttl} />
 
               <span>{ingredient.ttl}</span>
-              <div>2 chopped</div>
+              <div>2 slice</div>
 
               <Checkbox className="checkbox">
-                <input type="checkbox" id={`checkbox-${ingredient.ttl}`} />
+                <input type="checkbox" checked={isChecked} onChange={() => handleClickCheckbox(ingredient._id.$oid)} id={`checkbox-${ingredient.ttl}`} />
                 <label htmlFor={`checkbox-${ingredient.ttl}`}></label>
               </Checkbox>
             </IngredientsListLi>

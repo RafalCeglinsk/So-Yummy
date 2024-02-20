@@ -11,9 +11,10 @@ const IngredientsShoppingList = () => {
     useEffect(() => {
         dispatch(getShoppingThunk())
     },[dispatch])
-    const {shopping} = useSelector((state) => {
-        return state.shopping
-    })
+    const { shopping } = useSelector((state) => {
+      return state.shopping;
+   });
+
 
     const deleteButton = (id) => {
         dispatch(deleteShoppingThunk(id))
@@ -21,7 +22,7 @@ const IngredientsShoppingList = () => {
 
     return (
         <div>
-          {shopping.isLoading ? null : (
+          {shopping?.isLoading ? null : (
             <>
               {shopping.items.length > 0 && (
                 <div>
@@ -49,7 +50,7 @@ const IngredientsShoppingList = () => {
                     <EmptyStyled>Shopping list is empty</EmptyStyled>
                   </PictrueContainerStyled>
                 ) : (
-                  shopping.items?.map((item) => {
+                  shopping?.items?.map((item) => {
                     return (
                       <li key={item.Id}>
                         <div>
