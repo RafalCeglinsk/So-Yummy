@@ -1,14 +1,20 @@
 import { Routes, Route } from "react-router-dom";
 import { HomePage } from "./pages/HomePage/HomePage";
-import { RecipePage } from "./components/RecipePage/RecipePage";
+import Main from "./pages/Main";
 // import Footer from './components/footer/footer'
+import ShoppingListPage from "./pages/ShoppingListPage/ShoppingListPage.jsx";
 
 function App() {
   return (
     <Routes>
+      <Route index element={<HomePage />} />
+      {/* <Route path='/footer' element={<Footer/>} /> /}
+      <Route path="/shopping-list" element={<ShoppingListPage />} />
       <Route />
-      <Route index element={<RecipePage />} />
-      {/* <Route path='/footer' element={<Footer/>} /> */}
+
+      <Route index element={<HomePage />} />
+      <Route path="/main" element={<Main />} />
+      {/ <Route path='/footer' element={<Footer/>} /> */}
     </Routes>
   );
 }

@@ -8,24 +8,23 @@ import {
   StyledOl,
   StyledListContainer,
 } from "./RecipePreparation.styled";
-import recipeData from "../recipes.json";
 import React, { useEffect, useState } from "react";
 
 export const RecipePreparation = () => {
   const [image, setImage] = useState("");
   const [instructions, setInstructions] = useState([]);
 
-  useEffect(() => {
-    try {
-      const recipeInstructions = recipeData[0].instructions;
-      const recipeImage = recipeData[0].thumb || "url_do_obrazu_zastępczego";
-      const steps = recipeInstructions.split("\r\n\r\n");
-      setImage(recipeImage);
-      setInstructions(steps);
-    } catch (error) {
-      console.error("Błąd:", error);
-    }
-  }, []);
+  // useEffect(() => {
+  //   try {
+  //     const recipeInstructions = recipeData[0].instructions;
+  //     const recipeImage = recipeData[0].thumb || recipeData[0].image;
+  //     const steps = recipeInstructions.split("\r\n\r\n");
+  //     setImage(recipeImage);
+  //     setInstructions(steps);
+  //   } catch (error) {
+  //     console.error("Błąd:", error);
+  //   }
+  // }, []);
 
   return (
     <RecipeWrapper>
