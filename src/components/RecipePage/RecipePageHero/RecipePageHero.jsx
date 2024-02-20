@@ -7,7 +7,7 @@ import {
   TimeContainer,
   TimerP,
 } from "./RecipePage.styled";
-import { ReactComponent as ClockSVG } from "#images/RecipePage/clock.svg";
+import { Clock } from "../../RenderSvg/RenderSvg";
 
 export const RecipePageHero = () => {
   return (
@@ -22,7 +22,7 @@ export const RecipePageHero = () => {
       </HeaderDiv>
       <AddButton text="Add to favorite recipes" />
       <TimeContainer>
-        <ClockSVG />
+        <Clock />
         <TimerP>20min</TimerP>
       </TimeContainer>
     </BackgroundSection>

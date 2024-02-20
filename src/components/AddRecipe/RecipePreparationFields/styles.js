@@ -20,6 +20,7 @@ export const PreparationTextarea = styled.textarea`
   margin-bottom: 20px;
   background-color: var(--color-bg-input);
   font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: rgba(217, 217, 217, 0.157);
 
   &:focus {
     outline: none;
