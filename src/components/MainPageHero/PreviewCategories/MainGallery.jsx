@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import NoImage from "../../../images/NoImage/NoImageSmall.png";
+import { ButtonSeeAll } from "../../GalleryElement/GalleryButtonSeeAll";
 import {
   GalleryUl,
   GalleryLi,
   RecipeImg,
   RecipeDescription,
-  MainGalleryH2
+  MainGalleryH2,
+
 } from "./MainGallery.styled";
-
-//  create file in App.
-
 
 export const baseAxiosURL = "http://localhost:5001/api";
 
@@ -18,6 +17,7 @@ axios.defaults.baseURL = baseAxiosURL;
 
 export const MainGallery = () => {
   const [categories, setCategories] = useState([]);
+  const [viewMode, setViewMode] = useState("desktop");
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -26,52 +26,75 @@ export const MainGallery = () => {
 
         const categoriesArray = Object.values(response.data.recipesMainPage);
         setCategories(categoriesArray);
-        // console.log(categoriesArray);
-        // console.log(response.data.recipesMainPage);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
     };
+
     fetchCategories();
   }, []);
 
+  const getViewMode = () => {
+    const width = window.innerWidth;
+    if (width >= 1440) {
+      return "desktop";
+    } else if (width >= 768) {
+      return "tablet";
+    } else {
+      return "mobile";
+    }
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setViewMode(getViewMode());
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const renderRecipes = (recipes, limit) => {
+    return recipes.slice(0, limit).map((recipe, index) => (
+      <div key={index}>
+        <RecipeImg
+          src={recipe.thumb ? recipe.thumb : NoImage}
+          loading="lazy"
+          alt={recipe.title}
+        />
+        <RecipeDescription>
+          <p>{recipe.title}</p>
+        </RecipeDescription>
+      </div>
+    ));
+  };
+
+  const getRecipesLimit = () => {
+    switch (viewMode) {
+      case "mobile":
+        return 1;
+      case "tablet":
+        return 2;
+      case "desktop":
+        return categories.length;
+      default:
+        return 1;
+    }
+  };
+
   return (
-    <div>
-    
-    
-      <GalleryUl>
-         
-        {categories.map((categoryRecipes, index) => (
-
-          <>
-
-  
-          <React.Fragment key={index}>
-
-
-
-            {categoryRecipes.map((recipe, recipeIndex) => (
-              <GalleryLi key={recipeIndex}>
-                          <MainGalleryH2>{categoryRecipes[0].category}</MainGalleryH2>
-                <RecipeImg
-                  src={recipe.thumb ? recipe.thumb : NoImage}
-                  loading="lazy"
-                  alt={recipe.title}
-                />
-                <RecipeDescription>
-                  <p>{recipe.title}</p>
-                </RecipeDescription>
-              </GalleryLi>
-            ))}
-
-
-
-           
-          </React.Fragment>
-          </>
-        ))}
-  
-      </GalleryUl>
-    </div>
+    <GalleryUl>
+      {categories.map((categoryRecipes, index) => (
+        <div key={index}>
+          <MainGalleryH2>{categoryRecipes[0].category}</MainGalleryH2>
+          <GalleryLi key={index}>
+            {renderRecipes(categoryRecipes, getRecipesLimit())}
+          </GalleryLi>
+          <ButtonSeeAll/>
+        </div>
+ 
+      ))}
+    </GalleryUl>
   );
 };
