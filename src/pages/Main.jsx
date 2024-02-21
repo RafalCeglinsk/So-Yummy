@@ -3,9 +3,10 @@ import SearchBar from "../components/SearchBar/SearchBar";
 import { MainWrapper } from "../components/MainPageHero/MainPage.styled";
 import { SbMobileStyle } from "../components/MainPageHero/MainPage.styled";
 import { PreviewCategories } from "../components/MainPageHero/PreviewCategories/PreviewCategories";
-import { GalleryElement } from "../components/GalleryElement/GalleryElement";
+import Footer from "../components/footer/footer";
 const Main = () => {
   return (
+    <>
     <MainWrapper>
       {" "}
       <MainPage />
@@ -14,6 +15,8 @@ const Main = () => {
       </SbMobileStyle>
       <PreviewCategories />
     </MainWrapper>
+         <Footer/>
+         </>
   );
 };
 
