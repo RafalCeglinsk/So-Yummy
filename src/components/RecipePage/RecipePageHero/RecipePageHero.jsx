@@ -18,8 +18,8 @@ export const RecipePageHero = ({ recipe }) => {
       <HeaderDiv>
         <Header>{recipe.title}</Header>
         <RecipeDesc>{recipe.description}</RecipeDesc>
+        <AddButton text="Add to favorite recipes" />
       </HeaderDiv>
-      <AddButton text="Add to favorite recipes" />
       <TimeContainer>
         <Clock />
         <TimerP>{recipe.time} min</TimerP>
