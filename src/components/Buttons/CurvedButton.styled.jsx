@@ -15,6 +15,11 @@ export const ButtonColor = styled.button`
   &:focus {
     background-color: var(--color-icons-1);
   }
+
+  @media (min-width: 768px) {
+    padding: 22px 44px;
+    font-size: 16px;
+  }
 `;
 
 export const ButtonTransparent = styled.button`
@@ -31,5 +36,10 @@ export const ButtonTransparent = styled.button`
   &:focus {
     background-color: var(--color-icons-3);
     border: solid transparent 1px;
+  }
+
+  @media (min-width: 768px) {
+    padding: 22px 44px;
+    font-size: 16px;
   }
 `;
