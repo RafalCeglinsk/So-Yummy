@@ -1,0 +1,1 @@
+export const selectShoppingList = (state) => state.shopping.shopping.items;

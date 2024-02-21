@@ -49,22 +49,22 @@ const IngredientsShoppingList = () => {
                     <EmptyStyled>Shopping list is empty</EmptyStyled>
                   </PictrueContainerStyled>
                 ) : (
-                  shopping.items?.map((item) => {
+                  shopping.items?.map((ingredient) => {
                     return (
-                      <li key={item.Id}>
+                      <li key={ingredient._id.$oid}>
                         <div>
                           <img
-                            src={item.img}
-                            alt={item.desc}
+                            src={ingredient.thb}
+                            alt={ingredient.ttl}
                             height="60"
                           />
-                          <p>{item.name}</p>
+                          <p>{ingredient.ttl}</p>
                         </div>
                         <div>
-                          {item.measure.split("/r/n").map((el) => (
+                          {ingredient.measure.split("/r/n").map((el) => (
                             <div key={nanoid()}>
                               <p>{el}</p>
-                              <button onClick={() => deleteButton(item.Id)}>
+                              <button onClick={() => deleteButton(ingredient._id.$oid)}>
                                 Delete
                               </button>
                             </div>
