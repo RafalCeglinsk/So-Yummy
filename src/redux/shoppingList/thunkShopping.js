@@ -15,6 +15,7 @@ export const deleteShoppingThunk = createAsyncThunk("shopping/delete", async (id
 export const getShoppingThunk = createAsyncThunk("shopping/get", async () => {
     try {
         const {data} = await axios.get("/api/shopping-lists")
+        console.log(data)
         return data.data
     } catch(error) {
         console.log(error.message)

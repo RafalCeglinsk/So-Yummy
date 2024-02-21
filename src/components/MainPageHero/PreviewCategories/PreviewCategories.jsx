@@ -1,26 +1,24 @@
-// import { CurvedButtonColor } from "../../Buttons/CurvedButton"
+import { CurvedButtonColor } from "../../Buttons/CurvedButton"
 
-// const PreviewCategories = ({ByCategory})=>{
-//     return(
-//     <>
-//     <CategoriesGalleryWrapper>
+const PreviewCategories = ({ByCategory})=>{
+    return(
+    <>
+{/*<CategoriesGalleryWrapper>*/}
+ {/*<CategoryBarWrapper>*/}
 
-// <CategoryBarWrapper>
-
-// <CategoryTitle>
-
-
-// </CategoryTitle>
+ {/*<CategoryTitle>*/}
 
 
-// </CategoryBarWrapper>
+ {/*</CategoryTitle>*/}
+
+
+ {/*</CategoryBarWrapper>*/}
 
 
 
-//     </CategoriesGalleryWrapper>
+     {/*</CategoriesGalleryWrapper>*/}
 
-//     </>
-//     )
-// }
-
-// export default PreviewCategories
+    </>
+     )
+ }
+ export default PreviewCategories
