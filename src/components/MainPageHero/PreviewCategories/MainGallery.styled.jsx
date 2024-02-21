@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const GalleryUl = styled.ul`
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   gap: 32px;
@@ -68,3 +69,10 @@ export const RecipeDescription = styled.div`
     letter-spacing: -0.24px;
   }
 `;
+
+export const MainGalleryH2 = styled.h2`
+  /* padding-right: 200px; */
+
+position: absolute;
+top: -200px;
+`

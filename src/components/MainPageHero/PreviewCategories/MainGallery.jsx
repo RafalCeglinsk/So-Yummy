@@ -6,8 +6,11 @@ import {
   GalleryLi,
   RecipeImg,
   RecipeDescription,
+  MainGalleryH2
 } from "./MainGallery.styled";
-import { PreviewCategories } from "./PreviewCategories";
+
+//  create file in App.
+
 
 export const baseAxiosURL = "http://localhost:5001/api";
 
@@ -23,8 +26,8 @@ export const MainGallery = () => {
 
         const categoriesArray = Object.values(response.data.recipesMainPage);
         setCategories(categoriesArray);
-        console.log(categoriesArray);
-        console.log(response.data.recipesMainPage);
+        // console.log(categoriesArray);
+        // console.log(response.data.recipesMainPage);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
@@ -34,12 +37,22 @@ export const MainGallery = () => {
 
   return (
     <div>
+    
+    
       <GalleryUl>
+         
         {categories.map((categoryRecipes, index) => (
+
+          <>
+
+  
           <React.Fragment key={index}>
-            <h2>{categoryRecipes[0].category}</h2>
+
+
+
             {categoryRecipes.map((recipe, recipeIndex) => (
               <GalleryLi key={recipeIndex}>
+                          <MainGalleryH2>{categoryRecipes[0].category}</MainGalleryH2>
                 <RecipeImg
                   src={recipe.thumb ? recipe.thumb : NoImage}
                   loading="lazy"
@@ -50,8 +63,14 @@ export const MainGallery = () => {
                 </RecipeDescription>
               </GalleryLi>
             ))}
+
+
+
+           
           </React.Fragment>
+          </>
         ))}
+  
       </GalleryUl>
     </div>
   );
