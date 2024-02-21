@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const StyledNav = styled.nav`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   
   a {
     margin-bottom: 10px;
@@ -13,7 +16,8 @@ export const StyledNav = styled.nav`
     padding-bottom: 24px;
 
     &:hover {
-      color: #00bcd4;
+      color: #8BAA36;
+      transform: scale(1.5);
     }
   }
 `;

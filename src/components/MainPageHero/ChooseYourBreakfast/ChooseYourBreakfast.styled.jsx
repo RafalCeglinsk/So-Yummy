@@ -73,3 +73,22 @@ export const LinkRecipies = styled.a`
     color: var(--color-text-4);
   }
 `;
+
+export const ArrowStyle=styled.div`
+    display: none;
+
+@media screen and (min-width: 768px) {
+  display: block;
+  position: absolute;
+  bottom: -70px;
+  left: 115px;
+  transform: rotate(8deg);
+}
+
+@media screen and (min-width: 1440px) {
+  bottom: -10px;
+  left: 380px;
+  transform: rotate(0deg);
+}
+  
+`

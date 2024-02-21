@@ -5,13 +5,14 @@ export const FooterContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  padding: 20px;
   padding-left: 100px;
+  padding-top: 64px;
+  padding-right: 100px;
 `;
 
 export const Column = styled.div`
   flex: 1;
-  max-width: 300px;
+  max-width: 339px;
 `;
 
 export const CopyrightText = styled.p`
@@ -32,6 +33,9 @@ export const SoYummyHeading = styled.h1`
   font-size: 28px;
   font-weight: 700;
   padding-bottom: 40px;
+  svg {
+  margin-right: 8px;
+  }
 `;
 
 export const FeaturesList = styled.ul`
@@ -45,4 +49,17 @@ export const FeatureListItem = styled.li`
   color: #FAFAFA;
   font-size: 18px;
   padding-bottom: 12px;
+`;
+export const SubscribeHeading = styled.h3`
+  color: #FAFAFA;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+`;
+
+export const SubscribeText = styled.p`
+  color: #FAFAFA;
+  font-size: 14px;
+  font-weight:400;
+  margin-bottom: 20px;
 `;
