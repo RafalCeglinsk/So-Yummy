@@ -1,10 +1,24 @@
 import React, { useState } from "react";
-import { RenderIcon, RenderHamburger } from "./HeaderRenderSvg";
-import { Logo, Profile, Photo, UserName, Main } from "./Header.styled";
-import Modal2 from "./HeaderModalMenu";
-import Modal1 from "./HeaderModalProfile";
-import Modal3 from "./ModalUserProfile";
-import Modal4 from "./ModalLogOut";
+
+import { RenderHamburger } from "./HeaderRenderSvg";
+
+import {
+  Logo,
+  Profile,
+  Photo,
+  UserName,
+  Main,
+  LogoBurger,
+  Nav,
+  NavLinks,
+  HeaderContainer,
+  LogoIcon,
+  Loop,
+} from "./Header.styled";
+import Modal2 from "./HeaderModalMenu/HeaderModalMenu";
+import Modal1 from "./HeaderModalProfile/HeaderModalProfile";
+import Modal3 from "./ModalUserProfile/ModalUserProfile";
+import Modal4 from "./ModalLogOut/ModalLogOut";
 
 const Header = () => {
   const [modal1IsOpen, setModal1IsOpen] = useState(false);
@@ -43,17 +57,27 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <HeaderContainer>
       <Profile>
-        <Logo>
-          <RenderIcon />
+        <Logo to="/Main">
+          <LogoIcon />
         </Logo>
+        <Nav>
+          <NavLinks to="/Categories">Categories</NavLinks>
+          <NavLinks to="/AddRecipies">Add recipies</NavLinks>
+          <NavLinks to="/MyRecipies">My recipies</NavLinks>
+          <NavLinks to="/Favorites">Favorites</NavLinks>
+          <NavLinks to="/ShoppingList">Shopping list</NavLinks>
+          <NavLinks>
+            <Loop />
+          </NavLinks>
+        </Nav>
         <Main>
           <Photo onClick={openModal1}></Photo>
           <UserName>UserName</UserName>
-          <Logo onClick={openModal2}>
+          <LogoBurger onClick={openModal2}>
             <RenderHamburger />
-          </Logo>
+          </LogoBurger>
         </Main>
       </Profile>
 
@@ -66,7 +90,7 @@ const Header = () => {
       />
       <Modal3 isOpen={modal3IsOpen} onClose={closeModal3} />
       <Modal4 isOpen={modal4IsOpen} onClose={closeModal4} />
-    </header>
+    </HeaderContainer>
   );
 };
 

@@ -1,21 +1,15 @@
-import React from 'react';
+import React from "react";
 
 export function RenderIcon() {
   return (
-    <svg
-      width="40"
-      height="40"
-      viewBox="0 0 40 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect width="40" height="40" fill="#ffffff" />
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="40" height="40" fill="none" />
       <g id="Categories" clipPath="url(#clip0_0_1)">
         <rect
           width="375"
           height="3661"
           transform="translate(-16 -21)"
-          fill="#ffffff"
+          fill="none"
         />
         <g id="Frame 106">
           <g id="logo">
