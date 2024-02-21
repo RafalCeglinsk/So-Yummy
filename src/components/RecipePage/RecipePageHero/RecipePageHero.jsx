@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 import { AddButton } from "./button";
 import {
   BackgroundSection,
@@ -9,21 +12,17 @@ import {
 } from "./RecipePage.styled";
 import { Clock } from "../../RenderSvg/RenderSvg";
 
-export const RecipePageHero = () => {
+export const RecipePageHero = ({ recipe }) => {
   return (
     <BackgroundSection>
       <HeaderDiv>
-        <Header>Salmon Avocado Salad</Header>
-        <RecipeDesc>
-          Is a healthy salad recipe that’s big on nutrients and flavor. A moist,
-          pan seared salmon is layered on top of spinach, avocado, tomatoes, and
-          red onions. Then drizzled with a homemade lemon vinaigrette.
-        </RecipeDesc>
+        <Header>{recipe.title}</Header>
+        <RecipeDesc>{recipe.description}</RecipeDesc>
       </HeaderDiv>
       <AddButton text="Add to favorite recipes" />
       <TimeContainer>
         <Clock />
-        <TimerP>20min</TimerP>
+        <TimerP>{recipe.time} min</TimerP>
       </TimeContainer>
     </BackgroundSection>
   );

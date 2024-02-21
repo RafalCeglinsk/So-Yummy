@@ -7,8 +7,8 @@ export const getRecipeId = async (id) => {
     const response = await axios.get(URL);
     const data = response.data;
     const recipe = data.recipe;
-    console.log(recipe);
+    return recipe;
   } catch (error) {
-    console.log(error);
+    console.error("An error occurred while fetching data: ", error);
   }
 };
