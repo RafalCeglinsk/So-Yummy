@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import NoImage from "../../../images/NoImage/NoImageSmall.png"
+import NoImage from "../../../images/NoImage/NoImageSmall.png";
 import {
   GalleryUl,
   GalleryLi,
   RecipeImg,
   RecipeDescription,
 } from "./MainGallery.styled";
+import { PreviewCategories } from "./PreviewCategories";
 
-export const baseAxiosURL = 'http://localhost:5001/api';
+export const baseAxiosURL = "http://localhost:5001/api";
 
 axios.defaults.baseURL = baseAxiosURL;
 
@@ -18,8 +19,12 @@ export const MainGallery = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('/recipes/categories');
-        setCategories(response.data.categories);
+        const response = await axios.get("/recipes/main-page");
+
+        const categoriesArray = Object.values(response.data.recipesMainPage);
+        setCategories(categoriesArray);
+        console.log(categoriesArray);
+        console.log(response.data.recipesMainPage);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
@@ -28,15 +33,26 @@ export const MainGallery = () => {
   }, []);
 
   return (
-    <GalleryUl>
-      {categories.map((category, index) => (
-        <GalleryLi key={index}>
-          <RecipeImg src={NoImage} loading="lazy" />
-          <RecipeDescription>
-            <p>{category}</p>
-          </RecipeDescription>
-        </GalleryLi>
-      ))}
-    </GalleryUl>
+    <div>
+      <GalleryUl>
+        {categories.map((categoryRecipes, index) => (
+          <React.Fragment key={index}>
+            <h2>{categoryRecipes[0].category}</h2>
+            {categoryRecipes.map((recipe, recipeIndex) => (
+              <GalleryLi key={recipeIndex}>
+                <RecipeImg
+                  src={recipe.thumb ? recipe.thumb : NoImage}
+                  loading="lazy"
+                  alt={recipe.title}
+                />
+                <RecipeDescription>
+                  <p>{recipe.title}</p>
+                </RecipeDescription>
+              </GalleryLi>
+            ))}
+          </React.Fragment>
+        ))}
+      </GalleryUl>
+    </div>
   );
 };
