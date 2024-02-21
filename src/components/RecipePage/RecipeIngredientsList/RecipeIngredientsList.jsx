@@ -12,6 +12,7 @@
 // } from "./RecipeIngredients.styled";
 
 // export const RecipeIngredientsList = ({ ingredients }) => {
+//   // console.log(ingredients);
 //   return (
 //     <SectionWrapper>
 //       <HeadContainer>

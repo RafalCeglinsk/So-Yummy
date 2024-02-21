@@ -21,11 +21,12 @@ export const RecipePage = () => {
   if (!recipe) {
     return null;
   }
+  console.log(recipe);
   return (
     <div>
       <RecipePageHero recipe={recipe} />
       {/* <RecipeIngredientsList /> */}
-      <RecipePreparation />
+      <RecipePreparation recipe={recipe} />
     </div>
   );
 };
