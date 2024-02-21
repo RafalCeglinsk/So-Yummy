@@ -51,7 +51,7 @@ export const HeroWrapper = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 100%;
     gap: 0px;
   }
