@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
+import {
+  getCategoriesThunk,
+  addRecipeThunk,
+  updateField,
+} from "../../../redux/AddRecipe/sliceAddRecipe";
 
-// Zakładam, że RenderSvg to komponent zwracający poprawny kod SVG.
 import { CameraIcon } from "../../RenderSvg/RenderSvg";
-
 import {
   FieldContainer,
   Input,
@@ -13,16 +17,8 @@ import {
   ImageUploadContainer,
   ImageUploadButton,
   Form,
-} from "./styles"; // Upewnij się, że wszystkie potrzebne style są zaimportowane
+} from "./styles";
 
-// Opcje dla kategorii przepisu
-const categoryOptions = [
-  { value: "dessert", label: "Dessert" },
-  { value: "main_course", label: "Main Course" },
-  // Dodaj więcej kategorii zgodnie z potrzebami
-];
-
-// Opcje dla czasu gotowania
 const timeOptions = [
   { value: "5", label: "5 min" },
   { value: "10", label: "10 min" },
@@ -30,7 +26,6 @@ const timeOptions = [
 ];
 
 const ImageUploadField = ({ onImageUpload }) => {
-  // Funkcja obsługująca zmianę obrazu
   const handleImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
       onImageUpload(event.target.files[0]);
@@ -41,7 +36,6 @@ const ImageUploadField = ({ onImageUpload }) => {
     <ImageUploadContainer>
       <label htmlFor="image-upload" style={{ cursor: "pointer" }}>
         <ImageUploadButton>
-          {/* Tutaj bezpośrednio używamy SVG lub inny element, który wskazuje na akcję uploadu */}
           <CameraIcon />
         </ImageUploadButton>
       </label>
@@ -56,26 +50,41 @@ const ImageUploadField = ({ onImageUpload }) => {
   );
 };
 
-const RecipeDescriptionFields = ({
-  recipeData,
-  setRecipeData,
-  onImageUpload,
-}) => {
-  // Funkcja obsługująca zmianę danych przepisu
+const RecipeDescriptionFields = ({ onImageUpload }) => {
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.recipes.categories);
+  const recipeData = useSelector((state) => state.recipes.recipeData);
+
+  useEffect(() => {
+    dispatch(getCategoriesThunk());
+  }, [dispatch]);
+
   const handleChange = (name, value) => {
-    setRecipeData({ ...recipeData, [name]: value });
+    dispatch(updateField({ name, value }));
   };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addRecipeThunk(recipeData));
+  };
+
+  // Sprawdź, czy recipeData nie jest undefined przed próbą dostępu do jego właściwości
+  const titleValue = recipeData ? recipeData.title : "";
+  const descriptionValue = recipeData ? recipeData.description : "";
+  const selectedCategory = categories.find(
+    (option) => option.value === recipeData?.category
+  );
 
   return (
     <FieldContainer>
       <ImageUploadField onImageUpload={onImageUpload} />
-      <Form>
+      <Form onSubmit={handleFormSubmit}>
         <Input
           id="title"
           type="text"
           name="title"
           placeholder="Enter item title"
-          value={recipeData.title}
+          value={titleValue}
           onChange={(e) => handleChange(e.target.name, e.target.value)}
         />
         <Input
@@ -83,7 +92,7 @@ const RecipeDescriptionFields = ({
           type="text"
           name="description"
           placeholder="Enter about recipe"
-          value={recipeData.description}
+          value={descriptionValue}
           onChange={(e) => handleChange(e.target.name, e.target.value)}
         />
         <SelectContainer>
@@ -91,11 +100,9 @@ const RecipeDescriptionFields = ({
           <Select
             id="category"
             styles={customSelectStyles}
-            options={categoryOptions}
+            options={categories}
             placeholder="Select..."
-            value={categoryOptions.find(
-              (option) => option.value === recipeData.category
-            )}
+            value={selectedCategory}
             onChange={(option) => handleChange("category", option.value)}
           />
         </SelectContainer>
@@ -107,7 +114,7 @@ const RecipeDescriptionFields = ({
             options={timeOptions}
             placeholder="Select..."
             value={timeOptions.find(
-              (option) => option.value === recipeData.time
+              (option) => option.value === recipeData?.time
             )}
             onChange={(option) => handleChange("time", option.value)}
           />

@@ -24,3 +24,4 @@ yarn-debug.log*
 yarn-error.log*
 src/App.js
 src/App.jsx
+.env
