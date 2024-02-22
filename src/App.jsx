@@ -11,6 +11,7 @@ import Main from "./pages/Main";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute.jsx";
+import { HeaderPage } from "./pages/Header/Header.jsx";
 import { AddRecipe } from "./pages/AddRecipe/AddRecipe.jsx";
 
 function App() {
@@ -22,25 +23,27 @@ function App() {
 
   return (
     <Routes>
-      <Route index element={<HomePage />} />
-      <Route
-        path="/auth/register"
-        element={
-          <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
-        }
-      />
-      <Route
-        path="/auth/login"
-        element={
-          <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
-        }
-      />
-      <Route path="/add" element={<AddRecipe></AddRecipe>} />
-      <Route path="/shopping-list" element={<ShoppingListPage />} />
-      <Route />
-      <Route path="/main" element={<Main />} />
-      <Route path="/favorite" element={<Favorite />} />
-      {/* <Route path='/footer' element={<Footer/>} /> */}
+      <Route path="/" element={<HeaderPage />}>
+        <Route index element={<HomePage />} />
+        <Route
+          path="/auth/register"
+          element={
+            <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
+          }
+        />
+        <Route
+          path="/auth/login"
+          element={
+            <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
+          }
+        />
+        <Route path="shopping-list" element={<ShoppingListPage />} />
+        <Route />
+        <Route path="/main" element={<Main />} />
+        <Route path="favorite" element={<Favorite />} />
+        <Route path="recipe" element={<AddRecipe />} />
+        {/* <Route path='/footer' element={<Footer/>} /> */}
+      </Route>
     </Routes>
   );
 }
