@@ -54,14 +54,18 @@ export const Pencilsvg = styled(Pencil)`
   height: 17px;
 `;
 export const HeaderContainer = styled.div`
+  z-index: 9;
   padding: 18px 16px;
 
   @media screen and (min-width: 768px) {
     padding: 18px 32px;
+    position: fixed;
+    width: -webkit-fill-available;
   }
 
   @media screen and (min-width: 1440px) {
     justify-content: space-between;
+    flex-direction: column;
     display: flex;
     padding: 18px 100px;
   }
@@ -111,6 +115,7 @@ export const ModalHeader = styled.div`
 `;
 export const MainModal = styled.div`
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
   width: 100%;
@@ -157,7 +162,7 @@ export const Profile = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    display: contents;
+    display: flex;
   }
 `;
 export const Photo = styled.div`
@@ -205,6 +210,7 @@ export const ModalCloseBtn = styled.button`
   background: none;
 `;
 export const ModalProfile = styled.div`
+  background-color: #ffff;
   display: flex;
   width: 161px;
   height: 130px;

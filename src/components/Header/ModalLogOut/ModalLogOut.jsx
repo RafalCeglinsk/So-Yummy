@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import useModalOutsideClick from "../ModalClose";
+import { logout } from "../../../redux/auth/operations";
 import {
   LogOutContainer,
   LogOutText,
@@ -27,7 +28,9 @@ const Modal4 = ({ isOpen, onClose }) => {
         <ModalContent>
           <LogOutText>Are you sure you want to log out?</LogOutText>
           <BtnContainer>
-            <BtnLogOut>Log out</BtnLogOut>
+            <BtnLogOut type="submit" onSubmit={logout}>
+              Log out
+            </BtnLogOut>
             <BtnCancel onClick={onClose}>Cancel</BtnCancel>
           </BtnContainer>
         </ModalContent>

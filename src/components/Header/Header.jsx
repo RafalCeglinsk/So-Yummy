@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Outlet } from "react-router-dom";
 import { RenderHamburger } from "./HeaderRenderSvg";
 
 import {
@@ -20,7 +20,7 @@ import Modal1 from "./HeaderModalProfile/HeaderModalProfile";
 import Modal3 from "./ModalUserProfile/ModalUserProfile";
 import Modal4 from "./ModalLogOut/ModalLogOut";
 
-const Header = () => {
+const SharedLayout = () => {
   const [modal1IsOpen, setModal1IsOpen] = useState(false);
   const [modal2IsOpen, setModal2IsOpen] = useState(false);
   const [modal3IsOpen, setModal3IsOpen] = useState(false);
@@ -57,41 +57,44 @@ const Header = () => {
   };
 
   return (
-    <HeaderContainer>
-      <Profile>
-        <Logo to="/Main">
-          <LogoIcon />
-        </Logo>
-        <Nav>
-          <NavLinks to="/Categories">Categories</NavLinks>
-          <NavLinks to="/AddRecipies">Add recipies</NavLinks>
-          <NavLinks to="/MyRecipies">My recipies</NavLinks>
-          <NavLinks to="/Favorites">Favorites</NavLinks>
-          <NavLinks to="/ShoppingList">Shopping list</NavLinks>
-          <NavLinks>
-            <Loop />
-          </NavLinks>
-        </Nav>
-        <Main>
-          <Photo onClick={openModal1}></Photo>
-          <UserName>UserName</UserName>
-          <LogoBurger onClick={openModal2}>
-            <RenderHamburger />
-          </LogoBurger>
-        </Main>
-      </Profile>
+    <main>
+      <HeaderContainer>
+        <Profile>
+          <Logo to="/Main">
+            <LogoIcon />
+          </Logo>
+          <Nav>
+            <NavLinks to="/Categories">Categories</NavLinks>
+            <NavLinks to="/recipe">Add recipies</NavLinks>
+            <NavLinks to="">My recipies</NavLinks>
+            <NavLinks to="/favorite">Favorites</NavLinks>
+            <NavLinks to="/shopping-list">Shopping list</NavLinks>
+            <NavLinks>
+              <Loop />
+            </NavLinks>
+          </Nav>
+          <Main>
+            <Photo onClick={openModal1}></Photo>
+            <UserName>UserName</UserName>
+            <LogoBurger onClick={openModal2}>
+              <RenderHamburger />
+            </LogoBurger>
+          </Main>
+        </Profile>
 
-      <Modal2 isOpen={modal2IsOpen} onClose={closeModal2} />
-      <Modal1
-        isOpen={modal1IsOpen}
-        onClose={closeModal1}
-        openModal3={openModal3}
-        openModal4={openModal4}
-      />
-      <Modal3 isOpen={modal3IsOpen} onClose={closeModal3} />
-      <Modal4 isOpen={modal4IsOpen} onClose={closeModal4} />
-    </HeaderContainer>
+        <Modal2 isOpen={modal2IsOpen} onClose={closeModal2} />
+        <Modal1
+          isOpen={modal1IsOpen}
+          onClose={closeModal1}
+          openModal3={openModal3}
+          openModal4={openModal4}
+        />
+        <Modal3 isOpen={modal3IsOpen} onClose={closeModal3} />
+        <Modal4 isOpen={modal4IsOpen} onClose={closeModal4} />
+      </HeaderContainer>
+      <Outlet />
+    </main>
   );
 };
 
-export default Header;
+export default SharedLayout;
