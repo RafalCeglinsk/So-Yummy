@@ -63,7 +63,7 @@ export function RenderArrow() {
     >
       <path
         d="M3.5 9H15.5M15.5 9L11 4.5M15.5 9L11 13.5"
-        stroke="#ffff"
+        // stroke="#ffff"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
