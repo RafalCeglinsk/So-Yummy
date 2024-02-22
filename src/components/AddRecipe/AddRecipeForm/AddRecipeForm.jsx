@@ -9,7 +9,7 @@ import {
   StyledH1,
   StyledH2,
   FollowUs,
-} from "./styles"; // Import stylizowanych komponentów
+} from "./styles";
 import RecipeDescriptionFields from "../RecipeDescriptionFields/RecipeDescriptionFields";
 import RecipeIngredientsFields from "../RecipeIngredientsFields/RecipeIngredientsFields";
 import RecipePreparationFields from "../RecipePreparationFields/RecipePreparationFields";
@@ -27,7 +27,6 @@ const AddRecipeForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Przesłane dane przepisu:", recipeData);
-    // Tutaj możesz dodać logikę do wysyłania danych do backendu
   };
 
   return (

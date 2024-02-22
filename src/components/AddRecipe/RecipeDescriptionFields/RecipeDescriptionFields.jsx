@@ -1,7 +1,6 @@
 import React from "react";
 import Select from "react-select";
 
-// Zakładam, że RenderSvg to komponent zwracający poprawny kod SVG.
 import { CameraIcon } from "../../RenderSvg/RenderSvg";
 
 import {
@@ -13,24 +12,19 @@ import {
   ImageUploadContainer,
   ImageUploadButton,
   Form,
-} from "./styles"; // Upewnij się, że wszystkie potrzebne style są zaimportowane
+} from "./styles";
 
-// Opcje dla kategorii przepisu
 const categoryOptions = [
   { value: "dessert", label: "Dessert" },
   { value: "main_course", label: "Main Course" },
-  // Dodaj więcej kategorii zgodnie z potrzebami
 ];
 
-// Opcje dla czasu gotowania
 const timeOptions = [
   { value: "5", label: "5 min" },
   { value: "10", label: "10 min" },
-  // Dodaj więcej opcji czasowych
 ];
 
 const ImageUploadField = ({ onImageUpload }) => {
-  // Funkcja obsługująca zmianę obrazu
   const handleImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
       onImageUpload(event.target.files[0]);
@@ -41,7 +35,6 @@ const ImageUploadField = ({ onImageUpload }) => {
     <ImageUploadContainer>
       <label htmlFor="image-upload" style={{ cursor: "pointer" }}>
         <ImageUploadButton>
-          {/* Tutaj bezpośrednio używamy SVG lub inny element, który wskazuje na akcję uploadu */}
           <CameraIcon />
         </ImageUploadButton>
       </label>
@@ -61,7 +54,6 @@ const RecipeDescriptionFields = ({
   setRecipeData,
   onImageUpload,
 }) => {
-  // Funkcja obsługująca zmianę danych przepisu
   const handleChange = (name, value) => {
     setRecipeData({ ...recipeData, [name]: value });
   };

@@ -113,7 +113,7 @@ export const customSelectStyles = {
     border: "none",
     fontSize: "16px",
     boxShadow: state.isFocused ? "none" : provided.boxShadow,
-    "&:hover": { borderColor: "#aaa" }, // zmiana koloru ramki przy najechaniu
+    "&:hover": { borderColor: "#aaa" },
   }),
   option: (provided, state) => ({
     ...provided,
