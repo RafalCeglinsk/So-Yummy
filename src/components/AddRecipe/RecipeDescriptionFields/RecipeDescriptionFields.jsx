@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
+
 import {
   getCategoriesThunk,
   addRecipeThunk,
@@ -18,6 +19,17 @@ import {
   Form,
 } from "./styles";
 
+const categoryOptions = [
+  { value: "dessert", label: "Dessert" },
+  { value: "main_course", label: "Main Course" },
+];
+
+const timeOptions = [
+  { value: "5", label: "5 min" },
+  { value: "10", label: "10 min" },
+];
+
+const ImageUploadField = ({ onImageUpload }) => {
 const timeOptions = [
   { value: "5", label: "5 min" },
   { value: "10", label: "10 min" },
@@ -69,6 +81,11 @@ const ImageUploadField = ({ onImageUpload }) => {
   );
 };
 
+const RecipeDescriptionFields = ({
+  recipeData,
+  setRecipeData,
+  onImageUpload,
+}) => {
 const RecipeDescriptionFields = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.recipes.categories);
@@ -79,9 +96,7 @@ const RecipeDescriptionFields = () => {
   }, [dispatch]);
 
   const handleImageUpload = (file) => {
-    // Tutaj możesz przetworzyć plik, np. przesłać go na serwer
     console.log(file);
-    // Zakładając, że chcesz zaktualizować stan z przesłanym obrazem:
     dispatch(updateField({ name: "image", value: file.name }));
   };
 
@@ -95,13 +110,11 @@ const RecipeDescriptionFields = () => {
     const formData = new FormData();
     formData.append("title", recipeData.title);
     formData.append("description", recipeData.description);
-    // Dodaj plik obrazu
     const imageInput = document.getElementById("image-upload");
     if (imageInput.files[0]) {
       formData.append("image", imageInput.files[0]);
     }
 
-    // Przykład przesyłania danych formularza, w tym pliku, do serwera
     try {
       const response = await fetch("http://localhost:5001/api/recipes", {
         method: "POST",
@@ -110,7 +123,6 @@ const RecipeDescriptionFields = () => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-      // Obsługa sukcesu, np. wyświetlenie komunikatu lub przekierowanie
     } catch (error) {
       console.error("Upload error:", error);
     }

@@ -113,6 +113,8 @@ export const customSelectStyles = {
     border: "none",
     fontSize: "16px",
     boxShadow: state.isFocused ? "none" : provided.boxShadow,
+    "&:hover": { borderColor: "#aaa" },
+=======
     "@media screen and (min-width: 768px)": {
       width: "20vw",
     },

@@ -33,7 +33,7 @@ export const IngredientField = styled.div`
   justify-content: space-between;
   margin-bottom: 10px;
   align-items: center;
-  /* max-width: 800px; */
+
   width: 100%;
 `;
 

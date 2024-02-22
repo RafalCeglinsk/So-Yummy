@@ -10,7 +10,7 @@ const PopularRecipe = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await axios.get("/api/popular-recipes"); // Ustaw odpowiedni URL
+        const response = await axios.get("/api/popular-recipes");
         setRecipes(response.data);
       } catch (error) {
         setError("No popular recipes at the moment.");
