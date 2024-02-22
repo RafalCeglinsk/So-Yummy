@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import { GalleryUl, MainGalleryH2, ButtonWrapper } from "./MainGallery.styled";
 import { PreviewCategories } from "./PreviewCategories";
 import { fetchCategories } from "../../../api/mainRecipesApi";
@@ -36,12 +38,13 @@ export const MainGallery = () => {
 
   return (
     <GalleryUl>
-      {categories.map((categoryRecipes, index) => (
-        <div key={index}>
+      {categories.map((categoryRecipes, _id) => (
+        <div key={_id}>
           <MainGalleryH2>{categoryRecipes[0].category}</MainGalleryH2>
           <PreviewCategories categoryRecipes={categoryRecipes} viewMode={viewMode} />
           <ButtonWrapper>
-            <ButtonSeeAll text="See All" />
+          <Link to={`/categories/${categoryRecipes[0].category}`}>
+             <ButtonSeeAll text="See All" /> </Link>
           </ButtonWrapper>
         </div>
       ))}

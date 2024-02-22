@@ -12,16 +12,15 @@ import {
 export function ChooseYourBreakfast() {
   return (
     <SaladContainer>
-      {" "}
       <TextContainer>
         <span>Delicious and healthy</span> way to enjoy a variety of fresh
         ingredients in one satisfying meal.
-        <Link to="/categories/breakfast">
         <LinkRecipies>
-          See recepies
+        <Link to="/categories/breakfast">
+          See recipes
           <RenderArrow />
-        </LinkRecipies>
         </Link>
+        </LinkRecipies>
       </TextContainer>
       <ArrowStyle>
         <ArrowHeroMain />

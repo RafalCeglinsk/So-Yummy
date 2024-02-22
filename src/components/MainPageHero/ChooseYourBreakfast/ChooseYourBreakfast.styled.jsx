@@ -46,10 +46,7 @@ export const TextContainer = styled.div`
     color: var(--color-text-5);
   }
 
-   svg{
-stroke: var(--color-text-2);
 
-  }
   @media screen and (min-width: 768px) {
     padding: 12px;
     top: 210px;
@@ -66,18 +63,26 @@ stroke: var(--color-text-2);
   }
 `;
 
-export const LinkRecipies = styled.p`
+export const LinkRecipies = styled.div`
+position: relative;
+  text-decoration: none;
   display: flex;
   justify-content: flex-end;
   color: var(--color-text-2);
   transition: color var(--transition-time) var(--cubic);
   align-items: center;
+  padding-right: 20px;
+  cursor: pointer;
 
   &:hover,
   &:focus {
     color: var(--color-text-4);
   }
-
+  svg{
+stroke: var(--color-text-2);
+position: absolute;
+top: -13%;
+  }
 `;
 
 export const ArrowStyle=styled.div`

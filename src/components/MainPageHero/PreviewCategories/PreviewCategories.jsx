@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import { getRecipesLimit } from "../../../api/viewModeUtils";
 import {
   GalleryLi,
@@ -10,8 +12,9 @@ import NoImage from "../../../images/NoImage/NoImageSmall.png";
 
 export const PreviewCategories = ({ categoryRecipes, viewMode }) => {
   const renderRecipes = (recipes, limit) => {
-    return recipes.slice(0, limit).map((recipe, index) => (
-      <ElementWrapper key={index}>
+    return recipes.slice(0, limit).map((recipe, _id) => (
+      <Link to={`/recipes/${recipe.id}`} key={_id}>
+      <ElementWrapper>
         <RecipeImg
           src={recipe.thumb ? recipe.thumb : NoImage}
           loading="lazy"
@@ -21,6 +24,7 @@ export const PreviewCategories = ({ categoryRecipes, viewMode }) => {
           <p>{recipe.title}</p>
         </RecipeDescription>
       </ElementWrapper>
+    </Link>
     ));
   };
 
