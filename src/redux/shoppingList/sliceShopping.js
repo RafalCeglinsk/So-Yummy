@@ -3,7 +3,7 @@ import { deleteShoppingThunk, getShoppingThunk, addShoppingThunk } from "./thunk
 
 const handleFulfilledAdd = (state, {payload}) => {
     state.shopping.isLoading = false
-    state.shopping.items = [...payload]
+    state.shopping.items = [payload]
     state.shopping.error = ''
 }
 const handlePending = (state) => {
