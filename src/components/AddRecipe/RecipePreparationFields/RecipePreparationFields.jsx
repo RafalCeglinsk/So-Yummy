@@ -3,7 +3,7 @@ import {
   PreparationContainer,
   PreparationTitle,
   PreparationTextarea,
-} from "./styles"; // Załóżmy, że plik ze stylami nazywa się styles.js
+} from "./styles";
 
 const RecipePreparationFields = ({ recipeData, setRecipeData }) => {
   const handleChange = (e) => {
@@ -12,9 +12,7 @@ const RecipePreparationFields = ({ recipeData, setRecipeData }) => {
 
   return (
     <PreparationContainer>
-      <PreparationTitle>
-        <h2>Recipe Preparation</h2>
-      </PreparationTitle>
+      <PreparationTitle>Recipe Preparation</PreparationTitle>
       <PreparationTextarea
         name="preparation"
         placeholder="Enter recipe"

@@ -1,41 +1,52 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import NoImage from "../../../images/NoImage/NoImageSmall.png"
-import {
-  GalleryUl,
-  GalleryLi,
-  RecipeImg,
-  RecipeDescription,
-} from "./MainGallery.styled";
+import { Link } from "react-router-dom";
 
-export const baseAxiosURL = 'http://localhost:5001/api';
-
-axios.defaults.baseURL = baseAxiosURL;
+import { GalleryUl, MainGalleryH2, ButtonWrapper } from "./MainGallery.styled";
+import { PreviewCategories } from "./PreviewCategories";
+import { fetchCategories } from "../../../api/mainRecipesApi";
+import { getRecipesLimit , getViewMode} from "../../../api/viewModeUtils";
+import { ButtonSeeAll } from "../../Buttons/GalleryButtonSeeAll";
 
 export const MainGallery = () => {
   const [categories, setCategories] = useState([]);
+  const [viewMode, setViewMode] = useState(getViewMode());
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get('/recipes/categories');
-        setCategories(response.data.categories);
+        const data = await fetchCategories();
+        setCategories(data);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
     };
-    fetchCategories();
+
+    fetchData();
   }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setViewMode(getViewMode());
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+
 
   return (
     <GalleryUl>
-      {categories.map((category, index) => (
-        <GalleryLi key={index}>
-          <RecipeImg src={NoImage} loading="lazy" />
-          <RecipeDescription>
-            <p>{category}</p>
-          </RecipeDescription>
-        </GalleryLi>
+      {categories.map((categoryRecipes, _id) => (
+        <div key={_id}>
+          <MainGalleryH2>{categoryRecipes[0].category}</MainGalleryH2>
+          <PreviewCategories categoryRecipes={categoryRecipes} viewMode={viewMode} />
+          <ButtonWrapper>
+          <Link to={`/categories/${categoryRecipes[0].category}`}>
+             <ButtonSeeAll text="See All" /> </Link>
+          </ButtonWrapper>
+        </div>
       ))}
     </GalleryUl>
   );

@@ -43,3 +43,15 @@ export const ButtonTransparent = styled.button`
     font-size: 16px;
   }
 `;
+
+export const CurvedMain = styled.button`
+   background-color: transparent;
+   border-radius: 15px 35px;
+   border: solid var(    --color-icons-3) 1px;
+   padding: 14px 32px;
+   &:hover,
+  &:focus {
+    background-color: var(--color-icons-3);
+    color: var(--color-default-1);
+  }
+`

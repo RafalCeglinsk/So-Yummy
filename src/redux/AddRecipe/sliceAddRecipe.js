@@ -1,0 +1,81 @@
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+// Thunk do pobierania kategorii przepisów
+export const getCategoriesThunk = createAsyncThunk(
+  "recipes/getCategories",
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await axios.get("/recipes/categories");
+      return response.data.categories.map((category) => ({
+        value: category,
+        label: category,
+      }));
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+// Thunk do dodawania nowego przepisu
+export const addRecipeThunk = createAsyncThunk(
+  "recipes/addRecipe",
+  async (recipeData, { rejectWithValue }) => {
+    try {
+      const response = await axios.post("/recipes", recipeData);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+const initialState = {
+  categories: [],
+  recipes: [],
+  recipeData: {},
+  status: "idle",
+  error: null,
+};
+
+const recipesSlice = createSlice({
+  name: "recipes",
+  initialState,
+  reducers: {
+    updateField(state, action) {
+      const { name, value } = action.payload;
+      if (!state.recipeData) {
+        state.recipeData = {};
+      }
+      state.recipeData[name] = value;
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getCategoriesThunk.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(getCategoriesThunk.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.categories = action.payload;
+      })
+      .addCase(getCategoriesThunk.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+      .addCase(addRecipeThunk.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(addRecipeThunk.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.recipes.push(action.payload);
+      })
+      .addCase(addRecipeThunk.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      });
+  },
+});
+export const { updateField } = recipesSlice.actions;
+
+export default recipesSlice.reducer;

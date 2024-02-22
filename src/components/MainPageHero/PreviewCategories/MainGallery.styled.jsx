@@ -7,8 +7,23 @@ export const GalleryUl = styled.ul`
   gap: 32px;
 
   @media screen and (min-width: 768px) {
-    flex-direction: row;
-    flex-wrap: wrap;
+    gap: 50px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    gap: 100px;
+  }
+
+`;
+
+export const GalleryLi = styled.li`
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+
+  align-items: flex-end;
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
   }
 
   @media screen and (min-width: 1280px) {
@@ -16,47 +31,42 @@ export const GalleryUl = styled.ul`
   }
 `;
 
-export const GalleryLi = styled.li`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+export const RecipeImg = styled.img`
+  padding-top: 32px;
   width: 100%;
   max-width: 343px;
   height: 323px;
-  cursor: pointer;
-  @media screen and (min-width: 768px) {
-    max-width: 336px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    max-width: 300px;
-  }
-`;
-
-export const RecipeImg = styled.img`
-  width: 100%;
-  height: 100%;
   border-radius: 8px;
   object-fit: cover;
   transition: transform var(--transition-time) var(--cubic);
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+    max-width: 366px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 300px;
+  }
 
-&:hover,
-  &:focus  {
+  &:hover,
+  &:focus {
     transform: scale(1.01);
   }
 `;
 
 export const RecipeDescription = styled.div`
   position: absolute;
-  top: 250px;
+  top: 80%;
+  left: 5%;
   width: 90%;
+  height: 60px;
   border-radius: 8px;
   background-color: var(--color-bg-modal);
   transition: transform var(--transition-time) var(--cubic);
+  display: flex;
+  align-items: center;
 
   &:hover,
-  &:focus  {
+  &:focus {
     transform: scale(1.01);
   }
   p {
@@ -68,3 +78,29 @@ export const RecipeDescription = styled.div`
     letter-spacing: -0.24px;
   }
 `;
+
+export const MainGalleryH2 = styled.h2`
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--color-text-1);
+
+  @media screen and (min-width: 768px) {
+    font-size: 44px;
+  }
+`;
+
+export const ElementWrapper = styled.div`
+  position: relative;
+  border-radius: 8px;
+`;
+export const ButtonWrapper = styled.div`
+display: none;
+@media screen and (min-width: 768px) {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 24px;
+  }
+
+ 
+`
