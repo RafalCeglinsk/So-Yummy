@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const GalleryUl = styled.ul`
   display: flex;
-  position: relative;
   flex-direction: column;
   justify-content: center;
   gap: 32px;
@@ -11,11 +10,9 @@ export const GalleryUl = styled.ul`
     gap: 50px;
   }
 
-
   @media screen and (min-width: 1280px) {
     gap: 100px;
   }
-
 
 `;
 
@@ -24,25 +21,18 @@ export const GalleryLi = styled.li`
   flex-direction: row;
   gap: 32px;
 
-
   align-items: flex-end;
   cursor: pointer;
   @media screen and (min-width: 768px) {
- 
   }
 
   @media screen and (min-width: 1280px) {
     gap: 14px;
   }
-
-  div{
-    position: relative;
-  }
 `;
 
 export const RecipeImg = styled.img`
   padding-top: 32px;
-  /* position: relative; */
   width: 100%;
   max-width: 343px;
   height: 323px;
@@ -50,13 +40,12 @@ export const RecipeImg = styled.img`
   object-fit: cover;
   transition: transform var(--transition-time) var(--cubic);
   @media screen and (min-width: 768px) {
-   padding-top:40px;
-   max-width: 366px;
+    padding-top: 40px;
+    max-width: 366px;
   }
   @media screen and (min-width: 1280px) {
     max-width: 300px;
   }
-
 
   &:hover,
   &:focus {
@@ -66,13 +55,15 @@ export const RecipeImg = styled.img`
 
 export const RecipeDescription = styled.div`
   position: absolute;
-  /* top: 70%; */
+  top: 80%;
   left: 5%;
   width: 90%;
   height: 60px;
   border-radius: 8px;
   background-color: var(--color-bg-modal);
   transition: transform var(--transition-time) var(--cubic);
+  display: flex;
+  align-items: center;
 
   &:hover,
   &:focus {
@@ -89,8 +80,27 @@ export const RecipeDescription = styled.div`
 `;
 
 export const MainGalleryH2 = styled.h2`
-  /* padding-right: 200px; */
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--color-text-1);
 
-  /* position: absolute; */
+  @media screen and (min-width: 768px) {
+    font-size: 44px;
+  }
 `;
 
+export const ElementWrapper = styled.div`
+  position: relative;
+  border-radius: 8px;
+`;
+export const ButtonWrapper = styled.div`
+display: none;
+@media screen and (min-width: 768px) {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 24px;
+  }
+
+ 
+`

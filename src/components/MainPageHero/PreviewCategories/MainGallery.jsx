@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import NoImage from "../../../images/NoImage/NoImageSmall.png";
-import { ButtonSeeAll } from "../../GalleryElement/GalleryButtonSeeAll";
+import { ButtonSeeAll } from "../../Buttons/GalleryButtonSeeAll";
 import {
   GalleryUl,
   GalleryLi,
   RecipeImg,
   RecipeDescription,
   MainGalleryH2,
+  ElementWrapper,
+  ButtonWrapper
 
 } from "./MainGallery.styled";
 
@@ -36,7 +38,7 @@ export const MainGallery = () => {
 
   const getViewMode = () => {
     const width = window.innerWidth;
-    if (width >= 1440) {
+    if (width >= 1280) {
       return "desktop";
     } else if (width >= 768) {
       return "tablet";
@@ -56,8 +58,9 @@ export const MainGallery = () => {
   }, []);
 
   const renderRecipes = (recipes, limit) => {
-    return recipes.slice(0, limit).map((recipe, index) => (
-      <div key={index}>
+    return recipes.slice(0, limit).map((recipe, _id) => (
+      <ElementWrapper key={_id}>
+
         <RecipeImg
           src={recipe.thumb ? recipe.thumb : NoImage}
           loading="lazy"
@@ -66,7 +69,7 @@ export const MainGallery = () => {
         <RecipeDescription>
           <p>{recipe.title}</p>
         </RecipeDescription>
-      </div>
+      </ElementWrapper>
     ));
   };
 
@@ -85,13 +88,14 @@ export const MainGallery = () => {
 
   return (
     <GalleryUl>
-      {categories.map((categoryRecipes, index) => (
-        <div key={index}>
+      {categories.map((categoryRecipes, _id) => (
+        <div key={_id}>
           <MainGalleryH2>{categoryRecipes[0].category}</MainGalleryH2>
-          <GalleryLi key={index}>
+          <GalleryLi key={_id}>
             {renderRecipes(categoryRecipes, getRecipesLimit())}
           </GalleryLi>
-          <ButtonSeeAll/>
+
+        <ButtonWrapper><ButtonSeeAll text="See All"/></ButtonWrapper>
         </div>
  
       ))}
