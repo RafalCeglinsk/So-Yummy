@@ -12,9 +12,7 @@ const RecipePreparationFields = ({ recipeData, setRecipeData }) => {
 
   return (
     <PreparationContainer>
-      <PreparationTitle>
-        <h2>Recipe Preparation</h2>
-      </PreparationTitle>
+      <PreparationTitle>Recipe Preparation</PreparationTitle>
       <PreparationTextarea
         name="preparation"
         placeholder="Enter recipe"

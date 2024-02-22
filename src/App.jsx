@@ -11,6 +11,7 @@ import Main from "./pages/Main";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute.jsx";
+import { AddRecipe } from "./pages/AddRecipe/AddRecipe.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ function App() {
           <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
         }
       />
+      <Route path="/add" element={<AddRecipe></AddRecipe>} />
       <Route path="/shopping-list" element={<ShoppingListPage />} />
       <Route />
       <Route path="/main" element={<Main />} />

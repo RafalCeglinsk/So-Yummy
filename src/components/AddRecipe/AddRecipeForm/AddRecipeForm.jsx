@@ -10,8 +10,8 @@ import {
   StyledH2,
   FollowUs,
 } from "./styles";
-import RecipeDescriptionFields from "../RecipeDescriptionFields/RecipeDescriptionFields";
-import RecipeIngredientsFields from "../RecipeIngredientsFields/RecipeIngredientsFields";
+} from "./styles"; // Import stylizowanych komponentów
+import { RecipeDescriptionFields } from "../RecipeDescriptionFields/RecipeDescriptionFields";
 import RecipePreparationFields from "../RecipePreparationFields/RecipePreparationFields";
 import PopularRecipe from "../PopularRecipe/PopularRecipe";
 import { SocialMediaBar } from "../../SocialMediaBar/SocialMediaBar";
