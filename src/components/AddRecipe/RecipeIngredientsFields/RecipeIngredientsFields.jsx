@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import {
   IngredientsContainer,
@@ -20,14 +20,24 @@ const unitOptions = [
   { value: "g", label: "g" },
 ];
 
-const ingredientOptions = [
-  { value: "flour", label: "Flour" },
-  { value: "sugar", label: "Sugar" },
-  { value: "eggs", label: "Eggs" },
-  { value: "butter", label: "Butter" },
-];
-
 const RecipeIngredientsFields = ({ recipeData, setRecipeData }) => {
+  const [ingredientOptions, setIngredientOptions] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5001/api/ingredients/list")
+      .then((response) => response.json())
+      .then((data) => {
+        const newOptions = data.result.map((ingredient) => ({
+          value: ingredient._id,
+          label: ingredient.ttl,
+        }));
+        setIngredientOptions(newOptions);
+      })
+      .catch((error) => {
+        console.error("Error fetching ingredients:", error);
+      });
+  }, []);
+
   const addIngredient = () => {
     const newIngredient = { name: "", quantity: "", unit: "g" };
     setRecipeData({
@@ -105,11 +115,11 @@ const RecipeIngredientsFields = ({ recipeData, setRecipeData }) => {
               <Select
                 styles={unitSelect}
                 options={unitOptions}
-                placeholder=""
                 value={unitOptions.find(
                   (option) => option.value === ingredient.unit
                 )}
                 onChange={(value) => handleSelectChange(index, value)}
+                placeholder="Select unit"
               />
             </Span>
           </SizeGroup>
@@ -124,16 +134,16 @@ const RecipeIngredientsFields = ({ recipeData, setRecipeData }) => {
               <path
                 d="M14.0625 4.4375L3.9375 14.5625"
                 stroke="#333333"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M14.0625 14.5625L3.9375 4.4375"
                 stroke="#333333"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </RemoveIngredientButton>

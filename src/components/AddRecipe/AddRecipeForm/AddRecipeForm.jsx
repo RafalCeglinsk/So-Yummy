@@ -10,7 +10,7 @@ import {
   StyledH2,
   FollowUs,
 } from "./styles"; // Import stylizowanych komponentów
-import RecipeDescriptionFields from "../RecipeDescriptionFields/RecipeDescriptionFields";
+import { RecipeDescriptionFields } from "../RecipeDescriptionFields/RecipeDescriptionFields";
 import RecipeIngredientsFields from "../RecipeIngredientsFields/RecipeIngredientsFields";
 import RecipePreparationFields from "../RecipePreparationFields/RecipePreparationFields";
 import PopularRecipe from "../PopularRecipe/PopularRecipe";
