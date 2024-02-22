@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 const SearchBarStyled = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   width: 100%;
   max-width: 295px;
-  
+
   position: relative;
   @media screen and (min-width: 768px) {
     max-width: 368px;
- 
   }
   @media screen and (min-width: 1440px) {
     max-width: 510px;
@@ -17,7 +17,7 @@ const SearchBarStyled = styled.div`
   input {
     padding: 16px 113px 16px 32px;
     width: 100%;
-  
+
     font-size: 12px;
     line-height: 21px;
     border: none;
@@ -27,9 +27,8 @@ const SearchBarStyled = styled.div`
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     color: var(--color-text-3);
     transition: background-color var(--transition-time) var(--cubic);
-    &:hover{
-   
-        transform: translateX(-2px);
+    &:hover {
+      transform: translateX(-2px);
     }
     &::placeholder {
       color: #bdbdbd;
@@ -48,9 +47,9 @@ const SearchBarStyled = styled.div`
     height: 100%;
     width: 30%;
     &:hover,
-  &:focus {
-    background-color: var(--color-icons-3);
-  }
+    &:focus {
+      background-color: var(--color-icons-3);
+    }
   }
 `;
 
