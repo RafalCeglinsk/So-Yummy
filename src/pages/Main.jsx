@@ -2,7 +2,7 @@ import { MainPage } from "../components/MainPageHero/MainPage";
 import SearchBar from "../components/SearchBar/SearchBar";
 import { MainWrapper } from "../components/MainPageHero/MainPage.styled";
 import { SbMobileStyle } from "../components/MainPageHero/MainPage.styled";
-import { PreviewCategories } from "../components/MainPageHero/PreviewCategories/PreviewCategories";
+import { MainGallery } from "../components/MainPageHero/PreviewCategories/MainGallery";
 import Footer from "../components/footer/footer";
 const Main = () => {
   return (
@@ -13,7 +13,7 @@ const Main = () => {
       <SbMobileStyle>
         <SearchBar />
       </SbMobileStyle>
-      <PreviewCategories />
+    <MainGallery/>
     </MainWrapper>
          <Footer/>
          </>
