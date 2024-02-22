@@ -23,7 +23,7 @@ export const SaladContainer = styled.div`
     height: 351px;
     margin-bottom: 0;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     background-image: -webkit-image-set(url(${BgDSK2x}) 2x);
     width: 578px;
   height: 539px;
@@ -45,6 +45,11 @@ export const TextContainer = styled.div`
   & span {
     color: var(--color-text-5);
   }
+
+   svg{
+stroke: var(--color-text-2);
+
+  }
   @media screen and (min-width: 768px) {
     padding: 12px;
     top: 210px;
@@ -53,7 +58,7 @@ export const TextContainer = styled.div`
     width: 260px;
     font-size: 14px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     padding: 16px;
     top: 336px;
     left: 335px;
@@ -61,7 +66,7 @@ export const TextContainer = styled.div`
   }
 `;
 
-export const LinkRecipies = styled.a`
+export const LinkRecipies = styled.p`
   display: flex;
   justify-content: flex-end;
   color: var(--color-text-2);
@@ -72,6 +77,7 @@ export const LinkRecipies = styled.a`
   &:focus {
     color: var(--color-text-4);
   }
+
 `;
 
 export const ArrowStyle=styled.div`
@@ -83,9 +89,10 @@ export const ArrowStyle=styled.div`
   bottom: -70px;
   left: 115px;
   transform: rotate(8deg);
+
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
   bottom: -10px;
   left: 380px;
   transform: rotate(0deg);

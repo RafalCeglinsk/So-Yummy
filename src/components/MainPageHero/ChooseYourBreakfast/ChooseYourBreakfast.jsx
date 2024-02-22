@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { RenderArrow, ArrowHeroMain } from "../../RenderSvg/RenderSvg";
 import {
@@ -15,10 +16,12 @@ export function ChooseYourBreakfast() {
       <TextContainer>
         <span>Delicious and healthy</span> way to enjoy a variety of fresh
         ingredients in one satisfying meal.
+        <Link to="/categories/breakfast">
         <LinkRecipies>
           See recepies
           <RenderArrow />
         </LinkRecipies>
+        </Link>
       </TextContainer>
       <ArrowStyle>
         <ArrowHeroMain />
