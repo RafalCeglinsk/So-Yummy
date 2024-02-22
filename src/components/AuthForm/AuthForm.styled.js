@@ -13,7 +13,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 30px;
-
   background-color: var(--color-bg-start);
   padding: 32px 28px 40px;
 `;
@@ -52,6 +51,16 @@ export const FormButton = styled.button`
   background-color: var(--color-text-5);
   color: var(--color-default-1);
   border-radius: 6px;
+`;
+
+export const Logo = styled.div`
+  display: block;
+  width: 285px;
+  height: 250px;
+  background-image: url(${(props) => props.mobileimage});
+  background-color: white;
+  background-repeat: no-repeat;
+  margin-bottom: -32px;
 `;
 
 export const StyledLink = styled(NavLink)`

@@ -2,12 +2,14 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login, register } from "../../redux/auth/operations";
+import mobileLogo from "../../images/AuthPage/mobileLogox1.png";
 
 import {
   Container,
   Form,
   FormButton,
   H2,
+  Logo,
   StyledInput,
   StyledLabel,
   StyledLink,
@@ -44,6 +46,7 @@ export const AuthForm = () => {
   };
   return (
     <Form onSubmit={handleSubmit}>
+      <Logo mobileimage={mobileLogo} />
       <Container>
         <H2>{location === "/auth/login" ? "Sign In" : "Registration"}</H2>
         {location === "/auth/register" && (
