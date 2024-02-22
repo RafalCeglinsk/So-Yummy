@@ -33,12 +33,14 @@ export const Description = styled.div`
 export const StyledOl = styled.ol`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 24px;
 `;
 
 export const StyledLi = styled.li`
   list-style-type: none;
   position: relative;
+  display: flex;
 
   &::before {
     content: counter(step-counter);
@@ -47,8 +49,8 @@ export const StyledLi = styled.li`
     justify-content: center;
     align-items: center;
     padding: 5px 6px;
-    width: 21px;
-    height: 21px;
+    width: 17px;
+    height: 17px;
     border-radius: 50%;
     background-color: var(--color-text-5);
     color: white;

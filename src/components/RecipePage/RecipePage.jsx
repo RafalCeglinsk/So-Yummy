@@ -25,7 +25,7 @@ export const RecipePage = () => {
   return (
     <div>
       <RecipePageHero recipe={recipe} />
-      {/* <RecipeIngredientsList /> */}
+      <RecipeIngredientsList ingredients={recipe.ingredients} />
       <RecipePreparation recipe={recipe} />
     </div>
   );
