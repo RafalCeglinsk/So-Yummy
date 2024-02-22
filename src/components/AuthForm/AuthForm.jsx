@@ -3,7 +3,15 @@ import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login, register } from "../../redux/auth/operations";
 
-import { Form, StyledLink } from "./AuthForm.styled";
+import {
+  Container,
+  Form,
+  FormButton,
+  H2,
+  StyledInput,
+  StyledLabel,
+  StyledLink,
+} from "./AuthForm.styled";
 
 export const AuthForm = () => {
   const [name, setName] = useState("");
@@ -36,46 +44,48 @@ export const AuthForm = () => {
   };
   return (
     <Form onSubmit={handleSubmit}>
-      <h2>{location === "/auth/login" ? "Sign In" : "Registration"}</h2>
-      {location === "/auth/register" && (
-        <label>
-          <span>Name</span>
-          <input
-            label="Name"
-            name="name"
-            type="text"
-            value={name}
+      <Container>
+        <H2>{location === "/auth/login" ? "Sign In" : "Registration"}</H2>
+        {location === "/auth/register" && (
+          <StyledLabel>
+            <StyledInput
+              label="Name"
+              name="name"
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={handleChangeInput}
+              required
+            />
+          </StyledLabel>
+        )}
+        <StyledLabel>
+          <StyledInput
+            label="Email"
+            name="email"
+            type="email"
+            placeholder="Email"
+            value={email}
             onChange={handleChangeInput}
             required
           />
-        </label>
-      )}
-      <label>
-        <span>Email</span>
-        <input
-          label="Email"
-          name="email"
-          type="email"
-          value={email}
-          onChange={handleChangeInput}
-          required
-        />
-      </label>
-      <label>
-        <span>Password</span>
-        <input
-          label="Password"
-          name="password"
-          type="password"
-          value={password}
-          onChange={handleChangeInput}
-          minLength={7}
-          required
-        />
-      </label>
-      <button type="submit">
-        {location === "/auth/register" ? "Sign up" : "Sign In"}
-      </button>
+        </StyledLabel>
+        <StyledLabel>
+          <StyledInput
+            label="Password"
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={handleChangeInput}
+            minLength={7}
+            required
+          />
+        </StyledLabel>
+        <FormButton type="submit">
+          {location === "/auth/register" ? "Sign up" : "Sign In"}
+        </FormButton>
+      </Container>
       {location === "/auth/login" ? (
         <StyledLink to="/auth/register">Sign up</StyledLink>
       ) : (
