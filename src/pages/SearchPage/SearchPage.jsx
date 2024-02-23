@@ -7,7 +7,8 @@ const SearchPage = () => {
   return (
     <SearchPageStyled>
       <TitleSearchPage>Search</TitleSearchPage>
-      <SearchBar />
+      <SearchBar showTypeSelector={true} />
+
       <SearchedRecipesList />
     </SearchPageStyled>
   );
