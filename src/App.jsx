@@ -11,6 +11,8 @@ import Main from "./pages/Main";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute.jsx";
+import { HeaderPage } from "./pages/Header/Header.jsx";
+import { AddRecipe } from "./pages/AddRecipe/AddRecipe.jsx";
 import { RecipePage } from "./components/RecipePage/RecipePage.jsx";
 
 function App() {
@@ -40,7 +42,6 @@ function App() {
       <Route path="/main" element={<Main />} />
       <Route path="/favorite" element={<Favorite />} />
       {/* <Route path='/footer' element={<Footer/>} /> */}
-      <Route path="/recipes/:recipeId" element={<RecipePage />} />
     </Routes>
   );
 }

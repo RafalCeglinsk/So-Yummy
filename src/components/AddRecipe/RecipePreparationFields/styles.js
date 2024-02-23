@@ -5,8 +5,7 @@ export const PreparationContainer = styled.div`
   flex-direction: column;
 `;
 
-export const PreparationTitle = styled.h3`
-  color: #333;
+export const PreparationTitle = styled.h2`
   margin-bottom: 15px;
 `;
 

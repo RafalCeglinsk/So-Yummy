@@ -33,7 +33,7 @@ export const IngredientField = styled.div`
   justify-content: space-between;
   margin-bottom: 10px;
   align-items: center;
-  /* max-width: 800px; */
+
   width: 100%;
 `;
 
@@ -102,6 +102,17 @@ export const unitSelect = {
       width: "5vw",
     },
   }),
+  option: (provided, state) => ({
+    ...provided,
+    color: state.isSelected ? "white" : "black",
+    backgroundColor: state.isSelected ? "#007bff" : "white",
+    fontSize: "12px",
+    opacity: 0.5,
+    "&:hover": {
+      backgroundColor: "#007bff",
+      color: "white",
+    },
+  }),
   indicatorSeparator: () => ({
     display: "none",
   }),
@@ -126,6 +137,17 @@ export const ingredientSelect = {
     },
     "@media screen and (min-width: 1440px)": {
       width: "10vw",
+    },
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    color: state.isSelected ? "white" : "black",
+    backgroundColor: state.isSelected ? "#007bff" : "white",
+    fontSize: "12px",
+    opacity: 0.5,
+    "&:hover": {
+      backgroundColor: "#007bff",
+      color: "white",
     },
   }),
   indicatorSeparator: () => ({

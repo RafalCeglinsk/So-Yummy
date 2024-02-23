@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
-
-// Zakładam, że RenderSvg to komponent zwracający poprawny kod SVG.
+import {
+  getCategoriesThunk,
+  addRecipeThunk,
+  updateField,
+} from "../../../redux/AddRecipe/sliceAddRecipe";
 import { CameraIcon } from "../../RenderSvg/RenderSvg";
-
 import {
   FieldContainer,
   Input,
@@ -13,39 +16,49 @@ import {
   ImageUploadContainer,
   ImageUploadButton,
   Form,
-} from "./styles"; // Upewnij się, że wszystkie potrzebne style są zaimportowane
+} from "./styles";
 
-// Opcje dla kategorii przepisu
-const categoryOptions = [
-  { value: "dessert", label: "Dessert" },
-  { value: "main_course", label: "Main Course" },
-  // Dodaj więcej kategorii zgodnie z potrzebami
-];
-
-// Opcje dla czasu gotowania
 const timeOptions = [
   { value: "5", label: "5 min" },
   { value: "10", label: "10 min" },
-  // Dodaj więcej opcji czasowych
+  { value: "15", label: "15 min" },
+  { value: "20", label: "20 min" },
+  { value: "25", label: "25 min" },
+  { value: "30", label: "30 min" },
+  { value: "35", label: "35 min" },
+  { value: "40", label: "40 min" },
+  { value: "45", label: "45 min" },
+  { value: "50", label: "50 min" },
+  { value: "55", label: "55 min" },
+  { value: "60", label: "60 min" },
+  { value: "65", label: "65 min" },
+  { value: "70", label: "70 min" },
+  { value: "75", label: "75 min" },
+  { value: "80", label: "80 min" },
 ];
 
 const ImageUploadField = ({ onImageUpload }) => {
-  // Funkcja obsługująca zmianę obrazu
+  const fileInputRef = useRef(null);
+
   const handleImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
       onImageUpload(event.target.files[0]);
     }
   };
 
+  const handleContainerClick = () => {
+    fileInputRef.current.click();
+  };
+
   return (
-    <ImageUploadContainer>
+    <ImageUploadContainer onClick={handleContainerClick}>
       <label htmlFor="image-upload" style={{ cursor: "pointer" }}>
         <ImageUploadButton>
-          {/* Tutaj bezpośrednio używamy SVG lub inny element, który wskazuje na akcję uploadu */}
           <CameraIcon />
         </ImageUploadButton>
       </label>
       <input
+        ref={fileInputRef}
         id="image-upload"
         type="file"
         accept="image/*"
@@ -56,26 +69,69 @@ const ImageUploadField = ({ onImageUpload }) => {
   );
 };
 
-const RecipeDescriptionFields = ({
-  recipeData,
-  setRecipeData,
-  onImageUpload,
-}) => {
-  // Funkcja obsługująca zmianę danych przepisu
-  const handleChange = (name, value) => {
-    setRecipeData({ ...recipeData, [name]: value });
+const RecipeDescriptionFields = () => {
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.recipes.categories);
+  const recipeData = useSelector((state) => state.recipes.recipeData);
+
+  useEffect(() => {
+    dispatch(getCategoriesThunk());
+  }, [dispatch]);
+
+  const handleImageUpload = (file) => {
+    // Tutaj możesz przetworzyć plik, np. przesłać go na serwer
+    console.log(file);
+    // Zakładając, że chcesz zaktualizować stan z przesłanym obrazem:
+    dispatch(updateField({ name: "image", value: file.name }));
   };
+
+  const handleChange = (name, value) => {
+    dispatch(updateField({ name, value }));
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("title", recipeData.title);
+    formData.append("description", recipeData.description);
+    // Dodaj plik obrazu
+    const imageInput = document.getElementById("image-upload");
+    if (imageInput.files[0]) {
+      formData.append("image", imageInput.files[0]);
+    }
+
+    // Przykład przesyłania danych formularza, w tym pliku, do serwera
+    try {
+      const response = await fetch("http://localhost:5001/api/recipes", {
+        method: "POST",
+        body: formData,
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      // Obsługa sukcesu, np. wyświetlenie komunikatu lub przekierowanie
+    } catch (error) {
+      console.error("Upload error:", error);
+    }
+  };
+
+  const titleValue = recipeData ? recipeData.title : "";
+  const descriptionValue = recipeData ? recipeData.description : "";
+  const selectedCategory = categories.find(
+    (option) => option.value === recipeData?.category
+  );
 
   return (
     <FieldContainer>
-      <ImageUploadField onImageUpload={onImageUpload} />
-      <Form>
+      <ImageUploadField onImageUpload={handleImageUpload} />
+      <Form onSubmit={handleFormSubmit}>
         <Input
           id="title"
           type="text"
           name="title"
           placeholder="Enter item title"
-          value={recipeData.title}
+          value={titleValue}
           onChange={(e) => handleChange(e.target.name, e.target.value)}
         />
         <Input
@@ -83,7 +139,7 @@ const RecipeDescriptionFields = ({
           type="text"
           name="description"
           placeholder="Enter about recipe"
-          value={recipeData.description}
+          value={descriptionValue}
           onChange={(e) => handleChange(e.target.name, e.target.value)}
         />
         <SelectContainer>
@@ -91,11 +147,9 @@ const RecipeDescriptionFields = ({
           <Select
             id="category"
             styles={customSelectStyles}
-            options={categoryOptions}
+            options={categories}
             placeholder="Select..."
-            value={categoryOptions.find(
-              (option) => option.value === recipeData.category
-            )}
+            value={selectedCategory}
             onChange={(option) => handleChange("category", option.value)}
           />
         </SelectContainer>
@@ -107,7 +161,7 @@ const RecipeDescriptionFields = ({
             options={timeOptions}
             placeholder="Select..."
             value={timeOptions.find(
-              (option) => option.value === recipeData.time
+              (option) => option.value === recipeData?.time
             )}
             onChange={(option) => handleChange("time", option.value)}
           />
@@ -117,4 +171,4 @@ const RecipeDescriptionFields = ({
   );
 };
 
-export default RecipeDescriptionFields;
+export { RecipeDescriptionFields, ImageUploadField };

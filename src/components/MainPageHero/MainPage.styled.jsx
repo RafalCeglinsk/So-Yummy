@@ -31,7 +31,7 @@ gap:30px;
     padding-top: 159px;
     gap:50px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     background-image: -webkit-image-set(url(${BgDskLeft}) 2x),
     -webkit-image-set(url(${BgDskDown}) 2x), url(${BgTriDesk});
             background-position: top left, top  right , top right ;
@@ -51,7 +51,7 @@ export const HeroWrapper = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 100%;
     gap: 0px;
   }
@@ -69,8 +69,8 @@ export const TitleWrapper = styled.div`
     gap: 24px;
     padding-top: 30px;
   }
-  @media screen and (min-width: 1440px) {
-    padding-top: 45px;
+  @media screen and (min-width: 1280px) {
+    padding-top: 95px;
   }
 `;
 export const MainTitle = styled.div`
@@ -86,7 +86,7 @@ export const MainTitle = styled.div`
     font-size: 72px;
     text-align: center;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280) {
     font-size: 100px;
   }
 `;
@@ -102,7 +102,7 @@ export const TextContent = styled.div`
     font-size: 14px;
     text-align: left;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280) {
     font-size: 20px;
     line-height: 1.3;
     max-width: 465px;
@@ -121,7 +121,7 @@ export const SbTabletStyle = styled.div`
     display: block;
     width: 100%;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280) {
     padding-top: 34px;
   }
 `;
