@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { MyRecipe } from '../../components/MyRecipe/MyRecipe';
-import { MainPageTitle } from 'components/MainPageTitle/MainPageTitle';
-// import { getMyRecipesAPI } from '../../services/API/Recipes';
-// import { deleteMyRecipe } from '../../redux/opertions';
-import {
-  RecipeList,
+import { MyRecipe } from '../../components/MyRecipies/MyRecipe';
+
+// to jest podpięcie  tylko po to zeby nie krzyczało do napisania jest logika pobierania danych z endpointu jak będzie ju gotowy. Tak samo deleteRecipe 
+import { getMyRecipesAPI } from '../../api/myRecipies';
+import { deleteMyRecipe } from '../../api/myRecipies';
+
+
+import {  RecipeList,
   FavoritePageThumb,
   FailNotification,
-  Container,
-} from './MyRecipesPage.Styled';
+  Container, } from './MyRecipesPage.Styled';
+
 function fetchData() {
   return getMyRecipesAPI().then(data => {
     return data.data;
@@ -30,7 +32,10 @@ const MyRecipesPage = () => {
     fetchData().then(data => setData(data));
   };
   const itemsPerPage = 4;
-  const totalPages = Math.ceil(data.length / itemsPerPage);
+
+// po podłączeniu się do do danych, mozna okomentowac, inczaj  wywala błąd z okazji"length" 
+
+  //  const totalPages = Math.ceil(data.length / itemsPerPage);
   const getPaginatedData = () => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -38,8 +43,8 @@ const MyRecipesPage = () => {
   };
   return (
     <Container>
-      <MainPageTitle value="My recipes"></MainPageTitle>
-      {data.length > 0 ? (
+<div><p>Page Title - MY RECIPE</p></div>
+      {data && data.length > 0 ? (
         <>
           <FavoritePageThumb>
             <RecipeList>

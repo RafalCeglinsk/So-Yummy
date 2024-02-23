@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const item = styled.img`
   @media (min-width: 768px) {
   }

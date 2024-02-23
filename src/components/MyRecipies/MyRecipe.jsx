@@ -10,7 +10,7 @@ import {
   DeleteButton,
   SeeRecipeBtn,
   FavRecipeTopInfo,
-} from './MyRecipe.Styled';
+} from './MyRecipe.styled.jsx';
 export const MyRecipe = ({ recipe, onDelete }) => {
   return (
     <FavRecipeItem>
