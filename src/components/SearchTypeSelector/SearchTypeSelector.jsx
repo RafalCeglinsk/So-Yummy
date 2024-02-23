@@ -1,14 +1,14 @@
 import React from "react";
-import { SearchSpan, SearchContainer } from "./SearchTypeSelector.styled.jsx";
+import { SearchSpan, SearchContainer,Select,Option } from "./SearchTypeSelector.styled.jsx";
 
 const SearchTypeSelector = ({ onTypeChange, searchType }) => {
   return (
     <SearchContainer>
       <SearchSpan>Search by:</SearchSpan>
-      <select value={searchType} onChange={(e) => onTypeChange(e.target.value)}>
-        <option value="title">Title</option>
-        <option value="ingredients">Ingredients</option>
-      </select>
+      <Select value={searchType} onChange={(e) => onTypeChange(e.target.value)}>
+        <Option value="title">Title</Option>
+        <Option value="ingredients">Ingredients</Option>
+      </Select>
     </SearchContainer>
   );
 };

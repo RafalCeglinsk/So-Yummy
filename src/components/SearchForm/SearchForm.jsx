@@ -1,6 +1,11 @@
 import React from "react";
-
+import { fetchData } from "../../api/searchRecipesFetch";
 const SearchForm = ({ searchQuery, onSearchChange, onSubmit }) => {
+
+ const handleClick =()=>{
+  fetchData()
+
+ }
   return (
     <form onSubmit={onSubmit}>
       <input
@@ -11,7 +16,8 @@ const SearchForm = ({ searchQuery, onSearchChange, onSubmit }) => {
         value={searchQuery}
         onChange={onSearchChange}
       />
-      <button type="submit">Search</button>
+
+      <button onClick={handleClick} type="submit">Search</button>
     </form>
   );
 };

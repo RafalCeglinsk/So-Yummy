@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import RecipesList from "../RecipesList/RecipesList.jsx";
-import axios from "axios";
+
 
 const SearchedRecipesList = () => {
   const [searchParams] = useSearchParams();
@@ -22,21 +22,6 @@ const SearchedRecipesList = () => {
     } else {
       setIsFirstLoad(false);
     }
-
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`/api/recipes/search`, {
-          params: { query, type },
-        });
-        setRecipes(response.data);
-        setError(null);
-      } catch (err) {
-        setError("An error occurred while fetching the recipes.");
-        setRecipes(null);
-      }
-    };
-
-    fetchData();
   }, [searchParams, isFirstLoad]);
 
   if (error) {
