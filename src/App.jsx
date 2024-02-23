@@ -41,7 +41,6 @@ function App() {
       <Route />
       <Route path="/main" element={<Main />} />
       <Route path="/favorite" element={<Favorite />} />
-      <Route path="/recipes/:recipeId" element={<RecipePage />} />
       {/* <Route path='/footer' element={<Footer/>} /> */}
     </Routes>
   );
