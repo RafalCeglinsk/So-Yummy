@@ -15,7 +15,7 @@ export const RecipePageHero = ({ recipe }) => {
       <HeaderDiv>
         <Header>{recipe.title}</Header>
         <RecipeDesc>{recipe.description}</RecipeDesc>
-        <AddButton text="Add to favorite recipes" />
+        <AddButton recipe={recipe} />
       </HeaderDiv>
       <TimeContainer>
         <Clock />
