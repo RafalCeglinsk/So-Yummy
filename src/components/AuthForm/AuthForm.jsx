@@ -2,8 +2,21 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login, register } from "../../redux/auth/operations";
+
 import mobileLogo from "../../images/AuthPage/mobileLogox1.png";
+import mobileLogoRetina from "../../images/AuthPage/mobileLogox2.png";
 import mobileBackground from "../../images/AuthPage/mobileBackgroundx1.png";
+import mobileBackgroundRetina from "../../images/AuthPage/mobileBackgroundx2.png";
+
+import tabletLogo from "../../images/AuthPage/tabletBackgroundx1.png";
+import tabletLogoRetina from "../../images/AuthPage/tabletBackgroundx2.png";
+import tabletBackground from "../../images/AuthPage/tabletBackgroundx1.png";
+import tabletBackgroundRetina from "../../images/AuthPage/tabletBackgroundx2.png";
+
+import desktopLogo from "../../images/AuthPage/desktopBackgroundx1.png";
+import desktopLogoRetina from "../../images/AuthPage/desktopBackgroundx2.png";
+import desktopBackground from "../../images/AuthPage/desktopBackgroundx1.png";
+import desktopBackgroundRetina from "../../images/AuthPage/desktopBackgroundx2.png";
 
 import {
   Background,
@@ -48,7 +61,14 @@ export const AuthForm = () => {
   };
   return (
     <Form onSubmit={handleSubmit}>
-      <Logo mobileimage={mobileLogo} />
+      <Logo
+        mobileimage={mobileLogo}
+        mobileiretinaimage={mobileLogoRetina}
+        tabletimage={tabletLogo}
+        tabletretinaimage={tabletLogoRetina}
+        desktopimage={desktopLogo}
+        desktopretinaimage={desktopLogoRetina}
+      />
       <Container>
         <H2>{location === "/auth/login" ? "Sign In" : "Registration"}</H2>
         {location === "/auth/register" && (
@@ -96,7 +116,14 @@ export const AuthForm = () => {
       ) : (
         <StyledLink to="/auth/login">Sign in</StyledLink>
       )}
-      <Background mobilebackground={mobileBackground} />
+      <Background
+        mobilebackground={mobileBackground}
+        mobileiretinabackground={mobileBackgroundRetina}
+        tabletbackground={tabletBackground}
+        tabletretinabackground={tabletBackgroundRetina}
+        desktopbackground={desktopBackground}
+        desktopretinabackground={desktopBackgroundRetina}
+      />
     </Form>
   );
 };
