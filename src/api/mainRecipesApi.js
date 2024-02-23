@@ -11,3 +11,6 @@ export const fetchCategories = async () => {
     throw new Error("Error fetching categories");
   }
 };
+
+
+
