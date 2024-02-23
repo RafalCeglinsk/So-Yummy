@@ -5,16 +5,13 @@ axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
 export const getRecipeId = createAsyncThunk(
   "recipes/getRecipeId",
-  async (id, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       const response = await axios.get(`/api/recipes/`);
-      console.log("Response:", response);
       const data = response.data;
       const recipe = data.recipe;
-      console.log("Recipe:", recipe);
       return recipe;
     } catch (error) {
-      console.log("Error:", error);
       return thunkAPI.rejectWithValue(error);
     }
   }
