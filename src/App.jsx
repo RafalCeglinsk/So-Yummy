@@ -13,6 +13,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute.jsx";
 import { HeaderPage } from "./pages/Header/Header.jsx";
 import { AddRecipe } from "./pages/AddRecipe/AddRecipe.jsx";
+import SearchPage from "./pages/SearchPage/SearchPage.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ function App() {
         <Route path="/main" element={<Main />} />
         <Route path="favorite" element={<Favorite />} />
         <Route path="recipe" element={<AddRecipe />} />
+        <Route path="/search" element={<SearchPage/>}/>
         {/* <Route path='/footer' element={<Footer/>} /> */}
       </Route>
     </Routes>
