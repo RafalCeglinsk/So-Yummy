@@ -16,8 +16,8 @@ const SearchBarStyled = styled.div`
   }
   input {
     padding: 16px 113px 16px 32px;
-    width: 100%;
-  
+
+position: relative;
     font-size: 12px;
     line-height: 21px;
     border: none;
