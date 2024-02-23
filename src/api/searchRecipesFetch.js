@@ -1,6 +1,5 @@
 import axios from "axios";
-import { useSearchParams } from "react-router-dom";
-import { useState } from "react";
+
 
 
  export const fetchData = async () => {
@@ -20,7 +19,7 @@ import { useState } from "react";
 
 
 
- export const fechIngredients = async () => {
+ export const fetchIngredients = async () => {
     const baseAxiosURL = "http://localhost:5001";
     axios.defaults.baseURL = baseAxiosURL;
   

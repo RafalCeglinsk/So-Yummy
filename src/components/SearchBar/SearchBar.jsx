@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import fetchData, fetchIgredients from "../../src/api/searchRecipesFetch.js";
+import { fetchIngredients,fetchData } from "../../api/searchRecipesFetch.js";
 import { useNavigate } from "react-router-dom";
 import SearchForm from "../SearchForm/SearchForm.jsx";
 import SearchTypeSelector from "../SearchTypeSelector/SearchTypeSelector.jsx";
@@ -21,8 +21,8 @@ const SearchBar = ({ showTypeSelector }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // navigate(`?type=${searchType}&query=${encodeURIComponent(searchQuery)}`);
-    if (searchType === ingredients) {
-fetchIgredients()
+    if (searchType === "ingredients") {
+      fetchIngredients()
     
     }
     else{
