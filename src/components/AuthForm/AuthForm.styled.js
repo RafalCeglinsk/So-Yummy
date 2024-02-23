@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export const Form = styled.form`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,6 +16,7 @@ export const Container = styled.div`
   border-radius: 30px;
   background-color: var(--color-bg-start);
   padding: 32px 28px 40px;
+  z-index: 2;
 `;
 
 export const H2 = styled.h2`
@@ -64,8 +66,20 @@ export const Logo = styled.div`
 `;
 
 export const StyledLink = styled(NavLink)`
-  color: #000;
-  text-decoration: none;
+  color: var(--color-default-1);
   margin: 18px;
   text-decoration: underline;
+  z-index: 1;
+`;
+
+export const Background = styled.div`
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100vw;
+  height: 55vh;
+  background-image: url(${(props) => props.mobilebackground});
 `;

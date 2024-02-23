@@ -3,8 +3,10 @@ import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login, register } from "../../redux/auth/operations";
 import mobileLogo from "../../images/AuthPage/mobileLogox1.png";
+import mobileBackground from "../../images/AuthPage/mobileBackgroundx1.png";
 
 import {
+  Background,
   Container,
   Form,
   FormButton,
@@ -94,6 +96,7 @@ export const AuthForm = () => {
       ) : (
         <StyledLink to="/auth/login">Sign in</StyledLink>
       )}
+      <Background mobilebackground={mobileBackground} />
     </Form>
   );
 };
