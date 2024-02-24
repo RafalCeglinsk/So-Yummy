@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+ export const Form =styled.form`
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+
+  @media screen and (min-width: 768px) {
+    gap: 28px;
+  }
+`
+
 const SearchBarStyled = styled.div`
   display: flex;
   align-items: center;
@@ -57,11 +69,14 @@ position: relative;
 export default SearchBarStyled;
 
 
-export const SearchContainer = styled.div`
+export const Label = styled.label`
 padding: 35px 0px ;
   display: flex;
   align-items: center;
   margin-bottom: 16px;
+
+  font-weight: 500;
+
 `;
 
 export const SearchSpan = styled.span`
@@ -76,7 +91,9 @@ export const Select = styled.select`
   border-radius: 4px;
   font-size: 16px;
   font-weight: 400;
-  appearance: none;
+  width: 146px;
+  height: 34px;
+  border-radius: 0px 0px 6px 6px;
   outline: none;
   background: #fff;
   cursor: pointer;
@@ -87,11 +104,12 @@ export const Select = styled.select`
 `;
 
 export const Option = styled.option`
+
   padding: 8px 16px;
   font-size: 16px;
   font-weight: 400;
   cursor: pointer;
-
+  opacity: 0.5;
   &:hover {
     background: #fafafa;
   }

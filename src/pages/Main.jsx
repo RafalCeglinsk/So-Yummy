@@ -15,7 +15,7 @@ const Main = () => {
         {" "}
         <MainPage />
         <SbMobileStyle>
-          <SearchBar />
+          <SearchBar showSearchContainer={false}/>
         </SbMobileStyle>
         <MainGallery />
         <Link to="/categories/Beef">

@@ -7,7 +7,7 @@ const SearchPage = () => {
   return (
     <SearchPageStyled>
       <TitleSearchPage>Search</TitleSearchPage>
-      <SearchBar showTypeSelector={true} />
+      <SearchBar showSearchContainer={true} />
 
 
     </SearchPageStyled>
