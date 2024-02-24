@@ -19,6 +19,8 @@ const authPersistConfig = {
   whitelist: ["token"],
 };
 
+
+
 export const store = configureStore({
   reducer: {
     shopping: shoppingReducer,

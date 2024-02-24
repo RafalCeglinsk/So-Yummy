@@ -9,6 +9,7 @@ const instance = axios.create({
     timeout: 5000,
     headers: {
       'X-Custom-Header': 'foobar'
+      
     }
   });
   
