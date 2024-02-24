@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import shoppingReducer from "./shoppingList/sliceShopping.js";
+import recipesReducer from "./AddRecipe/sliceAddRecipe.js";
 import { authReducer } from "./auth/authSlice";
 import {
   persistStore,
@@ -12,7 +13,6 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { recipeReducer } from "./recipePage/recipeSlice.js";
 
 const authPersistConfig = {
   key: "auth",
@@ -23,13 +23,22 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     shopping: shoppingReducer,
-    recipes: recipeReducer,
+    recipes: recipesReducer,
     auth: persistReducer(authPersistConfig, authReducer),
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        ignoredActions: [
+          FLUSH,
+          REHYDRATE,
+          PAUSE,
+          PERSIST,
+          PURGE,
+          REGISTER,
+          "recipes/updateField",
+        ],
+        ignoredPaths: ["recipes.recipeData.recipeImg"],
       },
     }),
 });
