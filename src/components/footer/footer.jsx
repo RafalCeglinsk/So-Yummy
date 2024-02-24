@@ -41,7 +41,7 @@ const Footer = () => {
         </Column>
       </FooterContainer>
 
-      <CopyrightText>© 2023 Wszelkie prawa zastrzeżone. Regulamin</CopyrightText>
+      <CopyrightText>© 2023 Wszelkie prawa zastrzeżone. <p className="regulations">Regulamin</p></CopyrightText>
     </StyledFooter>
   );
 };
