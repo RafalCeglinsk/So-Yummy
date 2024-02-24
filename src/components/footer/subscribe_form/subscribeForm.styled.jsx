@@ -4,6 +4,10 @@ export const SubscribeFormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 767px) {
+    padding-bottom: 100px;
+    padding-top: 0px;
+  }
 `;
 
 export const EmailInput = styled.input`
