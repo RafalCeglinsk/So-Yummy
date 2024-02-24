@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { RenderHamburger } from "./HeaderRenderSvg";
+import FetchName from "./helpers/UserName";
 
 import {
   Logo,
@@ -75,7 +76,9 @@ const SharedLayout = () => {
           </Nav>
           <Main>
             <Photo onClick={openModal1}></Photo>
-            <UserName>UserName</UserName>
+            <UserName>
+              <FetchName />
+            </UserName>
             <LogoBurger onClick={openModal2}>
               <RenderHamburger />
             </LogoBurger>
