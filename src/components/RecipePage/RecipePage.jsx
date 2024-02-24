@@ -23,7 +23,7 @@ export const RecipePage = () => {
   return (
     <div>
       <RecipePageHero recipe={recipe} />
-      <RecipeIngredientsList ingredients={recipe.ingredients} />
+      <RecipeIngredientsList recipe={recipe} />
       <RecipePreparation recipe={recipe} />
     </div>
   );
