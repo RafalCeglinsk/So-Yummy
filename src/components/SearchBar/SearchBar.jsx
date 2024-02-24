@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useSearchParams } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { performSearch } from "../../redux/searchBar/operations.js";
 import SearchBarStyled from "./SearchBar.styled.jsx";
 import {
   Form,
@@ -10,37 +10,27 @@ import {
   Option,
 } from "./SearchBar.styled.jsx";
 
-
-const SearchBar = ({ showSearchContainer , searchQuery}) => {
-
-  const [value, setValue] = useState(
-    searchQuery === undefined ? '' : searchQuery
-  );
-
-  const [selectedValue, setSelectedValue]= useState('query')
-
-  let [searchParams, setSearchParams] = useSearchParams();
-
+const SearchBar = () => {
+  const [value, setValue] = useState("");
+  const [searchType, setSearchType] = useState("query");
+  const dispatch = useDispatch();
+  const searchResults = useSelector((state) => state.search.searchResults);
 
   const handleSearchChange = (event) => {
-    const inputValue = event.target.value;
-    setValue(inputValue);
-    setSearchParams(`?type=${selectedValue}&query=${encodeURIComponent(inputValue)}`);
+    setValue(event.target.value);
   };
-
 
   const handleTypeChange = (event) => {
-    const selectValue = event.target.value;
-    setSelectedValue(selectValue);
-    setSearchParams(`?type=${selectValue}&query=${encodeURIComponent(value)}`);
+    setSearchType(event.target.value);
   };
 
-
-
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(performSearch({ query: value, type: searchType }));
+  };
 
   return (
-
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <SearchBarStyled>
         <input
           type="text"
@@ -54,48 +44,15 @@ const SearchBar = ({ showSearchContainer , searchQuery}) => {
         <button type="submit">Search</button>
       </SearchBarStyled>
 
-      {showSearchContainer && (
-        <Label>
-          <SearchSpan>Search by:</SearchSpan>{" "}
-
-          {/* <Select  > */}
-          <Select value={selectedValue} onChange={handleTypeChange}>
-
-            <Option value="title">Title</Option>
-            <Option value="ingredients">Ingredients</Option>
-          </Select>
-        </Label>
-      )}
-      </Form>
-
+      <Label>
+        <SearchSpan>Search by:</SearchSpan>{" "}
+        <Select value={searchType} onChange={handleTypeChange}>
+          <Option value="title">Title</Option>
+          <Option value="ingredients">Ingredients</Option>
+        </Select>
+      </Label>
+    </Form>
   );
 };
 
 export default SearchBar;
-
-
-// to było wcześniej w funkcji:
-
-//   const [value, setValue] = useState("");
-//   const [searchType, setSearchType] = useState("query");
-//   const navigate = useNavigate();
-
-//   const handleSearchChange = (event) => {
-//     setValue(event.target.value);
-//   };
-
-//   const handleTypeChange = (type) => {
-//     setSearchType(type);
-//   };
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-
-//     if (searchType === "ingredients") {
-//       fetchIngredients()
-
-//     }
-//     else{
-// fetchData()
-//     }
-//   };
