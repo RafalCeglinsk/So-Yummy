@@ -48,7 +48,9 @@ const SearchBar = ({ showSearchContainer , searchQuery}) => {
       {showSearchContainer && (
         <Label>
           <SearchSpan>Search by:</SearchSpan>{" "}
-          <Select value={selectedValue} >
+
+          <Select  >
+          {/* <Select value={selectedValue} > */}
             <Option value="title">Title</Option>
             <Option value="ingredients">Ingredients</Option>
           </Select>
