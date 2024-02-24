@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 import SearchBarStyled from "./SearchBar.styled.jsx";
 import {
@@ -16,15 +17,23 @@ const SearchBar = ({ showSearchContainer , searchQuery}) => {
     searchQuery === undefined ? '' : searchQuery
   );
 
-  const [selectedValue, setSelectedValue]= useState('title')
+  const [selectedValue, setSelectedValue]= useState('query')
+
+  let [searchParams, setSearchParams] = useSearchParams();
+
 
   const handleSearchChange = (event) => {
-    setValue(event.target.value);
+    const inputValue = event.target.value;
+    setValue(inputValue);
+    setSearchParams(`?type=${selectedValue}&query=${encodeURIComponent(inputValue)}`);
   };
 
 
-
-
+  const handleTypeChange = (event) => {
+    const selectValue = event.target.value;
+    setSelectedValue(selectValue);
+    setSearchParams(`?type=${selectValue}&query=${encodeURIComponent(value)}`);
+  };
 
 
 
@@ -49,8 +58,9 @@ const SearchBar = ({ showSearchContainer , searchQuery}) => {
         <Label>
           <SearchSpan>Search by:</SearchSpan>{" "}
 
-          <Select  >
-          {/* <Select value={selectedValue} > */}
+          {/* <Select  > */}
+          <Select value={selectedValue} onChange={handleTypeChange}>
+
             <Option value="title">Title</Option>
             <Option value="ingredients">Ingredients</Option>
           </Select>
@@ -80,7 +90,7 @@ export default SearchBar;
 
 //   const handleSubmit = (event) => {
 //     event.preventDefault();
-//     // navigate(`?type=${searchType}&query=${encodeURIComponent(value)}`);
+
 //     if (searchType === "ingredients") {
 //       fetchIngredients()
 
