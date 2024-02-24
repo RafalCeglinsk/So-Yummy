@@ -11,8 +11,10 @@ export const performSearch = createAsyncThunk(
       } else if (type === "ingredients") {
         response = await axios.get(`/recipes/search?ingredients=${query}`);
       }
-      console.log(response.data);
-      return response.data;
+      const data = response.data;
+      const result = data.result;
+      console.log(result);
+      return result;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });
     }

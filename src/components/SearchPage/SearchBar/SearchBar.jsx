@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { performSearch } from "../../redux/searchBar/operations.js";
+import { performSearch } from "../../../redux/searchBar/operations.js";
 import SearchBarStyled from "./SearchBar.styled.jsx";
 import {
   Form,
@@ -14,7 +14,6 @@ const SearchBar = () => {
   const [value, setValue] = useState("");
   const [searchType, setSearchType] = useState("query");
   const dispatch = useDispatch();
-  const searchResults = useSelector((state) => state.search.searchResults);
 
   const handleSearchChange = (event) => {
     setValue(event.target.value);

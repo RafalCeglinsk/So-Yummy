@@ -1,15 +1,20 @@
 import React from "react";
-import { SearchPageStyled, TitleSearchPage } from "./SearchPage.styled.jsx";
-import SearchBar from "../../components/SearchBar/SearchBar.jsx";
-
+import { SearchPageStyled } from "./SearchPage.styled.jsx";
+import SearchBar from "../../components/SearchPage/SearchBar/SearchBar.jsx";
+import { MainPageTittle } from "../../components/SearchPage/MainPageTittle/MainPageTittle.jsx";
+import { useSelector } from "react-redux";
+import { SearchedRecipesList } from "../../components/SearchPage/SearchedRecipesList/SearchedRecipesList.jsx";
 
 const SearchPage = () => {
+  const searchResults = useSelector((state) => {
+    console.log(state); // log the entire state
+    return state.search.searchResults;
+  });
   return (
     <SearchPageStyled>
-      <TitleSearchPage>Search</TitleSearchPage>
+      <MainPageTittle />
       <SearchBar showSearchContainer={true} />
-
-
+      <SearchedRecipesList recipes={searchResults} />
     </SearchPageStyled>
   );
 };

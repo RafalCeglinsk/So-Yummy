@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { MainPage } from "../components/MainPageHero/MainPage";
-import SearchBar from "../components/SearchBar/SearchBar";
+import SearchBar from "../components/SearchPage/SearchBar/SearchBar";
 import { MainGallery } from "../components/MainPageHero/PreviewCategories/MainGallery";
 import Footer from "../components/footer/footer";
 import { CurvedButtonMain } from "../components/Buttons/CurvedButton";
@@ -15,7 +15,7 @@ const Main = () => {
         {" "}
         <MainPage />
         <SbMobileStyle>
-          <SearchBar showSearchContainer={false}/>
+          <SearchBar showSearchContainer={false} />
         </SbMobileStyle>
         <MainGallery />
         <Link to="/categories/Beef">
