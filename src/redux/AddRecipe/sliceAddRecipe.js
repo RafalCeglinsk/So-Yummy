@@ -33,7 +33,14 @@ export const addRecipeThunk = createAsyncThunk(
 const initialState = {
   categories: [],
   recipes: [],
-  recipeData: {},
+  recipeData: {
+    title: "",
+    category: "",
+    description: "",
+    time: "",
+    ingredients: [],
+    instructions: "",
+  },
   status: "idle",
   error: null,
 };

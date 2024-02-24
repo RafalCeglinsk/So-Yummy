@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
 import {
   getCategoriesThunk,
-  addRecipeThunk,
   updateField,
 } from "../../../redux/AddRecipe/sliceAddRecipe";
 import { CameraIcon } from "../../RenderSvg/RenderSvg";
@@ -53,7 +52,7 @@ const ImageUploadField = ({ onImageUpload }) => {
   return (
     <ImageUploadContainer onClick={handleContainerClick}>
       <label htmlFor="image-upload" style={{ cursor: "pointer" }}>
-        <ImageUploadButton>
+        <ImageUploadButton type="button">
           <CameraIcon />
         </ImageUploadButton>
       </label>
@@ -69,10 +68,9 @@ const ImageUploadField = ({ onImageUpload }) => {
   );
 };
 
-const RecipeDescriptionFields = () => {
+const RecipeDescriptionFields = ({ recipeData, setRecipeData }) => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.recipes.categories);
-  const recipeData = useSelector((state) => state.recipes.recipeData);
 
   useEffect(() => {
     dispatch(getCategoriesThunk());
@@ -86,7 +84,10 @@ const RecipeDescriptionFields = () => {
   };
 
   const handleChange = (name, value) => {
-    dispatch(updateField({ name, value }));
+    setRecipeData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleFormSubmit = async (e) => {
@@ -103,7 +104,7 @@ const RecipeDescriptionFields = () => {
 
     // Przykład przesyłania danych formularza, w tym pliku, do serwera
     try {
-      const response = await fetch("http://localhost:5001/api/recipes", {
+      const response = await fetch("http://localhost:5001/api/ownRecipes", {
         method: "POST",
         body: formData,
       });
@@ -124,7 +125,7 @@ const RecipeDescriptionFields = () => {
 
   return (
     <FieldContainer>
-      <ImageUploadField onImageUpload={handleImageUpload} />
+      <ImageUploadField type="button" onImageUpload={handleImageUpload} />
       <Form onSubmit={handleFormSubmit}>
         <Input
           id="title"
