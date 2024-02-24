@@ -1,7 +1,10 @@
 import styled from "styled-components";
-import backgroundImg from "#images/RecipePage/mobileBG.svg";
-import tabletBG from "#images/RecipePage/tabletBG.svg";
-import desktopBG from "#images/RecipePage/desktopBG.svg";
+import recipedesktopBG from "#images/RecipePage/recipeDesktopBG.png";
+import recipedesktopBG2x from "#images/RecipePage/recipeDesktopBG2x.png";
+import recipetabletBG from "#images/RecipePage/recipeTabletBG.png";
+import recipetabletBG2x from "#images/RecipePage/recipeTabletBG2x.png";
+import recipemobileBG from "#images/RecipePage/recipeMobileBG.png";
+import recipemobileBG2x from "#images/RecipePage/recipeMobileBG2x.png";
 
 export const BackgroundSection = styled.section`
   height: auto;
@@ -9,16 +12,19 @@ export const BackgroundSection = styled.section`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  background-image: url(${backgroundImg});
+  background-image: -webkit-image-set(url(${recipemobileBG})),
+    -webkit-image-set(url(${recipemobileBG2x}) 2x);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   @media screen and (min-width: 768px) {
-    background-image: url(${tabletBG});
+    background-image: -webkit-image-set(url(${recipetabletBG})),
+      -webkit-image-set(url(${recipetabletBG2x}) 2x);
     align-items: center;
   }
   @media screen and (min-width: 1440px) {
-    background-image: url(${desktopBG});
+    background-image: -webkit-image-set(url(${recipedesktopBG})),
+      -webkit-image-set(url(${recipedesktopBG2x}) 2x);
   }
 `;
 

@@ -14,7 +14,7 @@ import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute.js
 import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute.jsx";
 import { HeaderPage } from "./pages/Header/Header.jsx";
 import { AddRecipe } from "./pages/AddRecipe/AddRecipe.jsx";
-import { RecipePage } from "./components/RecipePage/RecipePage.jsx";
+import { RecipesPage } from "./pages/RecipePage.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,6 +45,7 @@ function App() {
         element={<PrivateRoute redirectTo="/main" component={<Main />} />}
       />
       <Route path="/favorite" element={<Favorite />} />
+      <Route path="recipes/:recipeId" element={<RecipesPage/>} />
       {/* <Route path='/footer' element={<Footer/>} /> */}
     </Routes>
   );
