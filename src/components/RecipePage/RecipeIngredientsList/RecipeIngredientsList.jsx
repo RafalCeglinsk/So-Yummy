@@ -33,8 +33,8 @@ export const RecipeIngredientsList = ({ ingredients }) => {
         </HeadUl>
       </HeadContainer>
       <IngredientsListContainer>
-        {ingredients.map((ingredient) => (
-          <IngredientsListUl key={ingredient.id}>
+        {ingredients.map((ingredient, id) => (
+          <IngredientsListUl key={id}>
             <IngredientsListLi>
               <img src={ingredient.thb} alt={ingredient.ttl} />
               <span>{ingredient.ttl}</span>
