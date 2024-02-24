@@ -23,6 +23,10 @@ export const BackgroundSection = styled.section`
 `;
 
 export const HeaderDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 80px 38px 0px 38px;
   @media screen and (min-width: 768px) {
     padding: 72px 131.5px 24px 131.5px;
@@ -33,7 +37,7 @@ export const HeaderDiv = styled.div`
 `;
 
 export const Header = styled.h1`
-  padding: 0px 11.5px 18px 11.5px;
+  padding: 0px 13.5px 18px 13.5px;
   font-weight: 600;
   font-size: 24px;
   line-height: 1.5;
@@ -61,12 +65,12 @@ export const RecipeDesc = styled.div`
   }
 `;
 export const Button = styled.button`
+  margin: 24px 0px 42px 0px;
   background-color: transparent;
   border-radius: 15px 35px;
   padding: 10px 18px;
   width: 150px;
   height: 35px;
-  margin: 24px 112px 42px 113px;
   border: solid var(--color-icons-3) 1px;
   outline: none;
   cursor: pointer;
@@ -79,7 +83,6 @@ export const Button = styled.button`
   }
 
   & > span {
-    font-family: "Poppins";
     color: var(--color-icons-1);
     font-size: 12px;
     text-align: left;

@@ -1,3 +1,4 @@
+import { useDispatch } from "react-redux";
 import { SectionWrapper } from "./RecipeIngredients.styled";
 import {
   IngredientsListContainer,
@@ -10,8 +11,18 @@ import {
   IngredientsListLi,
   Checkbox,
 } from "./RecipeIngredients.styled";
+import { addShoppingThunk } from "../../../redux/shoppingList/thunkShopping";
 
 export const RecipeIngredientsList = ({ ingredients }) => {
+  const dispatch = useDispatch();
+
+  const handleCheckbox = (ingredient) => {
+    const credentrials = {
+      id: ingredient.id,
+      name: ingredient.ttl,
+    };
+    dispatch(addShoppingThunk(credentrials));
+  };
   return (
     <SectionWrapper>
       <HeadContainer>
@@ -23,15 +34,17 @@ export const RecipeIngredientsList = ({ ingredients }) => {
       </HeadContainer>
       <IngredientsListContainer>
         {ingredients.map((ingredient) => (
-          <IngredientsListUl key={ingredient._id.$oid}>
+          <IngredientsListUl key={ingredient.id}>
             <IngredientsListLi>
               <img src={ingredient.thb} alt={ingredient.ttl} />
-
               <span>{ingredient.ttl}</span>
-              <div>2 chopped</div>
-
+              <div>{ingredient.measure}</div>
               <Checkbox className="checkbox">
-                <input type="checkbox" id={`checkbox-${ingredient.ttl}`} />
+                <input
+                  type="checkbox"
+                  id={`checkbox-${ingredient.ttl}`}
+                  onChange={() => handleCheckbox(ingredient)}
+                />
                 <label htmlFor={`checkbox-${ingredient.ttl}`}></label>
               </Checkbox>
             </IngredientsListLi>
