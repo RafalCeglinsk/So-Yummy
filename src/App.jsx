@@ -13,7 +13,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute.jsx";
 import { HeaderPage } from "./pages/Header/Header.jsx";
 import { AddRecipe } from "./pages/AddRecipe/AddRecipe.jsx";
-import { RecipePage } from "./components/RecipePage/RecipePage.jsx";
+import { RecipesPage } from "./pages/RecipePage.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ function App() {
       <Route />
       <Route path="/main" element={<Main />} />
       <Route path="/favorite" element={<Favorite />} />
-      <Route path="recipes/:recipeId" element={<RecipePage />} />
+      <Route path="recipes/:recipeId" element={<RecipesPage/>} />
       {/* <Route path='/footer' element={<Footer/>} /> */}
     </Routes>
   );
