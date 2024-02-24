@@ -7,16 +7,16 @@ import {
 
 const RecipePreparationFields = ({ recipeData, setRecipeData }) => {
   const handleChange = (e) => {
-    setRecipeData({ ...recipeData, preparation: e.target.value });
+    setRecipeData({ ...recipeData, instructions: e.target.value });
   };
 
   return (
     <PreparationContainer>
       <PreparationTitle>Recipe Preparation</PreparationTitle>
       <PreparationTextarea
-        name="preparation"
+        name="instructions"
         placeholder="Enter recipe"
-        value={recipeData.preparation}
+        value={recipeData.instructions}
         onChange={handleChange}
       />
     </PreparationContainer>

@@ -8,10 +8,10 @@ const ImageUploadField = ({ onImageUpload }) => {
       onImageUpload(event.target.files[0]);
     }
   };
-
+  // multipart/form-data
   return (
     <ImageUploadContainer>
-      <ImageUploadButton>
+      <ImageUploadButton type="button">
         <svg width="64" height="64" viewBox="0 0 64 64">
           <RenderFacebook />
         </svg>

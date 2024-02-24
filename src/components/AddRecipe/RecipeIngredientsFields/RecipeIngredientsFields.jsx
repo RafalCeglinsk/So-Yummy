@@ -39,7 +39,7 @@ const RecipeIngredientsFields = ({ recipeData, setRecipeData }) => {
   }, []);
 
   const addIngredient = () => {
-    const newIngredient = { name: "", quantity: "", unit: "g" };
+    const newIngredient = { name: "", measure: "" }; // Zaktualizowano
     setRecipeData({
       ...recipeData,
       ingredients: [...recipeData.ingredients, newIngredient],
@@ -54,7 +54,16 @@ const RecipeIngredientsFields = ({ recipeData, setRecipeData }) => {
   const handleChange = (index, field, value) => {
     const newIngredients = recipeData.ingredients.map((ingredient, i) => {
       if (i === index) {
-        return { ...ingredient, [field]: value };
+        if (field === "quantity" || field === "unit") {
+          // Zaktualizowano logikę dla quantity i unit, aby aktualizować measure
+          const newMeasure =
+            field === "quantity"
+              ? `${value} ${ingredient.measure.split(" ")[1]}`
+              : `${ingredient.measure.split(" ")[0]} ${value}`;
+          return { ...ingredient, measure: newMeasure };
+        } else {
+          return { ...ingredient, [field]: value };
+        }
       }
       return ingredient;
     });
@@ -62,30 +71,18 @@ const RecipeIngredientsFields = ({ recipeData, setRecipeData }) => {
   };
 
   const handleSelectNameChange = (index, selectedOption) => {
-    const newIngredients = recipeData.ingredients.map((ingredient, i) => {
-      if (i === index) {
-        return { ...ingredient, name: selectedOption.value };
-      }
-      return ingredient;
-    });
-    setRecipeData({ ...recipeData, ingredients: newIngredients });
+    handleChange(index, "name", selectedOption.value);
   };
 
   const handleSelectChange = (index, value) => {
-    const newIngredients = recipeData.ingredients.map((ingredient, i) => {
-      if (i === index) {
-        return { ...ingredient, unit: value.value };
-      }
-      return ingredient;
-    });
-    setRecipeData({ ...recipeData, ingredients: newIngredients });
+    handleChange(index, "unit", value.value);
   };
 
   return (
     <IngredientsContainer>
       <IngredientsHeader>
         <h2>Ingredients</h2>
-        <AddIngredientButton onClick={addIngredient}>
+        <AddIngredientButton type="button" onClick={addIngredient}>
           Add ingredients
         </AddIngredientButton>
       </IngredientsHeader>
@@ -107,7 +104,7 @@ const RecipeIngredientsFields = ({ recipeData, setRecipeData }) => {
               <IngredientInput
                 type="text"
                 placeholder="0"
-                value={ingredient.quantity}
+                value={ingredient.measure.split(" ")[0]}
                 onChange={(e) =>
                   handleChange(index, "quantity", e.target.value)
                 }
@@ -116,36 +113,14 @@ const RecipeIngredientsFields = ({ recipeData, setRecipeData }) => {
                 styles={unitSelect}
                 options={unitOptions}
                 value={unitOptions.find(
-                  (option) => option.value === ingredient.unit
+                  (option) => option.value === ingredient.measure.split(" ")[1]
                 )}
                 onChange={(value) => handleSelectChange(index, value)}
-                placeholder="Select unit"
               />
             </Span>
           </SizeGroup>
           <RemoveIngredientButton onClick={() => removeIngredient(index)}>
-            <svg
-              width="18"
-              height="19"
-              viewBox="0 0 18 19"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M14.0625 4.4375L3.9375 14.5625"
-                stroke="#333333"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M14.0625 14.5625L3.9375 4.4375"
-                stroke="#333333"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            {/* Ikona usuwania */}
           </RemoveIngredientButton>
         </IngredientField>
       ))}
