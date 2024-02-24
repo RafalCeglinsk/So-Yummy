@@ -13,12 +13,13 @@ import {
 import { RecipeDescriptionFields } from "../RecipeDescriptionFields/RecipeDescriptionFields";
 import RecipePreparationFields from "../RecipePreparationFields/RecipePreparationFields";
 import RecipeIngredientsFields from "../RecipeIngredientsFields/RecipeIngredientsFields";
-import PopularRecipe from "../PopularRecipe/PopularRecipe";
+// import PopularRecipe from "../PopularRecipe/PopularRecipe";
 import { SocialMediaBar } from "../../SocialMediaBar/SocialMediaBar";
 import axios from "axios";
 
 const AddRecipeForm = () => {
   const [recipeData, setRecipeData] = useState({
+    recipeImg: null,
     title: "",
     category: "",
     description: "",
@@ -29,19 +30,23 @@ const AddRecipeForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(recipeData);
-    if (!recipeData.title || recipeData.title.trim() === "") {
-      alert("Title is required.");
-      return; // Przerwij funkcję, jeśli walidacja nie przejdzie
+    const formData = new FormData();
+    formData.append("title", recipeData.title);
+    formData.append("category", recipeData.category);
+    formData.append("description", recipeData.description);
+    formData.append("time", recipeData.time);
+    // Dodawanie składników jako oddzielnych pól
+    recipeData.ingredients.forEach((ingredient, index) => {
+      formData.append(`ingredients[${index}][name]`, ingredient.name);
+      formData.append(`ingredients[${index}][amount]`, ingredient.amount);
+      // Dodaj więcej pól dla składnika, jeśli jest to konieczne
+    });
+    formData.append("instructions", recipeData.instructions);
+    console.log(recipeData.recipeImg);
+    if (recipeData.recipeImg) {
+      console.log(recipeData.recipeImg);
+      formData.append("recipeImg", recipeData.recipeImg);
     }
-    const recipeToSubmit = {
-      title: recipeData.title,
-      category: recipeData.category,
-      description: recipeData.description,
-      time: recipeData.time,
-      ingredients: recipeData.ingredients,
-      instructions: recipeData.instructions,
-    };
     const token =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDY3NDBkYzkyODMxZmZmMWJhNGMzNCIsImlhdCI6MTcwODYzNTc4NCwiZXhwIjoxNzA5MjQwNTg0fQ.i9oD7B3oVB4--kYun2EZKc2zzk-NYYnFdjajELZID2c";
     console.log("Przesłane dane przepisu:", recipeData);
@@ -49,23 +54,24 @@ const AddRecipeForm = () => {
     try {
       const response = await axios.post(
         "http://localhost:5001/api/ownRecipes",
-        recipeToSubmit,
+        formData,
         {
           headers: {
             Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
           },
         }
       );
-
       console.log("Przepis dodany:", response.data);
-      // Tutaj możesz przekierować użytkownika lub wyświetlić komunikat o sukcesie
+      console.log("Przesyłane dane przepisu:", recipeData);
+
+      // Tutaj logika po pomyślnym dodaniu przepisu
     } catch (error) {
       console.error(
         "Błąd przy dodawaniu przepisu:",
         error.response ? error.response.data : error
       );
-      // Obsługa błędu, np. wyświetlenie informacji o błędzie użytkownikowi
+      // Obsługa błędu
     }
   };
 

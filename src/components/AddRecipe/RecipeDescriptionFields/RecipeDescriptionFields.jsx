@@ -36,12 +36,15 @@ const timeOptions = [
   { value: "80", label: "80 min" },
 ];
 
-const ImageUploadField = ({ onImageUpload }) => {
+const ImageUploadField = () => {
+  const dispatch = useDispatch(); // Używamy hooka useDispatch
   const fileInputRef = useRef(null);
 
   const handleImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
-      onImageUpload(event.target.files[0]);
+      const file = event.target.files[0];
+      console.log(file);
+      dispatch(updateField({ name: "recipeImg", value: file }));
     }
   };
 
@@ -63,6 +66,7 @@ const ImageUploadField = ({ onImageUpload }) => {
         accept="image/*"
         onChange={handleImageChange}
         style={{ display: "none" }}
+        name="recipeImg"
       />
     </ImageUploadContainer>
   );
@@ -77,10 +81,8 @@ const RecipeDescriptionFields = ({ recipeData, setRecipeData }) => {
   }, [dispatch]);
 
   const handleImageUpload = (file) => {
-    // Tutaj możesz przetworzyć plik, np. przesłać go na serwer
     console.log(file);
-    // Zakładając, że chcesz zaktualizować stan z przesłanym obrazem:
-    dispatch(updateField({ name: "image", value: file.name }));
+    dispatch(updateField({ name: "recipeImg", value: file }));
   };
 
   const handleChange = (name, value) => {
@@ -99,7 +101,7 @@ const RecipeDescriptionFields = ({ recipeData, setRecipeData }) => {
     // Dodaj plik obrazu
     const imageInput = document.getElementById("image-upload");
     if (imageInput.files[0]) {
-      formData.append("image", imageInput.files[0]);
+      formData.append("recipeImg", imageInput.files[0]);
     }
 
     // Przykład przesyłania danych formularza, w tym pliku, do serwera
