@@ -39,14 +39,14 @@ export const RecipeIngredientsList = ({ ingredients }) => {
               <img src={ingredient.thb} alt={ingredient.ttl} />
               <span>{ingredient.ttl}</span>
               <div>{ingredient.measure}</div>
-              <Checkbox className="checkbox">
+     
                 <input
                   type="checkbox"
                   id={`checkbox-${ingredient.ttl}`}
                   onChange={() => handleCheckbox(ingredient)}
-                />
+                  />
                 <label htmlFor={`checkbox-${ingredient.ttl}`}></label>
-              </Checkbox>
+             
             </IngredientsListLi>
           </IngredientsListUl>
         ))}
