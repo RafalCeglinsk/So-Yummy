@@ -25,7 +25,7 @@ const SearchPageStyled = styled.div`
 const TitleSearchPage = styled.h2`
   color: var(--color-text-1);
   font-weight: 600;
-  font-size: 28px;
+  font-size: 1;
   line-height: 28px;
   letter-spacing: -2%;
   margin-bottom: 50px;
@@ -33,14 +33,14 @@ const TitleSearchPage = styled.h2`
 
   @media screen and (min-width: 768px) {
     font-size: 32px;
-    line-height: 32px;
+
     letter-spacing: -0.64px;
     margin-bottom: 40px;
     margin-top: 72px;
   }
   @media screen and (min-width: 1440px) {
     font-size: 44px;
-    line-height: 44px;
+
     letter-spacing: -0.88px;
     margin-top: 104px;
   }
