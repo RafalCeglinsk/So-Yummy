@@ -11,6 +11,7 @@ import Main from "./pages/Main";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute.jsx";
+import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute.jsx";
 import { HeaderPage } from "./pages/Header/Header.jsx";
 import { AddRecipe } from "./pages/AddRecipe/AddRecipe.jsx";
 import { RecipePage } from "./components/RecipePage/RecipePage.jsx";
@@ -39,7 +40,10 @@ function App() {
       />
       <Route path="/shopping-list" element={<ShoppingListPage />} />
       <Route />
-      <Route path="/main" element={<Main />} />
+      <Route
+        path="/main"
+        element={<PrivateRoute redirectTo="/main" component={<Main />} />}
+      />
       <Route path="/favorite" element={<Favorite />} />
       {/* <Route path='/footer' element={<Footer/>} /> */}
     </Routes>
