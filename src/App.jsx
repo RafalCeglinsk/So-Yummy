@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { refreshUser } from "./redux/auth/operations.js";
 
 import { HomePage } from "./pages/HomePage/HomePage";
-import Footer from './components/footer/footer'
+// import Footer from './components/footer/footer'
 import Favorite from "./pages/FavoritePage/Favorite.jsx";
 import ShoppingListPage from "./pages/ShoppingListPage/ShoppingListPage.jsx";
 import Main from "./pages/Main";
@@ -41,7 +41,7 @@ function App() {
       <Route />
       <Route path="/main" element={<Main />} />
       <Route path="/favorite" element={<Favorite />} />
-      <Route path='/footer' element={<Footer/>} />
+      {/* <Route path='/footer' element={<Footer/>} /> */}
     </Routes>
   );
 }
