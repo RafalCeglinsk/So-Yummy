@@ -4,7 +4,17 @@ import { useSelector, useDispatch } from "react-redux";
 import vegetableBasket from "../../images/IndegredientsShoppingList/vegetableBasket.jpg"
 import vegetableBasket2x from "../../images/IndegredientsShoppingList/vegetableBasket2x.jpg"
 import {getShoppingThunk, deleteShoppingThunk} from "../../redux/shoppingList/thunkShopping.js"
-import { EmptyStyled, PictrueContainerStyled } from "./IndegredientsShoppingListStyled.js";
+import { EmptyStyled, PictrueContainerStyled, 
+  StyledIngridientsHeader,
+  StyledIngridientsItem,
+  StyledIngrsHeadThumb,
+  StyledIngridientsContainer,
+  StyledImageCardThumb,
+  StyledImage,
+  StyledQuantity,
+  StyledFlexRow,
+  StyledFlexQuantity,
+  StyledListContainerIngridient,  } from "./IndegredientsShoppingListStyled.js";
 
 const IngredientsShoppingList = () => {
     const dispatch = useDispatch()
@@ -20,17 +30,19 @@ const IngredientsShoppingList = () => {
     }
 
     return (
-        <div>
+        <StyledIngridientsContainer>
           {shopping.isLoading ? null : (
             <>
               {shopping.items.length > 0 && (
-                <div>
+                <StyledIngridientsHeader>
                   <h3>Product</h3>
+                  <StyledIngrsHeadThumb>
                   <p>Number</p>
                   <p>Remove</p>
-                </div>
+                </StyledIngrsHeadThumb>
+                </StyledIngridientsHeader>
               )}
-              <ul>
+              < StyledListContainerIngridient>
                 {shopping.items.length === 0 ? (
                   <PictrueContainerStyled>
                     <picture>
@@ -51,38 +63,38 @@ const IngredientsShoppingList = () => {
                 ) : (
                   shopping.items?.map((item) => {
                     return (
-                      <li key={item.Id}>
-                        <div>
-                          <img
+                      <StyledIngridientsItem  key={item.Id}>
+                        <StyledImageCardThumb>
+                          <StyledImage
                             src={item.img}
                             alt={item.desc}
                             height="60"
                           />
                           <p>{item.name}</p>
-                        </div>
-                        <div>
+                        </StyledImageCardThumb>
+                        <StyledFlexQuantity>
+                        <StyledFlexRow>
                           {item.measure.split("/r/n").map((el) => (
-                            <div key={nanoid()}>
+                            <StyledQuantity key={nanoid()}>
                               <p>{el}</p>
                               <button onClick={() => deleteButton(item.Id)}>
                                 Delete
                               </button>
-                            </div>
+                            </StyledQuantity>
                           ))}
-                        </div>
-                      </li>
+                          </StyledFlexRow>
+                        </StyledFlexQuantity>
+                      </StyledIngridientsItem >
                     );
                   })
                 )}
-              </ul>
+              </StyledListContainerIngridient>
             </>
           )}
-        </div>
+        </StyledIngridientsContainer>
         
 
       );
 
                 }
-
-
 export default IngredientsShoppingList
