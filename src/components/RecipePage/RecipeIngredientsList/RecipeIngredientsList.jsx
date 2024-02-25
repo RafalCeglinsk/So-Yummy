@@ -9,7 +9,7 @@ import {
   LiAdd,
   IngredientsListUl,
   IngredientsListLi,
-  Checkbox,
+
 } from "./RecipeIngredients.styled";
 import { addShoppingThunk } from "../../../redux/shoppingList/thunkShopping";
 

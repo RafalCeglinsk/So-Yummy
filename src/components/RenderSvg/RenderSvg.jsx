@@ -405,6 +405,7 @@ export function Clock() {
 }
 
 export function RemoveButton() {
+  return(
   <svg
     fill="#000000"
     height="800px"
@@ -421,5 +422,36 @@ export function RemoveButton() {
 	l171.117-171.12l171.118,171.12c2.913,2.911,6.866,4.55,10.993,4.55c4.128,0,8.081-1.639,10.992-4.55l32.709-32.719
 	c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z"
     />
-  </svg>;
+  </svg>
+  )
 }
+
+export function MainTitle1 (){
+return(
+<svg  viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="3.38095" width="8" height="8" rx="3" transform="rotate(-25 0 3.38095)" fill="#8BAA36"/>
+</svg>
+
+)
+
+}
+
+export function MainTitle2 (){
+  return(
+<svg  viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="2.84525" width="8" height="8" rx="3" transform="rotate(-25 0 2.84525)" fill="#8BAA36"/>
+</svg>
+  
+  )
+  
+  }
+
+  export function MainTitle3 (){
+    return(
+      <svg  viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect y="2" width="6" height="6" rx="3" transform="rotate(-25 0 2)" fill="#22252A"/>
+      </svg>
+    
+    )
+    
+    }
