@@ -13,7 +13,7 @@ import {
 import { RecipeDescriptionFields } from "../RecipeDescriptionFields/RecipeDescriptionFields";
 import RecipePreparationFields from "../RecipePreparationFields/RecipePreparationFields";
 import RecipeIngredientsFields from "../RecipeIngredientsFields/RecipeIngredientsFields";
-// import PopularRecipe from "../PopularRecipe/PopularRecipe";
+import PopularRecipe from "../PopularRecipe/PopularRecipe";
 import { SocialMediaBar } from "../../SocialMediaBar/SocialMediaBar";
 import axios from "axios";
 
@@ -35,20 +35,16 @@ const AddRecipeForm = () => {
     formData.append("category", recipeData.category);
     formData.append("description", recipeData.description);
     formData.append("time", recipeData.time);
-    // Dodawanie składników jako oddzielnych pól
     recipeData.ingredients.forEach((ingredient, index) => {
       formData.append(`ingredients[${index}][name]`, ingredient.name);
-      formData.append(`ingredients[${index}][amount]`, ingredient.amount);
-      // Dodaj więcej pól dla składnika, jeśli jest to konieczne
+      formData.append(`ingredients[${index}][measure]`, ingredient.measure); // Upewnij się, że to pole jest dodawane
     });
     formData.append("instructions", recipeData.instructions);
-    console.log(recipeData.recipeImg);
     if (recipeData.recipeImg) {
-      console.log(recipeData.recipeImg);
       formData.append("recipeImg", recipeData.recipeImg);
     }
     const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDY3NDBkYzkyODMxZmZmMWJhNGMzNCIsImlhdCI6MTcwODYzNTc4NCwiZXhwIjoxNzA5MjQwNTg0fQ.i9oD7B3oVB4--kYun2EZKc2zzk-NYYnFdjajELZID2c";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDY3NDBkYzkyODMxZmZmMWJhNGMzNCIsImlhdCI6MTcwODg3MTY5MiwiZXhwIjoxNzA5NDc2NDkyfQ.F8VEWnfV7mPfYRDHlpOzRl1JUf-lqVgsUKydX_NGmew";
     console.log("Przesłane dane przepisu:", recipeData);
 
     try {
@@ -58,20 +54,16 @@ const AddRecipeForm = () => {
         {
           headers: {
             Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
           },
         }
       );
       console.log("Przepis dodany:", response.data);
       console.log("Przesyłane dane przepisu:", recipeData);
-
-      // Tutaj logika po pomyślnym dodaniu przepisu
     } catch (error) {
       console.error(
         "Błąd przy dodawaniu przepisu:",
         error.response ? error.response.data : error
       );
-      // Obsługa błędu
     }
   };
 
@@ -102,7 +94,7 @@ const AddRecipeForm = () => {
             <StyledH2>Follow Us</StyledH2>
             <SocialMediaBar />
           </FollowUs>
-          {/* <PopularRecipe></PopularRecipe> */}
+          <PopularRecipe></PopularRecipe>
         </Right>
       </Main>
     </Container>
