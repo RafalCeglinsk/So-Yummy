@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { MyRecipe } from '../../components/MyRecipies/MyRecipe';
 
 // to jest podpięcie  tylko po to zeby nie krzyczało do napisania jest logika pobierania danych z endpointu jak będzie ju gotowy. Tak samo deleteRecipe 
@@ -20,7 +20,7 @@ function fetchData() {
 }
 const MyRecipesPage = () => {
   const [data, setData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, ] = useState(1);
   const dispatch = useDispatch();
   useEffect(() => {
     fetchData().then(data => {
