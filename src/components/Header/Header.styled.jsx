@@ -72,6 +72,7 @@ export const HeaderContainer = styled.div`
   }
 `;
 export const HeaderModalWraper = styled.div`
+  z-index: 100;
   height: inherit;
   display: flex;
   flex-direction: column;

@@ -5,16 +5,15 @@ import { refreshUser } from "./redux/auth/operations.js";
 
 import { HomePage } from "./pages/HomePage/HomePage";
 // import Footer from './components/footer/footer'
-import Favorite from "./pages/FavoritePage/Favorite.jsx";
+import FavoritePage from "./pages/FavoritePage/Favorite.jsx";
 import ShoppingListPage from "./pages/ShoppingListPage/ShoppingListPage.jsx";
 import Main from "./pages/Main";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute.jsx";
-import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute.jsx";
 import { HeaderPage } from "./pages/Header/Header.jsx";
 import { AddRecipe } from "./pages/AddRecipe/AddRecipe.jsx";
-import { RecipesPage } from "./pages/RecipePage.jsx";
+import { RecipePage } from "./components/RecipePage/RecipePage.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,28 +24,28 @@ function App() {
 
   return (
     <Routes>
-      <Route index element={<HomePage />} />
-      <Route
-        path="/auth/register"
-        element={
-          <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
-        }
-      />
-      <Route
-        path="/auth/login"
-        element={
-          <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
-        }
-      />
-      <Route path="/shopping-list" element={<ShoppingListPage />} />
-      <Route />
-      <Route
-        path="/main"
-        element={<PrivateRoute redirectTo="/main" component={<Main />} />}
-      />
-      <Route path="/favorite" element={<Favorite />} />
-      <Route path="recipes/:recipeId" element={<RecipesPage/>} />
-      {/* <Route path='/footer' element={<Footer/>} /> */}
+      <Route path="/" element={<HeaderPage />}>
+        <Route index element={<HomePage />} />
+        <Route
+          path="/auth/register"
+          element={
+            <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
+          }
+        />
+        <Route
+          path="/auth/login"
+          element={
+            <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
+          }
+        />
+        <Route path="/add" element={<AddRecipe />} />
+
+        <Route path="/shopping-list" element={<ShoppingListPage />} />
+        <Route />
+        <Route path="/main" element={<Main />} />
+        <Route path="/favorite" element={<FavoritePage />} />
+        {/* <Route path='/footer' element={<Footer/>} /> */}
+      </Route>
     </Routes>
   );
 }
