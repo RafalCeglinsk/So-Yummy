@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Thunk do pobierania kategorii przepisów
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+
 export const getCategoriesThunk = createAsyncThunk(
   "recipes/getCategories",
   async (_, { rejectWithValue }) => {

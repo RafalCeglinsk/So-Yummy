@@ -44,6 +44,7 @@ function App() {
         <Route />
         <Route path="/main" element={<Main />} />
         <Route path="/favorite" element={<FavoritePage />} />
+        <Route path="/recipes/:recipeId" element={<RecipePage />} />
         {/* <Route path='/footer' element={<Footer/>} /> */}
       </Route>
     </Routes>
