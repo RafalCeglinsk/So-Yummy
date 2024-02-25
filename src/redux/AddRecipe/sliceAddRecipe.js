@@ -19,7 +19,6 @@ export const getCategoriesThunk = createAsyncThunk(
   }
 );
 
-// Thunk do dodawania nowego przepisu
 export const addRecipeThunk = createAsyncThunk(
   "recipes/addRecipe",
   async (recipeData, { rejectWithValue }) => {
