@@ -14,6 +14,7 @@ import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute.js
 import { HeaderPage } from "./pages/Header/Header.jsx";
 import { AddRecipe } from "./pages/AddRecipe/AddRecipe.jsx";
 import { RecipesPage } from "./pages/RecipePage.jsx";
+import RecipePage from "./components/RecipePage/RecipePage.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,7 +42,7 @@ function App() {
       <Route />
       <Route path="/main" element={<Main />} />
       <Route path="/favorite" element={<Favorite />} />
-      <Route path="recipes/:recipeId" element={<RecipesPage/>} />
+      <Route path="recipes/:recipeId" element={<RecipePage />} />
       {/* <Route path='/footer' element={<Footer/>} /> */}
     </Routes>
   );
