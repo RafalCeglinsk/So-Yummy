@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { performSearch } from "../../../redux/searchBar/operations.js";
 import SearchBarStyled from "./SearchBar.styled.jsx";
 import {
@@ -10,10 +11,11 @@ import {
   Option,
 } from "./SearchBar.styled.jsx";
 
-const SearchBar = () => {
+const SearchBar = ({showSearchContainer}) => {
   const [value, setValue] = useState("");
   const [searchType, setSearchType] = useState("title");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSearchChange = (event) => {
     setValue(event.target.value);
@@ -28,8 +30,16 @@ const SearchBar = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (value.trim() !== "") {
+      navigate(`/search?query=${value}&type=${searchType}`);
+    } else {
+      alert("Please enter a search query.");
+    }
     dispatch(performSearch({ query: value, type: searchType }));
   };
+
+
+
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -45,7 +55,7 @@ const SearchBar = () => {
         />
         <button type="submit">Search</button>
       </SearchBarStyled>
-
+      {showSearchContainer && (
       <Label>
         <SearchSpan>Search by:</SearchSpan>{" "}
         <Select value={searchType} onChange={handleTypeChange}>
@@ -53,7 +63,9 @@ const SearchBar = () => {
           <Option value="ingredients">Ingredients</Option>
         </Select>
       </Label>
+        )}
     </Form>
+    
   );
 };
 
