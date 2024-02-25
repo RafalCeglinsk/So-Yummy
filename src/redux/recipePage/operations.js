@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
 export const getRecipeId = createAsyncThunk(
   "recipes/getRecipeId",
@@ -23,8 +23,9 @@ export const getRecipeId = createAsyncThunk(
 export const toggleFavorite = createAsyncThunk(
   "favorites/toggle",
   async (credentials, thunkAPI) => {
+    console.log(credentials);
     try {
-      const response = await axios.post(`/favorites/${credentials}`);
+      const response = await axios.post(`/favorites/`, credentials);
       return response.data;
     } catch (error) {
       console.log("Error:", error);
@@ -35,9 +36,10 @@ export const toggleFavorite = createAsyncThunk(
 
 export const removeFavorite = createAsyncThunk(
   "favorites/remove",
-  async (id, thunkAPI) => {
+  async (recipeId, thunkAPI) => {
     try {
-      const response = await axios.delete(`/favorites/${id}`);
+      console.log(recipeId);
+      const response = await axios.delete(`/favorites/${recipeId}`);
       return response.data;
     } catch (error) {
       console.log("Error:", error);
