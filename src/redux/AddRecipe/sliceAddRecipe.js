@@ -7,7 +7,7 @@ export const getCategoriesThunk = createAsyncThunk(
   "recipes/getCategories",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get("/recipes/categories");
+      const response = await axios.get("api/recipes/categories");
       return response.data.categories.map((category) => ({
         value: category,
         label: category,
