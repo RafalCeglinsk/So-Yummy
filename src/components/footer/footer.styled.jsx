@@ -92,7 +92,7 @@ export const StyledFooter = styled.footer`
 `;
 
 export const SoYummyHeading = styled.h1`
-  color: #FAFAFA;
+  color: #fafafa;
   font-size: 24px;
   font-weight: 700;
   padding-bottom: 40px;
@@ -100,18 +100,18 @@ export const SoYummyHeading = styled.h1`
   align-items: center;
   svg {
     margin-right: 8px;
-    height: 1.5em; 
-  padding-bottom: 20px;
-  display: flex;
-  align-items: center;
-
+    height: 1.5em;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
   svg {
     margin-right: 8px;
     height: 1.2em;
-  padding-bottom: 20px;
-  display: flex;
-  align-items: center;
-
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
   svg {
     margin-right: 8px;
     height: 1.2em;
