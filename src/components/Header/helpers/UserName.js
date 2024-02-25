@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const FetchName = ({}) => {
+const FetchName = () => {
   const [name, setName] = useState("");
 
   useEffect(() => {

@@ -22,7 +22,7 @@ const FavoriteRecipes = () => {
   return (
     <Container>
     <FavoriteContainer>
-      <FavoriteTitle>Favorites</FavoriteTitle>
+
       <FavoriteList>
         {allRecipes.length !== 0 ? (
           allRecipes.map(recipe => {
@@ -52,6 +52,3 @@ const FavoriteRecipes = () => {
 
 export default FavoriteRecipes;
 
-
-{/* <>
- */}
