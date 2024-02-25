@@ -14,6 +14,7 @@ import FavoritePage from "./pages/FavoritePage/Favorite.jsx";
 import { RecipePage } from "./components/RecipePage/RecipePage.jsx";
 import ShoppingListPage from "./pages/ShoppingListPage/ShoppingListPage.jsx";
 import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute.jsx";
+import { CategoryPage } from "./pages/CategoryPage/CategoryPage.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ function App() {
           }
         />
         <Route path="/main" element={<Main />} />
-        <Route path="/categories" element="" />
+        <Route path="/categories" element={<CategoryPage />} />
         <Route path="/add" element={<AddRecipe />} />
         <Route path="/favorite" element={<FavoritePage />} />
         <Route path="/recipes/:recipeId" element={<RecipePage />}></Route>
