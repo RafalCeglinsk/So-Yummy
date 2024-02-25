@@ -7,6 +7,7 @@ export const StyledIcon = styled.div`
   fill: #8BAA36;
   margin-right: 15px;
   transition: transform 0.3s ease-in-out;
+  padding-bottom: 50px;
   
   &:hover {
     transform: scale(2.0);
@@ -28,4 +29,10 @@ export const FollowUsContainer = styled.div`
   align-items: center;
   padding-top: 95px;
   justify-content: center;
+
+  @media screen and (max-width: 767px) {
+    position: relative;
+    top: 230px;
+    padding-top: 0px;
+  }
 `;

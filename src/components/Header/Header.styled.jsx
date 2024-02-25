@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { ReactComponent as Pencil } from "./SVG/Icon.svg";
 import { RenderIcon } from "./HeaderRenderSvg";
 import { SearchLens } from "../RenderSvg/RenderSvg";
+import FetchAvatar from "./helpers/Avatar";
 
 export const Leaf = styled.div`
   position: absolute;
@@ -71,6 +72,7 @@ export const HeaderContainer = styled.div`
   }
 `;
 export const HeaderModalWraper = styled.div`
+  z-index: 100;
   height: inherit;
   display: flex;
   flex-direction: column;
@@ -166,11 +168,14 @@ export const Profile = styled.div`
   }
 `;
 export const Photo = styled.div`
+  background-image: url(${FetchAvatar});
+  background-size: 34px 34px;
   border-radius: 50%;
   width: 34px;
   height: 34px;
   background-color: grey;
   @media screen and (min-width: 768px) {
+    background-size: 44px 44px;
     width: 44px;
     height: 44px;
   }

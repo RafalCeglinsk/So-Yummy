@@ -63,7 +63,7 @@ export const LiAdd = styled.li`
 export const IngredientsListContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 24px;
+  padding-top: 24px;
   gap: 16px;
   @media screen and (min-width: 768px) {
     margin-top: 32px;
@@ -73,7 +73,6 @@ export const IngredientsListContainer = styled.div`
     margin-top: 50px;
   }
 `;
-
 export const IngredientsListUl = styled.ul`
   display: flex;
   align-items: center;
@@ -83,82 +82,69 @@ export const IngredientsListUl = styled.ul`
 `;
 
 export const IngredientsListLi = styled.li`
+  position: relative;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
   & > img {
-    padding: 10.5px 8px 10.5px 10px;
+    padding-left: 10px;
     width: 65px;
     height: 65px;
     @media screen and (min-width: 768px) {
-      padding: 16px 24px;
       width: 144px;
       height: 146px;
     }
     @media screen and (min-width: 1440px) {
-      padding: 1px 32px;
       width: 180px;
       height: 180px;
     }
   }
   & > span {
-    display: flex;
-    align-items: center;
-    width: 95px;
-    height: 54px;
     font-size: 12px;
     font-weight: 500;
     line-height: 1.16;
     letter-spacing: -0.24px;
-    text-align: left;
     @media screen and (min-width: 768px) {
-      width: 208px;
-      height: 24px;
       font-size: 24px;
       line-height: 1;
-      padding: 77px 65px 77px 0px;
     }
     @media screen and (min-width: 1440px) {
       width: 547px;
     }
   }
   & > div {
-    margin-left: 28px;
+    padding: 4px 14px;
     background-color: var(--color-text-5);
-    padding: 4px;
     border-radius: 4px;
     color: var(--color-text-7);
     font-size: 10px;
     font-weight: 600;
     line-height: 1.5;
-    text-align: right;
+
     @media screen and (min-width: 768px) {
-      padding: 4px 8px;
       font-size: 18px;
       line-height: 1.5;
-      margin-left: 0;
     }
     @media screen and (min-width: 1440px) {
-      margin-left: 40px;
     }
   }
-`;
-
-export const Checkbox = styled.div`
-  margin-left: 28px;
 
   input[type="checkbox"] {
     display: none;
   }
 
   label {
-    position: relative;
     cursor: pointer;
   }
 
   label:before {
     content: "";
+
     position: absolute;
+    top: 32%;
+    right: 5%;
     width: 18px;
     height: 18px;
     border: 2px solid var(--checkbox-color);
@@ -166,31 +152,32 @@ export const Checkbox = styled.div`
     @media screen and (min-width: 768px) {
       width: 35px;
       height: 35px;
-      margin-left: 40px;
+      top: 35%;
     }
     @media screen and (min-width: 1440px) {
-      margin-left: 70px;
+      top: 37%;
     }
   }
 
   input[type="checkbox"]:checked + label:after {
-    margin-left: 5px;
     content: "";
     position: absolute;
-    width: 8px;
-    height: 14px;
+    top: 35%;
+    right: 6.5%;
+    width: 6px;
+    height: 12px;
     border: 1px solid var(--color-icons-3);
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);
     @media screen and (min-width: 768px) {
       width: 17px;
-      height: 28px;
-      left: 42px;
-      margin-left: 6px;
+      height: 25px;
+      top: 33%;
+      right: 6%;
     }
     @media screen and (min-width: 1440px) {
-      left: 73px;
-      margin-left: 6px;
+      right: 5.5%;
+      top: 35%;
     }
   }
 `;

@@ -5,7 +5,7 @@ import { refreshUser } from "./redux/auth/operations.js";
 
 import { HomePage } from "./pages/HomePage/HomePage";
 // import Footer from './components/footer/footer'
-import Favorite from "./pages/FavoritePage/Favorite.jsx";
+import FavoritePage from "./pages/FavoritePage/Favorite.jsx";
 import ShoppingListPage from "./pages/ShoppingListPage/ShoppingListPage.jsx";
 import Main from "./pages/Main";
 import RegisterPage from "./pages/RegisterPage.jsx";

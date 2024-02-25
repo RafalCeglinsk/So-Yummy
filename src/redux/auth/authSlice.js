@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { register, login, logout, refreshUser } from "./operations";
 
+const persistedToken = localStorage.getItem("auth:token");
+
 const initialState = {
   user: {
     name: null,
     email: null,
   },
-  token: null,
+  token: persistedToken || null,
   isLoggedIn: false,
   isRefreshing: false,
 };

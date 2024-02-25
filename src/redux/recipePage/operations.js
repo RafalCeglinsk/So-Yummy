@@ -1,18 +1,21 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 
 export const getRecipeId = createAsyncThunk(
   "recipes/getRecipeId",
-  async (_, thunkAPI) => {
+  async (id, thunkAPI) => {
     try {
-      const response = await axios.get(`/api/recipes/`);
+      const response = await axios.get(`recipes/${id}`);
+      console.log("response", response);
       const data = response.data;
+      console.log("data", data);
       const recipe = data.recipe;
+      console.log("recipe", recipe);
       return recipe;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

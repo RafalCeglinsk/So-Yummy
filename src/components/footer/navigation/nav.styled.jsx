@@ -6,6 +6,12 @@ export const StyledNav = styled.nav`
   justify-content: center;
   align-items: center;
 
+  @media screen and (max-width: 767px) {
+    padding-bottom:0px;
+    position: relative;
+    top: 92px; 
+  }
+
   
   a {
     margin-bottom: 10px;

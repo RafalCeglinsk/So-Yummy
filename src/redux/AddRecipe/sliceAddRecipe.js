@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Thunk do pobierania kategorii przepisów
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+
 export const getCategoriesThunk = createAsyncThunk(
   "recipes/getCategories",
   async (_, { rejectWithValue }) => {
@@ -34,6 +35,7 @@ const initialState = {
   categories: [],
   recipes: [],
   recipeData: {
+    recipeImg: null,
     title: "",
     category: "",
     description: "",
@@ -50,6 +52,7 @@ const recipesSlice = createSlice({
   initialState,
   reducers: {
     updateField(state, action) {
+      console.log("Updating field with", action.payload);
       const { name, value } = action.payload;
       if (!state.recipeData) {
         state.recipeData = {};

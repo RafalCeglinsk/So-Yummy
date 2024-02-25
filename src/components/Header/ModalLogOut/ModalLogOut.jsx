@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import useModalOutsideClick from "../ModalClose";
-import logout from "./Logout";
+import logout from "../helpers/Logout";
 import {
   LogOutContainer,
   LogOutText,

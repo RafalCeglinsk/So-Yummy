@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledIcon, FollowUsContainer } from './followUs.styled';  // Importujemy StyledIcon i FollowUsContainer z pliku stylizowanego
+import { StyledIcon, FollowUsContainer } from './followUs.styled';
 
 import { RenderFacebook, RenderYoutube, RenderTwitter, RenderInstargram } from '../../RenderSvg/RenderSvg';
 
