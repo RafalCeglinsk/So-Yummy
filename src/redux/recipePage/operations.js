@@ -23,7 +23,6 @@ export const getRecipeId = createAsyncThunk(
 export const toggleFavorite = createAsyncThunk(
   "favorites/toggle",
   async (credentials, thunkAPI) => {
-    console.log(credentials);
     try {
       const response = await axios.post(`/favorites/`, credentials);
       return response.data;
@@ -38,7 +37,6 @@ export const removeFavorite = createAsyncThunk(
   "favorites/remove",
   async (recipeId, thunkAPI) => {
     try {
-      console.log(recipeId);
       const response = await axios.delete(`/favorites/${recipeId}`);
       return response.data;
     } catch (error) {
