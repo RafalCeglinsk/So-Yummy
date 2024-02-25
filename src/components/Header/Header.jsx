@@ -66,7 +66,7 @@ const SharedLayout = () => {
           </Logo>
           <Nav>
             <NavLinks to="/Categories">Categories</NavLinks>
-            <NavLinks to="/recipe">Add recipies</NavLinks>
+            <NavLinks to="/add">Add recipies</NavLinks>
             <NavLinks to="">My recipies</NavLinks>
             <NavLinks to="/favorite">Favorites</NavLinks>
             <NavLinks to="/shopping-list">Shopping list</NavLinks>

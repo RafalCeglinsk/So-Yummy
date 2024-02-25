@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Outlet } from "react-router-dom";
 import { IconClose } from "../ModalLogOut/ModalLogOut.styled";
 import {
   Logo,
@@ -15,13 +15,15 @@ import { RenderIcon } from "../HeaderRenderSvg";
 import { SearchLens } from "../../RenderSvg/RenderSvg";
 const Modal2 = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
-
+  const handleCloseModal = () => {
+    onClose();
+  };
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <MainModal>
           <ModalHeader>
-            <Logo>
+            <Logo onClick={handleCloseModal}>
               <RenderIcon />
             </Logo>
             <ModalCloseBtn onClick={onClose}>
@@ -30,11 +32,21 @@ const Modal2 = ({ isOpen, onClose }) => {
           </ModalHeader>
           <WraperContainer>
             <HeaderModalWraper>
-              <NavLinks to="/Categories">Categories</NavLinks>
-              <NavLinks to="/AddRecipies">Add recipies</NavLinks>
-              <NavLinks to="/MyRecipies">My recipies</NavLinks>
-              <NavLinks to="/Favorites">Favorites</NavLinks>
-              <NavLinks to="/ShoppingList">Shopping list</NavLinks>
+              <NavLinks to="/Categories" onClick={handleCloseModal}>
+                Categories
+              </NavLinks>
+              <NavLinks to="/add" onClick={handleCloseModal}>
+                Add recipies
+              </NavLinks>
+              <NavLinks to="" onClick={handleCloseModal}>
+                My recipies
+              </NavLinks>
+              <NavLinks to="/favorite" onClick={handleCloseModal}>
+                Favorites
+              </NavLinks>
+              <NavLinks to="/shopping-list" onClick={handleCloseModal}>
+                Shopping list
+              </NavLinks>
               <NavLinks>
                 <SearchLens />
                 Search
@@ -44,6 +56,7 @@ const Modal2 = ({ isOpen, onClose }) => {
           </WraperContainer>
         </MainModal>
       </div>
+      <Outlet />
     </div>
   );
 };

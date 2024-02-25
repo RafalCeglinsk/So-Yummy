@@ -5,7 +5,7 @@ import { refreshUser } from "./redux/auth/operations.js";
 
 import { HomePage } from "./pages/HomePage/HomePage";
 // import Footer from './components/footer/footer'
-import Favorite from "./pages/FavoritePage/Favorite.jsx";
+import FavoritePage from "./pages/FavoritePage/Favorite.jsx";
 import ShoppingListPage from "./pages/ShoppingListPage/ShoppingListPage.jsx";
 import Main from "./pages/Main";
 import RegisterPage from "./pages/RegisterPage.jsx";
@@ -24,24 +24,28 @@ function App() {
 
   return (
     <Routes>
-      <Route index element={<HomePage />} />
-      <Route
-        path="/auth/register"
-        element={
-          <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
-        }
-      />
-      <Route
-        path="/auth/login"
-        element={
-          <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
-        }
-      />
-      <Route path="/shopping-list" element={<ShoppingListPage />} />
-      <Route />
-      <Route path="/main" element={<Main />} />
-      <Route path="/favorite" element={<Favorite />} />
-      {/* <Route path='/footer' element={<Footer/>} /> */}
+      <Route path="/" element={<HeaderPage />}>
+        <Route index element={<HomePage />} />
+        <Route
+          path="/auth/register"
+          element={
+            <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
+          }
+        />
+        <Route
+          path="/auth/login"
+          element={
+            <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
+          }
+        />
+        <Route path="/add" element={<AddRecipe />} />
+
+        <Route path="/shopping-list" element={<ShoppingListPage />} />
+        <Route />
+        <Route path="/main" element={<Main />} />
+        <Route path="/favorite" element={<FavoritePage />} />
+        {/* <Route path='/footer' element={<Footer/>} /> */}
+      </Route>
     </Routes>
   );
 }
