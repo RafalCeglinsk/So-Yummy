@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { MainTitle } from '../../components/MainPageTittle/MainPageTittle';
 // import { useSelector } from 'react-redux';
 import { MyRecipe } from '../../components/MyRecipies/MyRecipe';
+import Footer from '../../components/footer/footer';
 
 // to jest podpięcie  tylko po to zeby nie krzyczało do napisania jest logika pobierania danych z endpointu jak będzie ju gotowy. Tak samo deleteRecipe 
 import { getMyRecipesAPI } from '../../api/myRecipies';
@@ -42,8 +44,9 @@ const MyRecipesPage = () => {
     return data.slice(startIndex, endIndex);
   };
   return (
+    <>
     <Container>
-<div><p>Page Title - MY RECIPE</p></div>
+<MainTitle>My Recipes</MainTitle>
       {data && data.length > 0 ? (
         <>
           <FavoritePageThumb>
@@ -65,6 +68,8 @@ const MyRecipesPage = () => {
         </FailNotification>
       )}
     </Container>
+    <Footer/>
+    </>
   );
 };
 export default MyRecipesPage;
