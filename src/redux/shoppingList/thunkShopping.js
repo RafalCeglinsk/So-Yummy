@@ -27,12 +27,11 @@ export const getShoppingThunk = createAsyncThunk("shopping/get", async () => {
 });
 
 export const addShoppingThunk = createAsyncThunk(
-  "contacts/post",
+  "addShopping/post",
   async (credentials) => {
-    console.log(credentials);
     try {
       const result = await axios.post("/shopping-lists", credentials);
-      return result;
+      return result.data;
     } catch (error) {
       console.log(error.message);
     }

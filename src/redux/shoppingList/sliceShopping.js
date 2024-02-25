@@ -8,9 +8,10 @@ import {
 const handleFulfilledAdd = (state, { payload }) => {
   if (payload) {
     state.shopping.isLoading = false;
-    state.shopping.items = [...payload];
+    state.shopping.items.push(payload);
     state.shopping.error = "";
   }
+  console.log(payload);
 };
 const handlePending = (state) => {
   state.shopping.isLoading = true;
