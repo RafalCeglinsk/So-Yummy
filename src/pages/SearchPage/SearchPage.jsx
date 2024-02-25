@@ -8,7 +8,6 @@ import { SearchedRecipesList } from "../../components/SearchPage/SearchedRecipes
 import SearchImg from "../../images/SearchForSomethingElse/kisspng-vegetable-fruit-basket-century-farms-international-fruits-and-vegetables-5abfb9c60122f5 1.png";
 const SearchPage = () => {
   const searchResults = useSelector((state) => {
-    console.log(" log the entire state,pages", state); // log the entire state
     return state.search.searchResults;
   });
   return (
@@ -20,8 +19,6 @@ const SearchPage = () => {
       )}
       {!searchResults.length && (
         <NoResults>
-          
-      
           <img src={SearchImg} alt="No searching results vegetable img"></img>
           <p>Try looking for something else.</p>
         </NoResults>
