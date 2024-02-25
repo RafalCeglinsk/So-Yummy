@@ -8,6 +8,16 @@ import {
   deleteShoppingThunk,
 } from "../../redux/shoppingList/thunkShopping.js";
 import {
+  StyledIngridientsHeader,
+  StyledIngridientsItem,
+  StyledIngrsHeadThumb,
+  StyledIngridientsContainer,
+  StyledImageCardThumb,
+  StyledImage,
+  StyledQuantity,
+  StyledFlexRow,
+  StyledFlexQuantity,
+  StyledListContainerIngridient,
   EmptyStyled,
   PictrueContainerStyled,
 } from "./IndegredientsShoppingListStyled.js";
@@ -29,17 +39,19 @@ const IngredientsShoppingList = ({ recipe }) => {
   };
 
   return (
-    <div>
+    <StyledIngridientsContainer>
       {shoppingItems.isLoading ? null : (
         <>
           {shoppingItems.length > 0 && (
-            <div>
+            <StyledIngridientsHeader>
               <h3>Product</h3>
+             <StyledIngrsHeadThumb>
               <p>Number</p>
               <p>Remove</p>
-            </div>
+              </StyledIngrsHeadThumb>
+            </StyledIngridientsHeader>
           )}
-          <ul>
+          <StyledListContainerIngridient>
             {shoppingItems.length === 0 ? (
               <PictrueContainerStyled>
                 <picture>
@@ -60,29 +72,31 @@ const IngredientsShoppingList = ({ recipe }) => {
             ) : (
               shoppingItems.map((item) => {
                 return (
-                  <li key={item.Id}>
-                    <div>
-                      <img src={item.img} alt={item.desc} height="60" />
+                  <StyledIngridientsItem key={item.Id}>
+                    <StyledImageCardThumb>
+                      <StyledImage src={item.img} alt={item.desc} height="60" />
                       <p>{item.name}</p>
-                    </div>
-                    <div>
+                    </StyledImageCardThumb>
+                    <StyledFlexQuantity>
+                    <StyledFlexRow>
                       {item.measure.split("/r/n").map((el) => (
-                        <div key={nanoid()}>
+                        <StyledQuantity key={nanoid()}>
                           <p>{el}</p>
                           <button onClick={() => deleteButton(item.Id)}>
                             Delete
                           </button>
-                        </div>
+                        </StyledQuantity>
                       ))}
-                    </div>
-                  </li>
+                      </StyledFlexRow>
+                    </StyledFlexQuantity>
+                  </StyledIngridientsItem>
                 );
               })
             )}
-          </ul>
+          </StyledListContainerIngridient>
         </>
       )}
-    </div>
+    </StyledIngridientsContainer>
   );
 };
 
