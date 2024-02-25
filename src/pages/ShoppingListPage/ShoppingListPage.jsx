@@ -1,13 +1,16 @@
+import IngredientsShoppingList from "../../components/IndegredientsShoppingList/IndegredientsShoppingList";
+import {
+  ShoppingPageStyled,
+  TitleShoppingPage,
+} from "./ShoppingListPageStyled.js";
 
-import IngredientsShoppingList from "../../components/IndegredientsShoppingList/IndegredientsShoppingList"
-import { ShoppingPageStyled, TitleShoppingPage } from "./ShoppingListPageStyled.js"
 const ShoppingListPage = () => {
-    return (
-        <ShoppingPageStyled>
-            <TitleShoppingPage>Shopping list</TitleShoppingPage>
-            <IngredientsShoppingList/>
-        </ShoppingPageStyled>
-    )
-}
+  return (
+    <ShoppingPageStyled>
+      <TitleShoppingPage>Shopping list</TitleShoppingPage>
+      <IngredientsShoppingList />
+    </ShoppingPageStyled>
+  );
+};
 
-export default ShoppingListPage
+export default ShoppingListPage;
