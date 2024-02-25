@@ -9,9 +9,12 @@ export const RecipeWrapper = styled.div`
 
 export const RecipeImage = styled.img`
   width: 100%;
-  height: auto;
+  height: 332px;
+  max-width: 433px;
   background-size: cover;
   border-radius: 8px;
+  @media screen and (min-width: 1440px) {
+  }
 `;
 
 export const Placeholder = styled.div`
@@ -38,9 +41,12 @@ export const StyledOl = styled.ol`
 `;
 
 export const StyledLi = styled.li`
+  display: flex;
   list-style-type: none;
   position: relative;
-  display: flex;
+  @media screen and (min-width: 1440px) {
+    max-width: 50%;
+  }
 
   &::before {
     content: counter(step-counter);

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login, register } from "../../redux/auth/operations";
 
 import mobileLogo from "../../images/AuthPage/mobileLogox1.png";
@@ -48,7 +48,7 @@ export const AuthForm = () => {
     input.name === "password" && setPassword(input.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (location === "/auth/register") {
@@ -58,7 +58,11 @@ export const AuthForm = () => {
 
     if (location === "/auth/login") {
       if (email === "" || password === "") return;
-      dispatch(login({ email, password }));
+      try {
+        dispatch(login({ email, password }));
+      } catch (error) {
+        console.error("Błąd logowania:", error);
+      }
     }
   };
   return (
