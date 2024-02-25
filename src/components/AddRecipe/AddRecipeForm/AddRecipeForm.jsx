@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import {
   Form,
   SubmitButton,
@@ -16,6 +17,7 @@ import RecipeIngredientsFields from "../RecipeIngredientsFields/RecipeIngredient
 import PopularRecipe from "../PopularRecipe/PopularRecipe";
 import { SocialMediaBar } from "../../SocialMediaBar/SocialMediaBar";
 import axios from "axios";
+import Notiflix from "notiflix";
 
 const AddRecipeForm = () => {
   const [recipeData, setRecipeData] = useState({
@@ -28,8 +30,39 @@ const AddRecipeForm = () => {
     instructions: "",
   });
 
+  const requiredFields = [
+    "title",
+    "category",
+    "description",
+    "time",
+    "ingredients",
+    "instructions",
+  ];
+
+  // const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    let isFormValid = true;
+
+    requiredFields.forEach((field) => {
+      if (field === "ingredients" && recipeData[field].length === 0) {
+        Notiflix.Notify.failure("Proszę dodać co najmniej jeden składnik.");
+        isFormValid = false;
+      } else if (!recipeData[field] || !recipeData[field].toString().trim()) {
+        Notiflix.Notify.failure(`Pole ${field} jest wymagane.`);
+        isFormValid = false;
+      }
+    });
+
+    if (!recipeData.recipeImg) {
+      Notiflix.Notify.failure("Zdjęcie przepisu jest wymagane.");
+      isFormValid = false;
+    }
+
+    if (!isFormValid) return;
+
     const formData = new FormData();
     formData.append("title", recipeData.title);
     formData.append("category", recipeData.category);
@@ -37,7 +70,7 @@ const AddRecipeForm = () => {
     formData.append("time", recipeData.time);
     recipeData.ingredients.forEach((ingredient, index) => {
       formData.append(`ingredients[${index}][name]`, ingredient.name);
-      formData.append(`ingredients[${index}][measure]`, ingredient.measure); // Upewnij się, że to pole jest dodawane
+      formData.append(`ingredients[${index}][measure]`, ingredient.measure);
     });
     formData.append("instructions", recipeData.instructions);
     if (recipeData.recipeImg) {
@@ -58,12 +91,15 @@ const AddRecipeForm = () => {
         }
       );
       console.log("Przepis dodany:", response.data);
+      Notiflix.Notify.success("Przepis został dodany pomyślnie!");
       console.log("Przesyłane dane przepisu:", recipeData);
+      // navigate("/myRecipesPage");
     } catch (error) {
       console.error(
         "Błąd przy dodawaniu przepisu:",
         error.response ? error.response.data : error
       );
+      Notiflix.Notify.failure("Nie udało się dodać przepisu.");
     }
   };
 
