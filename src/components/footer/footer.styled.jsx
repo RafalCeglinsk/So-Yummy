@@ -9,12 +9,10 @@ export const FooterContainer = styled.div`
   flex-wrap: wrap;
   padding-left: 20px;
   padding-top: 64px;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   padding-right: 100px;
   background-color: #22252A;
   
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1439px) {
     padding-left: 50px;
     padding-right: 50px;
   }
@@ -22,24 +20,18 @@ export const FooterContainer = styled.div`
   @media screen and (max-width: 768px) {
     padding-left: 20px;
     padding-right: 20px;
-=======
-=======
->>>>>>> Stashed changes
   padding-right: 20px;
   background-color: #22252A;
   min-height: 500px;
+  }
 
   @media screen and (min-width: 768px) {
     padding-left: 100px;
     padding-right: 100px;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
   }
   @media screen and (max-width: 767px) {
     flex-direction: column;
     align-items: center;
->>>>>>> Stashed changes
   }
 `;
 
@@ -62,13 +54,9 @@ export const CopyrightText = styled.p`
   opacity: 50%;
   display: flex;
   justify-content: center;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   p.regulations {
     margin-left: 40px; 
-=======
-=======
->>>>>>> Stashed changes
+  }
 
   p.regulations {
     margin-left: 0;
@@ -80,10 +68,6 @@ export const CopyrightText = styled.p`
       margin-left: 40px;
       margin-top: 0;
     }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   }
 `;
 
@@ -94,22 +78,20 @@ export const StyledFooter = styled.footer`
   margin-top: 150px;
   padding-top: 500px;
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1439px) {
     padding-top: 400px;
   }
 
   @media screen and (max-width: 768px) {
     padding-top: 300px;
-=======
+  }
+
   @media screen and (min-width: 768px) {
     padding-top: 500px;
->>>>>>> Stashed changes
-=======
+  }
+
   @media screen and (min-width: 768px) {
     padding-top: 500px;
->>>>>>> Stashed changes
   }
 `;
 
@@ -117,63 +99,52 @@ export const SoYummyHeading = styled.h1`
   color: #FAFAFA;
   font-size: 24px;
   font-weight: 700;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
   padding-bottom: 40px;
   display: flex;
   align-items: center;
   svg {
     margin-right: 8px;
     height: 1.5em; 
-=======
+
   padding-bottom: 20px;
   display: flex;
   align-items: center;
+  }
 
   svg {
     margin-right: 8px;
     height: 1.2em;
->>>>>>> Stashed changes
-=======
   padding-bottom: 20px;
   display: flex;
   align-items: center;
+  }
 
   svg {
     margin-right: 8px;
     height: 1.2em;
->>>>>>> Stashed changes
     width: auto;
     margin-right: 8px;
   }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1439px) {
     font-size: 24px;
     padding-bottom: 20px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     font-size: 20px;
     padding-bottom: 10px;
-=======
-=======
->>>>>>> Stashed changes
+    position: relative;
+    top: 28px;
+  }
+
   @media screen and (min-width: 768px) {
     font-size: 28px;
     padding-bottom: 40px;
     svg {
       height: 1.5em;
     }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
-  }
-  @media screen and (max-width: 767px) {
-    position: relative;
-    top: 28px;
->>>>>>> Stashed changes
   }
 `;
 
@@ -184,42 +155,28 @@ export const FeaturesList = styled.ul`
   font-weight: 400;
   list-style: disc;
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  @media screen and (max-width: 768px) {
-    max-width: 100%;
-=======
-  @media screen and (max-width: 767px) {
-=======
   @media screen and (max-width: 767px){
->>>>>>> Stashed changes
+
     display: none;
   }
 
-  @media screen and (min-width: 768px) {
-    max-width: 418px;
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
     font-size: 18px;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+    height: 102px;
+    width: 380px;
   }
 `;
 
 export const FeatureListItem = styled.li`
   color: #FAFAFA;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   font-size: 18px;
   padding-bottom: 12px;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1439px) {
     text-align: center;
-=======
-=======
->>>>>>> Stashed changes
   font-size: 16px;
   padding-bottom: 10px;
+  }
 
   @media screen and (max-width: 767px) {
     display: none;
@@ -228,10 +185,6 @@ export const FeatureListItem = styled.li`
   @media screen and (min-width: 768px) {
     font-size: 18px;
     padding-bottom: 12px;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   }
 `;
 
@@ -240,18 +193,9 @@ export const SubscribeHeading = styled.h3`
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 12px;
-<<<<<<< Updated upstream
-  display: none;
 
-  @media screen and (min-width: 768px) {
-    font-size: 18px;
-    margin-bottom: 14px;
-    display: block;
-=======
-
-  @media screen and (max-width: 1199px) {
+  @media screen and (max-width: 1439px) {
   display: none;
->>>>>>> Stashed changes
   }
 `;
 
@@ -260,17 +204,8 @@ export const SubscribeText = styled.p`
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 20px;
-<<<<<<< Updated upstream
-  display: none;
 
-  @media screen and (min-width: 768px) {
-    font-size: 16px;
-    margin-bottom: 20px;
-    display: block;
-=======
-
-  @media screen and (max-width: 1199px) {
+  @media screen and (max-width: 1439px) {
    display: none;
->>>>>>> Stashed changes
   }
 `;
