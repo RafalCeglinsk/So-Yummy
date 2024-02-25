@@ -8,8 +8,8 @@ const initialState = {
   error: null,
 };
 
-const recipeSlice = createSlice({
-  name: "recipes",
+const getRecipesSlice = createSlice({
+  name: "getRecipes",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -46,4 +46,4 @@ const recipeSlice = createSlice({
   },
 });
 
-export const recipeReducer = recipeSlice.reducer;
+export const getRecipesRecuder = getRecipesSlice.reducer;
