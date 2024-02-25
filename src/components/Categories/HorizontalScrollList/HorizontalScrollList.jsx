@@ -1,6 +1,7 @@
 import {
   ScrollContainer,
   ScrollItem,
+  StyledUl,
 } from "../HorizontalScrollList/HorizontalScrollList.styled";
 import { useEffect, useState, useRef } from "react";
 import { getSortedCategories } from "../../../api/getSortedCategories";
@@ -16,7 +17,7 @@ export const HorizontalScrollList = () => {
   };
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (_id) => {
       try {
         const data = await getSortedCategories();
         setCategories(data);
@@ -30,9 +31,13 @@ export const HorizontalScrollList = () => {
 
   return (
     <ScrollContainer ref={scrollRef} onWheel={handleWheel}>
-      {categories.map((category, _id) => (
-        <ScrollItem key={_id}>{category}</ScrollItem>
-      ))}
+      <StyledUl>
+        {categories.map((category, _id) => (
+          <li>
+            <ScrollItem key={_id}>{category}</ScrollItem>
+          </li>
+        ))}
+      </StyledUl>
     </ScrollContainer>
   );
 };

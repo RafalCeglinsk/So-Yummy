@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export const ScrollContainer = styled.div`
-  display: flex;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -19,6 +18,10 @@ export const ScrollContainer = styled.div`
   &::-webkit-scrollbar-thumb {
     background: #888;
   }
+`;
+
+export const StyledUl = styled.ul`
+  display: flex;
 `;
 
 export const ScrollItem = styled(NavLink)`
