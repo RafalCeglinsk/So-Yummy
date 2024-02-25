@@ -13,6 +13,8 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import { recipeReducer } from "./recipePage/recipeSlice.js";
+import { searchReducer } from "./searchBar/searchBarSlice.js";
 import { getRecipesRecuder } from "./recipePage/recipeSlice.js";
 
 const authPersistConfig = {
@@ -27,6 +29,7 @@ export const store = configureStore({
     recipes: recipesReducer,
     getRecipes: getRecipesRecuder,
     auth: persistReducer(authPersistConfig, authReducer),
+    search: searchReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

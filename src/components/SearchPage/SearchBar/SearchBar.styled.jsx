@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+ export const Form =styled.form`
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+
+  @media screen and (min-width: 768px) {
+    gap: 28px;
+  }
+`
+
 const SearchBarStyled = styled.div`
   display: flex;
   align-items: center;
@@ -16,8 +28,8 @@ const SearchBarStyled = styled.div`
   }
   input {
     padding: 16px 113px 16px 32px;
-    width: 100%;
-  
+width: 100%;
+position: relative;
     font-size: 12px;
     line-height: 21px;
     border: none;
@@ -55,3 +67,50 @@ const SearchBarStyled = styled.div`
 `;
 
 export default SearchBarStyled;
+
+
+export const Label = styled.label`
+padding: 35px 0px ;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+
+  font-weight: 500;
+
+`;
+
+export const SearchSpan = styled.span`
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 8px;
+`;
+
+export const Select = styled.select`
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  width: 146px;
+  height: 34px;
+  border-radius: 0px 0px 6px 6px;
+  outline: none;
+  background: #fff;
+  cursor: pointer;
+
+  &:focus {
+    border-color: #999;
+  }
+`;
+
+export const Option = styled.option`
+
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  opacity: 0.5;
+  &:hover {
+    background: #fafafa;
+  }
+`;
