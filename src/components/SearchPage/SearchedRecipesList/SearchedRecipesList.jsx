@@ -1,12 +1,15 @@
+import { GalleryUl,GalleryLi, RecipeImg,RecipeDescription} from "./SearchedRecipesList.styled";
+
 export const SearchedRecipesList = ({ recipes }) => {
   return (
-    <div>
+    <GalleryUl>
       {recipes.map((recipe) => (
-        <li key={recipe._id}>
-          <h2>{recipe.title}</h2>
-          <p>{recipe.description}</p>
-        </li>
+        <GalleryLi key={recipe._id}>
+          <RecipeImg src={recipe.thumb}></RecipeImg>
+   
+       <RecipeDescription>       <p>{recipe.title}</p></RecipeDescription>
+        </GalleryLi>
       ))}
-    </div>
+    </GalleryUl>
   );
 };

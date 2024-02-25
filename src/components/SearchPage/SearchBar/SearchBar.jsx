@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { performSearch } from "../../../redux/searchBar/operations.js";
 import SearchBarStyled from "./SearchBar.styled.jsx";
@@ -12,15 +12,18 @@ import {
 
 const SearchBar = () => {
   const [value, setValue] = useState("");
-  const [searchType, setSearchType] = useState("query");
+  const [searchType, setSearchType] = useState("title");
   const dispatch = useDispatch();
 
   const handleSearchChange = (event) => {
     setValue(event.target.value);
+
   };
 
   const handleTypeChange = (event) => {
+
     setSearchType(event.target.value);
+    
   };
 
   const handleSubmit = (event) => {
