@@ -1,6 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+
 export const addRecipeThunk = createAsyncThunk(
   "recipes/add",
   async (recipeData, { rejectWithValue }) => {
@@ -17,7 +19,7 @@ export const getCategoriesThunk = createAsyncThunk(
   "categories/get",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get("/api/recipes/categories");
+      const response = await axios.get("/recipes/categories");
       // Przetwarzanie odpowiedzi do formatu oczekiwanego przez komponent Select
       return response.data.categories.map((categoryName) => ({
         value: categoryName,

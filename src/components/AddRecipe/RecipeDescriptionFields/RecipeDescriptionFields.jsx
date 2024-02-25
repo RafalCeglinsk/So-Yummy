@@ -36,15 +36,15 @@ const timeOptions = [
   { value: "80", label: "80 min" },
 ];
 
-const ImageUploadField = () => {
-  const dispatch = useDispatch(); // Używamy hooka useDispatch
+const ImageUploadField = ({ onImageUpload, setRecipeData }) => {
   const fileInputRef = useRef(null);
 
-  const handleImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      console.log(file);
-      dispatch(updateField({ name: "recipeImg", value: file }));
+  const handleImageChange = (e) => {
+    if (e.target.files[0]) {
+      setRecipeData((prevRecipeData) => ({
+        ...prevRecipeData,
+        recipeImg: e.target.files[0],
+      }));
     }
   };
 
@@ -54,14 +54,14 @@ const ImageUploadField = () => {
 
   return (
     <ImageUploadContainer onClick={handleContainerClick}>
-      <label htmlFor="image-upload" style={{ cursor: "pointer" }}>
+      <label htmlFor="recipeImg" style={{ cursor: "pointer" }}>
         <ImageUploadButton type="button">
           <CameraIcon />
         </ImageUploadButton>
       </label>
       <input
         ref={fileInputRef}
-        id="image-upload"
+        id="recipeImg"
         type="file"
         accept="image/*"
         onChange={handleImageChange}
@@ -81,7 +81,9 @@ const RecipeDescriptionFields = ({ recipeData, setRecipeData }) => {
   }, [dispatch]);
 
   const handleImageUpload = (file) => {
+    // Tutaj możesz przetworzyć plik, np. przesłać go na serwer
     console.log(file);
+    // Zakładając, że chcesz zaktualizować stan z przesłanym obrazem:
     dispatch(updateField({ name: "recipeImg", value: file }));
   };
 
@@ -127,7 +129,11 @@ const RecipeDescriptionFields = ({ recipeData, setRecipeData }) => {
 
   return (
     <FieldContainer>
-      <ImageUploadField type="button" onImageUpload={handleImageUpload} />
+      <ImageUploadField
+        type="button"
+        onImageUpload={handleImageUpload}
+        setRecipeData={setRecipeData}
+      />
       <Form onSubmit={handleFormSubmit}>
         <Input
           id="title"

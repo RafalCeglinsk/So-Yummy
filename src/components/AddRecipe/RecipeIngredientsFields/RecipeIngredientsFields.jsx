@@ -24,7 +24,8 @@ const RecipeIngredientsFields = ({ recipeData, setRecipeData }) => {
   const [ingredientOptions, setIngredientOptions] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5001/api/ingredients/list")
+    const baseUrl = process.env.REACT_APP_API_BASE_URL;
+    fetch(`${baseUrl}/ingredients/list`)
       .then((response) => response.json())
       .then((data) => {
         const newOptions = data.result.map((ingredient) => ({
@@ -54,16 +55,13 @@ const RecipeIngredientsFields = ({ recipeData, setRecipeData }) => {
   const handleChange = (index, field, value) => {
     const newIngredients = recipeData.ingredients.map((ingredient, i) => {
       if (i === index) {
-        if (field === "quantity" || field === "unit") {
-          // Zaktualizowano logikę dla quantity i unit, aby aktualizować measure
-          const newMeasure =
-            field === "quantity"
-              ? `${value} ${ingredient.measure.split(" ")[1]}`
-              : `${ingredient.measure.split(" ")[0]} ${value}`;
-          return { ...ingredient, measure: newMeasure };
-        } else {
-          return { ...ingredient, [field]: value };
+        let newMeasure = ingredient.measure;
+        if (field === "quantity") {
+          newMeasure = `${value} ${ingredient.measure.split(" ")[1]}`;
+        } else if (field === "unit") {
+          newMeasure = `${ingredient.measure.split(" ")[0]} ${value}`;
         }
+        return { ...ingredient, measure: newMeasure, [field]: value };
       }
       return ingredient;
     });
@@ -120,7 +118,28 @@ const RecipeIngredientsFields = ({ recipeData, setRecipeData }) => {
             </Span>
           </SizeGroup>
           <RemoveIngredientButton onClick={() => removeIngredient(index)}>
-            {/* Ikona usuwania */}
+            <svg
+              width="18"
+              height="19"
+              viewBox="0 0 18 19"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14.0625 4.4375L3.9375 14.5625"
+                stroke="#333333"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M14.0625 14.5625L3.9375 4.4375"
+                stroke="#333333"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </RemoveIngredientButton>
         </IngredientField>
       ))}
