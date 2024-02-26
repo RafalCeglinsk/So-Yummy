@@ -27,31 +27,30 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<HeaderPage />}>
-        <Route index element={<HomePage />} />
-        <Route
-          path="/auth/register"
-          element={
-            <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
-          }
-        />
-        <Route
-          path="/auth/login"
-          element={
-            <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
-          }
-        />
-        <Route path="/main" element={<Main />} />
-        <Route path="/categories" element={<CategoryPage />} />
-        <Route path="/add" element={<AddRecipe />} />
-        <Route path="/favorite" element={<FavoritePage />} />
-        <Route path="/recipes/:recipeId" element={<RecipePage />}>
-        <Route path="/myrecipes" element={<MyRecipePage />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/shopping-list" element={<ShoppingListPage />} />
-        {/* <Route path="/footer" element={<Footer />} /> */}
-        <Route path="/error_404" element={<Error404 />} />
-      </Route>
+      <Route path="/" element={<HeaderPage />} />
+      <Route index element={<HomePage />} />
+      <Route
+        path="/auth/register"
+        element={
+          <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
+        }
+      />
+      <Route
+        path="/auth/login"
+        element={
+          <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
+        }
+      />
+      <Route path="/main" element={<Main />} />
+      <Route path="/categories" element={<CategoryPage />} />
+      <Route path="/add" element={<AddRecipe />} />
+      <Route path="/favorite" element={<FavoritePage />} />
+      <Route path="/myrecipes" element={<MyRecipePage />} />
+      <Route path="/recipes/:recipeId" element={<RecipePage />} />
+      <Route path="/shopping-list" element={<ShoppingListPage />} />
+      <Route path="/search" element={<SearchPage />} />
+      {/* <Route path="/footer" element={<Footer />} /> */}
+      <Route path="/error_404" element={<Error404 />} />
     </Routes>
   );
 }

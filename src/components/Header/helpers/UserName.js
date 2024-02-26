@@ -1,10 +1,11 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function Name() {
   const [name, setName] = useState("");
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    // Pobranie danych z local storage
     const authData = localStorage.getItem("persist:auth", "token");
     if (authData) {
       const { token } = JSON.parse(authData);
@@ -12,7 +13,6 @@ function Name() {
       console.log("błąd pobierania tokena");
     }
 
-    // Pobranie name z backendu przy użyciu tokenu
     async function fetchData() {
       try {
         const response = await axios.get(
@@ -32,9 +32,7 @@ function Name() {
     if (token) {
       fetchData();
     }
-  }, [token]); // Token jest ustawiony jako zależność, aby ponownie pobrać dane po zmianie tokenu
-    fetchUserName();
-  }, []);
+  }, [token]);
 
   return (
     <div>
