@@ -55,6 +55,7 @@
     "@babel/plugin-transform-private-property-in-object": "^7.23.4"
   },
   "imports": {
-    "#images/*": "./src/images/*"
+    "#images/*": "./src/images/*",
+    "#components/*": "./src/components/*"
   }
 }
