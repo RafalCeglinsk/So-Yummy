@@ -7,12 +7,12 @@ export const FooterContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  padding-left: 20px;
+  padding-left: 50px;
   padding-top: 64px;
   padding-right: 100px;
   background-color: #22252A;
   
-  @media screen and (max-width: 1439px) {
+  @media screen and (max-width: 1440px) {
     padding-left: 50px;
     padding-right: 50px;
   }
@@ -23,14 +23,7 @@ export const FooterContainer = styled.div`
   padding-right: 20px;
   background-color: #22252A;
   min-height: 500px;
-  }
-
-  @media screen and (min-width: 768px) {
-    padding-left: 100px;
-    padding-right: 100px;
-  }
-  @media screen and (max-width: 767px) {
-    flex-direction: column;
+  flex-direction: column;
     align-items: center;
   }
 `;
@@ -39,7 +32,7 @@ export const Column = styled.div`
   flex: 1;
   max-width: 100%;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (max-width: 768px) {
     max-width: 339px;
   }
 `;
@@ -54,21 +47,6 @@ export const CopyrightText = styled.p`
   opacity: 50%;
   display: flex;
   justify-content: center;
-  p.regulations {
-    margin-left: 40px; 
-  }
-
-  p.regulations {
-    margin-left: 0;
-    margin-top: 10px;
-  }
-
-  @media screen and (min-width: 768px) {
-    p.regulations {
-      margin-left: 40px;
-      margin-top: 0;
-    }
-  }
 `;
 
 export const StyledFooter = styled.footer`
@@ -78,20 +56,12 @@ export const StyledFooter = styled.footer`
   margin-top: 150px;
   padding-top: 500px;
 
-  @media screen and (max-width: 1439px) {
+  @media screen and (max-width: 1440px) {
     padding-top: 400px;
   }
 
   @media screen and (max-width: 768px) {
     padding-top: 300px;
-  }
-
-  @media screen and (min-width: 768px) {
-    padding-top: 500px;
-  }
-
-  @media screen and (min-width: 768px) {
-    padding-top: 500px;
   }
 `;
 
@@ -127,24 +97,19 @@ export const SoYummyHeading = styled.h1`
     margin-right: 8px;
   }
 
-  @media screen and (max-width: 1439px) {
-    font-size: 24px;
-    padding-bottom: 20px;
-  }
-
-  @media screen and (max-width: 767px) {
-    font-size: 20px;
-    padding-bottom: 10px;
-    position: relative;
-    top: 28px;
-  }
-
-  @media screen and (min-width: 768px) {
+  @media screen and (max-width: 1440px) {
     font-size: 28px;
     padding-bottom: 40px;
     svg {
       height: 1.5em;
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+    padding-bottom: 10px;
+    position: relative;
+    top: 28px;
   }
 `;
 
@@ -155,12 +120,12 @@ export const FeaturesList = styled.ul`
   font-weight: 400;
   list-style: disc;
 
-  @media screen and (max-width: 767px){
+  @media screen and (max-width: 768px){
 
     display: none;
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1439px) {
+  @media screen and (max-width: 1440px) {
     font-size: 18px;
     height: 102px;
     width: 380px;
@@ -172,19 +137,14 @@ export const FeatureListItem = styled.li`
   font-size: 18px;
   padding-bottom: 12px;
 
-  @media screen and (max-width: 1439px) {
+  @media screen and (max-width: 1440px) {
     text-align: center;
   font-size: 16px;
   padding-bottom: 10px;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     display: none;
-  }
-
-  @media screen and (min-width: 768px) {
-    font-size: 18px;
-    padding-bottom: 12px;
   }
 `;
 
@@ -194,7 +154,7 @@ export const SubscribeHeading = styled.h3`
   font-weight: 700;
   margin-bottom: 12px;
 
-  @media screen and (max-width: 1439px) {
+  @media screen and (max-width: 1440px) {
   display: none;
   }
 `;
@@ -205,7 +165,7 @@ export const SubscribeText = styled.p`
   font-weight: 400;
   margin-bottom: 20px;
 
-  @media screen and (max-width: 1439px) {
+  @media screen and (max-width: 1440px) {
    display: none;
   }
 `;
