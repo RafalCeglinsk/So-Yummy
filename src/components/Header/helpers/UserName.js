@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
 
 function Name() {
   const [name, setName] = useState("");
@@ -35,6 +33,8 @@ function Name() {
       fetchData();
     }
   }, [token]); // Token jest ustawiony jako zależność, aby ponownie pobrać dane po zmianie tokenu
+    fetchUserName();
+  }, []);
 
   return (
     <div>

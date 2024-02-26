@@ -78,6 +78,7 @@ const SharedLayout = () => {
             <UserName>
               <Name />
             </UserName>
+            <UserName></UserName>
             <LogoBurger onClick={openModal2}>
               <RenderHamburger />
             </LogoBurger>
