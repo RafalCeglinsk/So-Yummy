@@ -18,7 +18,7 @@ const Main = () => {
           <SearchBar showSearchContainer={false} />
         </SbMobileStyle>
         <MainGallery />
-        <Link to="/categories/Beef">
+        <Link to="/categories/">
           <CurvedButtonMain text="Other categories" />
         </Link>
       </MainWrapper>
