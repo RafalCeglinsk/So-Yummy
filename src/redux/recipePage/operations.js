@@ -45,3 +45,32 @@ export const removeFavorite = createAsyncThunk(
     }
   }
 );
+
+export const getMyRecipes = createAsyncThunk(
+  "recipes/getMyRecipes",
+  async (token, thunkAPI) => {
+    try {
+      const response = await axios.get("/ownRecipes", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.log(error.message);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteRecipe = createAsyncThunk(
+  "recipes/delete",
+  async (recipeId, thunkAPI) => {
+    try {
+      const response = await axios.delete(`/ownRecipes/${recipeId}`);
+      return response.data;
+    } catch (error) {
+      console.log(error.message);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
