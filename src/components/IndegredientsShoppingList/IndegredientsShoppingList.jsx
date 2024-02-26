@@ -22,7 +22,7 @@ import {
   PictrueContainerStyled,
 } from "./IndegredientsShoppingListStyled.js";
 
-const IngredientsShoppingList = ({ recipe }) => {
+const IngredientsShoppingList = () => {
   const { token } = useSelector((state) => state.auth);
   const items = useSelector((state) => state.items);
   const shoppingItems = useSelector((state) => {
@@ -45,9 +45,9 @@ const IngredientsShoppingList = ({ recipe }) => {
           {shoppingItems.length > 0 && (
             <StyledIngridientsHeader>
               <h3>Product</h3>
-             <StyledIngrsHeadThumb>
-              <p>Number</p>
-              <p>Remove</p>
+              <StyledIngrsHeadThumb>
+                <p>Number</p>
+                <p>Remove</p>
               </StyledIngrsHeadThumb>
             </StyledIngridientsHeader>
           )}
@@ -70,28 +70,34 @@ const IngredientsShoppingList = ({ recipe }) => {
                 <EmptyStyled>Shopping list is empty</EmptyStyled>
               </PictrueContainerStyled>
             ) : (
-              shoppingItems.map((item) => {
-                return (
-                  <StyledIngridientsItem key={item.Id}>
-                    <StyledImageCardThumb>
-                      <StyledImage src={item.img} alt={item.desc} height="60" />
-                      <p>{item.name}</p>
-                    </StyledImageCardThumb>
-                    <StyledFlexQuantity>
-                    <StyledFlexRow>
-                      {item.measure.split("/r/n").map((el) => (
-                        <StyledQuantity key={nanoid()}>
-                          <p>{el}</p>
-                          <button onClick={() => deleteButton(item.Id)}>
-                            Delete
-                          </button>
-                        </StyledQuantity>
-                      ))}
-                      </StyledFlexRow>
-                    </StyledFlexQuantity>
-                  </StyledIngridientsItem>
-                );
-              })
+              <>
+                {shoppingItems.map((item) => {
+                  const id = item.ingredientId._id;
+                  const ttl = item.ingredientId.ttl;
+                  const thb = item.ingredientId.thb;
+                  return (
+                    <StyledIngridientsItem key={nanoid()}>
+                      <StyledImageCardThumb>
+                        <StyledImage src={thb} alt={item.desc} height="60" />
+                        <p>{ttl}</p>
+                      </StyledImageCardThumb>
+                      <StyledFlexQuantity>
+                        <StyledFlexRow>
+                          {item.measure &&
+                            item.measure.split("/r/n").map((el, index) => (
+                              <StyledQuantity key={index}>
+                                <p>{el}</p>
+                                <button onClick={() => deleteButton(id)}>
+                                  Delete
+                                </button>
+                              </StyledQuantity>
+                            ))}
+                        </StyledFlexRow>
+                      </StyledFlexQuantity>
+                    </StyledIngridientsItem>
+                  );
+                })}
+              </>
             )}
           </StyledListContainerIngridient>
         </>

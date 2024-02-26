@@ -40,7 +40,7 @@ const RecipeIngredientsFields = ({ recipeData, setRecipeData }) => {
   }, []);
 
   const addIngredient = () => {
-    const newIngredient = { name: "", measure: "" }; // Zaktualizowano
+    const newIngredient = { name: "", measure: "" };
     setRecipeData({
       ...recipeData,
       ingredients: [...recipeData.ingredients, newIngredient],

@@ -60,11 +60,9 @@ const handleFulfilledDel = (state, { payload }) => {
 };
 
 const handleFulfilledGet = (state, { payload }) => {
-  console.log("payload", payload);
   state.isLoading = false;
   if (payload) {
     state.items = payload;
-    console.log("state.shopping.items", state.items);
   }
   state.error = "";
 };

@@ -81,9 +81,7 @@ const RecipeDescriptionFields = ({ recipeData, setRecipeData }) => {
   }, [dispatch]);
 
   const handleImageUpload = (file) => {
-    // Tutaj możesz przetworzyć plik, np. przesłać go na serwer
     console.log(file);
-    // Zakładając, że chcesz zaktualizować stan z przesłanym obrazem:
     dispatch(updateField({ name: "recipeImg", value: file }));
   };
 
@@ -106,7 +104,6 @@ const RecipeDescriptionFields = ({ recipeData, setRecipeData }) => {
       formData.append("recipeImg", imageInput.files[0]);
     }
 
-    // Przykład przesyłania danych formularza, w tym pliku, do serwera
     try {
       const response = await fetch("http://localhost:5001/api/ownRecipes", {
         method: "POST",
@@ -115,7 +112,6 @@ const RecipeDescriptionFields = ({ recipeData, setRecipeData }) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-      // Obsługa sukcesu, np. wyświetlenie komunikatu lub przekierowanie
     } catch (error) {
       console.error("Upload error:", error);
     }

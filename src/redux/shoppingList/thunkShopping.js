@@ -8,8 +8,8 @@ export const deleteShoppingThunk = createAsyncThunk(
   "shopping/delete",
   async (id) => {
     try {
-      await axios.delete(`/shopping-lists/${id}`);
-      return id;
+      const response = await axios.delete(`/shopping-lists/${id}`);
+      return response;
     } catch (error) {
       console.log(error.message);
       throw error;
@@ -26,7 +26,6 @@ export const getShoppingThunk = createAsyncThunk(
       });
       const data = response.data;
       const items = data.shoppingList;
-      console.log("items", items);
       return items;
     } catch (error) {
       console.log(error.message);

@@ -37,7 +37,7 @@ const AddRecipeForm = () => {
     formData.append("time", recipeData.time);
     recipeData.ingredients.forEach((ingredient, index) => {
       formData.append(`ingredients[${index}][name]`, ingredient.name);
-      formData.append(`ingredients[${index}][measure]`, ingredient.measure); // Upewnij się, że to pole jest dodawane
+      formData.append(`ingredients[${index}][measure]`, ingredient.measure);
     });
     formData.append("instructions", recipeData.instructions);
     if (recipeData.recipeImg) {
