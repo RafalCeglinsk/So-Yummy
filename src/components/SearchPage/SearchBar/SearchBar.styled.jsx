@@ -85,23 +85,73 @@ export const SearchSpan = styled.span`
   margin-right: 8px;
 `;
 
-export const Select = styled.select`
-  padding: 8px 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+export const SelectStyle = styled.div`
   font-size: 16px;
-  font-weight: 400;
-  width: 146px;
-  height: 34px;
-  border-radius: 0px 0px 6px 6px;
-  outline: none;
-  background: #fff;
+  border-bottom: 1px solid #ccc;
   cursor: pointer;
 
-  &:focus {
-    border-color: #999;
-  }
+ 
 `;
+export const customSelectStyles = {
+  menuList: (provided) => ({
+    ...provided,
+    maxHeight: "185px",
+    maxWidth: "310px",
+  }),
+  control: (provided, state) => ({
+    ...provided,
+    border: "none",
+    fontSize: "16px",
+    boxShadow: state.isFocused ? "none" : provided.boxShadow,
+    "&:hover": { borderColor: "#aaa" },
+
+    "@media screen and (min-width: 768px)": {
+      maxWidth: "310px",
+    },
+    "@media screen and (min-width: 1440px)": {
+      minWidth: "10vw",
+      maxWidth: "310px",
+    },
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    color: state.isSelected ? "white" : "black",
+    backgroundColor: state.isSelected ? "#007bffdf" : "white",
+    fontSize: "12px",
+    opacity: 0.5,
+    "&:hover": {
+      backgroundColor: "#007bff78",
+      color: "white",
+    },
+  }),
+  placeholder: (provided) => ({
+    ...provided,
+    color: "#ccc",
+  }),
+  singleValue: (provided) => ({
+    ...provided,
+    color: "black",
+  }),
+  dropdownIndicator: (provided) => ({
+    ...provided,
+    color: "#716767",
+    "&:hover": {
+      color: "black",
+    },
+  }),
+  clearIndicator: (provided) => ({
+    ...provided,
+    color: "#ccc",
+    "&:hover": {
+      color: "black",
+    },
+  }),
+  indicatorSeparator: () => ({
+    display: "none",
+  })
+
+};
+
 
 export const Option = styled.option`
 
