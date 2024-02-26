@@ -1,31 +1,46 @@
 
-const FetchName = () => {
+function Name() {
   const [name, setName] = useState("");
+  const [token, setToken] = useState("");
 
   useEffect(() => {
-    const fetchUserName = async () => {
+    // Pobranie danych z local storage
+    const authData = localStorage.getItem("persist:auth", "token");
+    if (authData) {
+      const { token } = JSON.parse(authData);
+      setToken(token);
+      console.log("błąd pobierania tokena");
+    }
+
+    // Pobranie name z backendu przy użyciu tokenu
+    async function fetchData() {
       try {
-        const token =
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDllYzMxOTVmNTc1OWEyYzc3NmNlOCIsImlhdCI6MTcwODc4MTcwOCwiZXhwIjoxNzA5Mzg2NTA4fQ.0pKjE4ku7Dr2QN94lRKkMBNUy_2w3IvSLnEpnqMYuiU"; // Twój token JWT
         const response = await axios.get(
           "http://localhost:5001/api/auth/current",
           {
             headers: {
-              Authorization: `Bearer ${token}`
+              Authorization: `Bearer ${token}`,
             },
           }
         );
-        const userName = response.data.ResponseBody.name;
-        setName(userName);
+        setName(response.data.name);
       } catch (error) {
-        console.error("Błąd pobierania danych:", error);
+        console.error("Błąd:", error);
       }
-    };
+    }
 
+    if (token) {
+      fetchData();
+    }
+  }, [token]); // Token jest ustawiony jako zależność, aby ponownie pobrać dane po zmianie tokenu
     fetchUserName();
   }, []);
 
-  return <span>{name}</span>;
-};
+  return (
+    <div>
+      <h1>Witaj, {name}!</h1>
+    </div>
+  );
+}
 
-export default FetchName;
+export default Name;

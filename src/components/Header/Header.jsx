@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { RenderHamburger } from "./HeaderRenderSvg";
-
+import Name from "./helpers/UserName";
 import {
   Logo,
   Profile,
@@ -69,12 +69,15 @@ const SharedLayout = () => {
             <NavLinks to="/recipes/:recipeId">My recipies</NavLinks>
             <NavLinks to="/favorite">Favorites</NavLinks>
             <NavLinks to="/shopping-list">Shopping list</NavLinks>
-            <NavLinks to ="/search">
+            <NavLinks to="/search">
               <Loop />
             </NavLinks>
           </Nav>
           <Main>
             <Photo onClick={openModal1}></Photo>
+            <UserName>
+              <Name />
+            </UserName>
             <UserName></UserName>
             <LogoBurger onClick={openModal2}>
               <RenderHamburger />
