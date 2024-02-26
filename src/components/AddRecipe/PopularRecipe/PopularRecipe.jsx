@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+// import { Link } from "react-router-dom";
 import {
   PopularRecipeContainer,
   RecipeCard,
@@ -21,6 +22,7 @@ const PopularRecipe = () => {
       try {
         const baseUrl = process.env.REACT_APP_API_BASE_URL;
         const response = await axios.get(`${baseUrl}/popular`);
+
         setRecipes(response.data.recipes.recipes);
       } catch (error) {
         setError("No popular recipes at the moment.");
@@ -38,7 +40,6 @@ const PopularRecipe = () => {
           recipes.slice(0, 4).map((recipe, index) => (
             <RecipeCard key={recipe.title}>
               <StyledLink to={`/recipe/${encodeURIComponent(recipe.title)}`}>
-                {/* content */}
                 <RecipeImage src={recipe.thumb} alt={recipe.title} />
                 <RecipeInfo>
                   <RecipeTitle>{recipe.title}</RecipeTitle>

@@ -57,6 +57,7 @@ export const Pencilsvg = styled(Pencil)`
 export const HeaderContainer = styled.div`
   z-index: 9;
   padding: 18px 16px;
+  background-color: white;
 
   @media screen and (min-width: 768px) {
     padding: 18px 32px;
