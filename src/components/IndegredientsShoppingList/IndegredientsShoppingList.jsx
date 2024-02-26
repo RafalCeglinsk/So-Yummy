@@ -20,6 +20,7 @@ import {
   StyledListContainerIngridient,
   EmptyStyled,
   PictrueContainerStyled,
+  StyledCloseIcon
 } from "./IndegredientsShoppingListStyled.js";
 
 const IngredientsShoppingList = () => {
@@ -86,9 +87,9 @@ const IngredientsShoppingList = () => {
                             item.measure.split("/r/n").map((el, index) => (
                               <StyledQuantity key={index}>
                                 <p>{el}</p>
-                                <button onClick={() => deleteButton(id)}>
+                                < StyledCloseIcon onClick={() => deleteButton(id)}>
                                   Delete
-                                </button>
+                                </ StyledCloseIcon>
                               </StyledQuantity>
                             ))}
                         </StyledFlexRow>
