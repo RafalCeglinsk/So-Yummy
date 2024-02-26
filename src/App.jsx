@@ -27,20 +27,20 @@ function App() {
 
   return (
     <Routes>
+      <Route index element={<HomePage />} />
+      <Route
+        path="/auth/register"
+        element={
+          <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
+        }
+      />
+      <Route
+        path="/auth/login"
+        element={
+          <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
+        }
+      />
       <Route path="/" element={<HeaderPage />}>
-        <Route index element={<HomePage />} />
-        <Route
-          path="/auth/register"
-          element={
-            <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
-          }
-        />
-        <Route
-          path="/auth/login"
-          element={
-            <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
-          }
-        />
         <Route path="/main" element={<Main />} />
         <Route path="/categories" element={<CategoryPage />} />
         <Route path="/add" element={<AddRecipe />} />
