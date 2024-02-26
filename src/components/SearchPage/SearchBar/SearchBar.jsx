@@ -3,43 +3,41 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { performSearch } from "../../../redux/searchBar/operations.js";
 import SearchBarStyled from "./SearchBar.styled.jsx";
-import {
-  Form,
-  SearchSpan,
-  Label,
-  Select,
-  Option,
-} from "./SearchBar.styled.jsx";
+import Select from "react-select";
+import { Form, SearchSpan, Label, SelectStyle , customSelectStyles} from "./SearchBar.styled.jsx";
 
-const SearchBar = ({showSearchContainer}) => {
+const SearchBar = ({ showSearchContainer }) => {
   const [value, setValue] = useState("");
-  const [searchType, setSearchType] = useState("title");
+  const [searchType, setSearchType] = useState({
+    value: "title",
+    label: "Title",
+  }); // Początkowa wartość dla Select
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSearchChange = (event) => {
     setValue(event.target.value);
-
   };
 
-  const handleTypeChange = (event) => {
-
-    setSearchType(event.target.value);
-    
+  const handleTypeChange = (selectedOption) => {
+    setSearchType(selectedOption);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (value.trim() !== "") {
-      navigate(`/search?query=${value}&type=${searchType}`);
+      navigate(`/search?query=${value}&type=${searchType.value}`);
     } else {
       alert("Please enter a search query.");
     }
-    dispatch(performSearch({ query: value, type: searchType }));
+    dispatch(performSearch({ query: value, type: searchType.value }));
   };
 
-
-
+  // Opcje dla Select
+  const options = [
+    { value: "title", label: "Title" },
+    { value: "ingredients", label: "Ingredients" },
+  ];
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -56,16 +54,20 @@ const SearchBar = ({showSearchContainer}) => {
         <button type="submit">Search</button>
       </SearchBarStyled>
       {showSearchContainer && (
-      <Label>
-        <SearchSpan>Search by:</SearchSpan>{" "}
-        <Select value={searchType} onChange={handleTypeChange}>
-          <Option value="title">Title</Option>
-          <Option value="ingredients">Ingredients</Option>
-        </Select>
-      </Label>
-        )}
+        <Label>
+          <SearchSpan>Search by:</SearchSpan>{" "}
+          <SelectStyle>
+            {" "}
+            <Select
+                    styles={customSelectStyles}
+              options={options}
+              value={searchType}
+              onChange={handleTypeChange}
+            />
+          </SelectStyle>
+        </Label>
+      )}
     </Form>
-    
   );
 };
 
