@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
 
 const FetchName = () => {
   const [name, setName] = useState("");
@@ -13,7 +11,7 @@ const FetchName = () => {
           "http://localhost:5001/api/auth/current",
           {
             headers: {
-              Authorization: `Bearer ${token}`, // Dodanie nagłówka Authorization z tokenem JWT
+              Authorization: `Bearer ${token}`
             },
           }
         );
@@ -25,7 +23,7 @@ const FetchName = () => {
     };
 
     fetchUserName();
-  }, []); // useEffect będzie wywoływany tylko raz po załadowaniu komponentu
+  }, []);
 
   return <span>{name}</span>;
 };

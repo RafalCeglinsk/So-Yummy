@@ -30,9 +30,13 @@ export const FollowUsContainer = styled.div`
   padding-top: 95px;
   justify-content: center;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1440px) {
     position: relative;
-    top: 230px;
-    padding-top: 0px;
+    top: 40px;
+    left: 10px;
+  }
+  @media screen and (max-width: 768px) {
+    position: relative;
+    top:220px;
   }
 `;

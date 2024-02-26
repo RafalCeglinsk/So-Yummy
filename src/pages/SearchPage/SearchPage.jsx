@@ -1,18 +1,21 @@
 import React from "react";
 import { SearchPageStyled, NoResults } from "./SearchPage.styled.jsx";
 import SearchBar from "../../components/SearchPage/SearchBar/SearchBar.jsx";
-import { MainPageTittle } from "../../components/SearchPage/MainPageTittle/MainPageTittle.jsx";
+import { MainTitle } from "../../components/MainPageTittle/MainPageTittle.jsx";
 import { useSelector } from "react-redux";
 import { SearchedRecipesList } from "../../components/SearchPage/SearchedRecipesList/SearchedRecipesList.jsx";
-
+import Footer from "../../components/footer/footer.jsx";
 import SearchImg from "../../images/SearchForSomethingElse/kisspng-vegetable-fruit-basket-century-farms-international-fruits-and-vegetables-5abfb9c60122f5 1.png";
 const SearchPage = () => {
   const searchResults = useSelector((state) => {
     return state.search.searchResults;
   });
   return (
+    <>
+    <MainTitle>Search</MainTitle>
+
     <SearchPageStyled>
-      <MainPageTittle title="Search" />
+    
       <SearchBar showSearchContainer={true} />
       {searchResults.length > 0 && (
         <SearchedRecipesList recipes={searchResults} />
@@ -24,6 +27,8 @@ const SearchPage = () => {
         </NoResults>
       )}
     </SearchPageStyled>
+    <Footer/>
+    </>
   );
 };
 

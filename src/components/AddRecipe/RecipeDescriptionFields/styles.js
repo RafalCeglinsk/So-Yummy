@@ -22,7 +22,6 @@ export const Form = styled.div`
 `;
 
 export const ImageUploadContainer = styled.div`
-  background-color: var(--color-text-5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,6 +31,9 @@ export const ImageUploadContainer = styled.div`
   border-radius: 18px;
   cursor: pointer;
   margin-bottom: 8px;
+  background-color: ${(props) =>
+    props.isImageUploaded ? "transparent" : "var(--color-text-5)"};
+  overflow: hidden;
   @media screen and (min-width: 768px) {
     width: 50vw;
     aspect-ratio: 1/1;
@@ -40,6 +42,12 @@ export const ImageUploadContainer = styled.div`
     width: 40vw;
     height: 100%;
   }
+`;
+
+export const ImagePreview = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 `;
 
 export const ImageUploadButton = styled.button`
@@ -108,6 +116,10 @@ export const SelectContainer = styled.div`
 `;
 
 export const customSelectStyles = {
+  menuList: (provided) => ({
+    ...provided,
+    maxHeight: "185px",
+  }),
   control: (provided, state) => ({
     ...provided,
     border: "none",
