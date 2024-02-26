@@ -24,15 +24,14 @@ import {
 
 const IngredientsShoppingList = () => {
   const { token } = useSelector((state) => state.auth);
-  const items = useSelector((state) => state.items);
   const shoppingItems = useSelector((state) => {
     return state.shopping.items;
   });
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getShoppingThunk(token, items));
-  }, [token, items, dispatch]);
+    dispatch(getShoppingThunk(token));
+  }, [token, dispatch]);
 
   const deleteButton = (id) => {
     dispatch(deleteShoppingThunk(id));

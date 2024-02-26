@@ -1,8 +1,9 @@
+import { MyRecipe } from "./MyRecipe";
+
 export const MyRecipePage = () => {
-    
   return (
     <div>
-      <MyRecipePage />
+      <MyRecipe />
     </div>
   );
 };
