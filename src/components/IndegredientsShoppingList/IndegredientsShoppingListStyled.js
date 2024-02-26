@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {MdClear} from 'react-icons/md'
 
 const EmptyStyled = styled.p `
    color: var(--color-default-2);
@@ -179,6 +180,22 @@ const StyledFlexRow = styled.div`
    flex-wrap: wrap;
 `;
 
+const StyledCloseIcon = styled(MdClear)`
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   cursor: pointer;
+   padding: 3px;
+   color: var(--text-primary);
+
+   transition: color 250ms var(--cubic-bezier), background-color 250ms var(--cubic-bezier);
+
+   &:hover {
+      color: var(--background-primary);
+      background-color: rgb(139, 170, 54);
+   }
+`;
+
 export {
    StyledFlexRow,
    StyledIngridientsHeader,
@@ -190,7 +207,8 @@ export {
    StyledQuantity,
    StyledFlexQuantity,
    StyledListContainerIngridient,
-   EmptyStyled, PictrueContainerStyled
+   EmptyStyled, PictrueContainerStyled,
+   StyledCloseIcon
 };
 
 
