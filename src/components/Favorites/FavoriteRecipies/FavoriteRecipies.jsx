@@ -8,6 +8,7 @@ import {
   FavoriteContainer,
   FavoriteList,
   FavoriteItem,
+  FavoriteTitle,
 } from "./FavoriteRecipies.styled";
 
 const FavoriteRecipes = () => {
@@ -21,6 +22,7 @@ const FavoriteRecipes = () => {
   return (
     <Container>
       <FavoriteContainer>
+        <FavoriteTitle>Favorites</FavoriteTitle>
         <FavoriteList>
           {allRecipes.length !== 0 ? (
             allRecipes.map((recipe) => {
