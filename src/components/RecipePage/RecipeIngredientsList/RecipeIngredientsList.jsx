@@ -9,7 +9,7 @@ import {
   LiAdd,
   IngredientsListUl,
   IngredientsListLi,
-  Checkbox,
+
 } from "./RecipeIngredients.styled";
 import { addShoppingThunk } from "../../../redux/shoppingList/thunkShopping";
 
@@ -17,12 +17,12 @@ export const RecipeIngredientsList = ({ recipe }) => {
   const ingredients = recipe.ingredients;
   const dispatch = useDispatch();
   const handleCheckbox = (ingredient) => {
-    const credentrials = {
+    const credentials = {
       ingredientId: ingredient._id,
       recipeId: recipe._id,
       measure: ingredient.measure,
     };
-    dispatch(addShoppingThunk(credentrials));
+    dispatch(addShoppingThunk(credentials));
   };
   return (
     <SectionWrapper>

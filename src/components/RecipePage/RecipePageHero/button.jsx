@@ -1,30 +1,35 @@
 import { Button } from "./RecipePage.styled";
 import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 import {
   removeFavorite,
   toggleFavorite,
 } from "../../../redux/recipePage/operations";
 import { selectFavorites } from "../../../redux/recipePage/selectors";
-import { selectUser } from "../../../redux/auth/selectors";
 
 export const AddButton = ({ recipe }) => {
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);
-  const user = useSelector(selectUser);
 
-  const isFavorite = favorites.includes(recipe.id);
+  const [isFavorite, setIsFavorite] = useState(
+    favorites.some((fav) => fav.toString() === recipe.id)
+  );
+
+  useEffect(() => {
+    setIsFavorite(favorites.some((fav) => fav.toString() === recipe.id));
+  }, [favorites, recipe.id]);
 
   const handleClick = () => {
+    const recipeId = recipe._id;
     const credentials = {
-      id: recipe._id,
-      user: user.id,
+      recipeId: recipe._id,
     };
-    console.log("credentials", credentials);
     if (isFavorite) {
-      dispatch(removeFavorite(credentials));
+      dispatch(removeFavorite(recipeId));
     } else {
       dispatch(toggleFavorite(credentials));
     }
+    setIsFavorite(!isFavorite);
   };
 
   return (
