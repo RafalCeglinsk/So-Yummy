@@ -1,19 +1,13 @@
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-function Name() {
+const FetchName = () => {
   const [name, setName] = useState("");
-  const [token, setToken] = useState("");
+  const { token } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    const authData = localStorage.getItem("persist:auth", "token");
-    if (authData) {
-      const { token } = JSON.parse(authData);
-      setToken(token);
-      console.log("błąd pobierania tokena");
-    }
-
-    async function fetchData() {
+    const fetchUserName = async () => {
       try {
         const response = await axios.get(
           "http://localhost:5001/api/auth/current",
@@ -23,22 +17,17 @@ function Name() {
             },
           }
         );
-        setName(response.data.name);
+        const userName = response.data.ResponseBody.name;
+        setName(userName);
       } catch (error) {
-        console.error("Błąd:", error);
+        console.error("Błąd pobierania danych:", error);
       }
-    }
+    };
 
-    if (token) {
-      fetchData();
-    }
+    fetchUserName();
   }, [token]);
 
-  return (
-    <div>
-      <h1>Witaj, {name}!</h1>
-    </div>
-  );
-}
+  return name;
+};
 
-export default Name;
+export default FetchName;
