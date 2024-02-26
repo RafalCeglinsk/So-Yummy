@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/SoYummy/static/css/main.59edde8c.css",
-    "main.js": "/SoYummy/static/js/main.968d89bd.js",
+    "main.js": "/SoYummy/static/js/main.9edb0ba7.js",
     "static/media/recipeDesktopBG2x.png": "/SoYummy/static/media/recipeDesktopBG2x.46c99199730ee804a86d.png",
     "static/media/recipeTabletBG2x.png": "/SoYummy/static/media/recipeTabletBG2x.8dde227c6356fd5a7c90.png",
     "static/media/down-right-DSK2x.png": "/SoYummy/static/media/down-right-DSK2x.f6cdd37682292551a7a2.png",
@@ -25,6 +25,7 @@
     "static/media/vegetableBasket.jpg": "/SoYummy/static/media/vegetableBasket.27000f79f3c511ab91ce.jpg",
     "static/media/mobileStartx2.jpg": "/SoYummy/static/media/mobileStartx2.1cc1e09e9f042d899e39.jpg",
     "static/media/desktopStartx1.jpg": "/SoYummy/static/media/desktopStartx1.108746ae876fb0ea60db.jpg",
+    "static/media/error404.jpg": "/SoYummy/static/media/error404.0b2c3ce825c8eb9ee1ac.jpg",
     "static/media/bg.left2x.png": "/SoYummy/static/media/bg.left2x.d4825ad628d8d75b289e.png",
     "static/media/tabletStartx1.jpg": "/SoYummy/static/media/tabletStartx1.71073446f066eb165951.jpg",
     "static/media/MobileLeaf.png": "/SoYummy/static/media/MobileLeaf.cb3497f68ad09b5acfa3.png",
@@ -43,10 +44,10 @@
     "static/media/Icon.svg": "/SoYummy/static/media/Icon.b0787a2a426f4f177dc888fa33d5a4a9.svg",
     "static/media/X.svg": "/SoYummy/static/media/X.65168c2857d064ff3004222ca9c2624a.svg",
     "main.59edde8c.css.map": "/SoYummy/static/css/main.59edde8c.css.map",
-    "main.968d89bd.js.map": "/SoYummy/static/js/main.968d89bd.js.map"
+    "main.9edb0ba7.js.map": "/SoYummy/static/js/main.9edb0ba7.js.map"
   },
   "entrypoints": [
     "static/css/main.59edde8c.css",
-    "static/js/main.968d89bd.js"
+    "static/js/main.9edb0ba7.js"
   ]
 }
