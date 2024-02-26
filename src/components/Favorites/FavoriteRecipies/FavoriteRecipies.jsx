@@ -7,7 +7,6 @@ import NotFoundRecipe from '../NotFoundRecipe/NotFoundRecipe';
 import FavoriteCard from '../FavoriteCard/FavoriteCard';
 
 import {
-  FavoriteTitle,
   Container,
   FavoriteContainer,
   FavoriteList,
@@ -38,7 +37,7 @@ const FavoriteRecipes = () => {
               <FavoriteItem key={recipe._id}>
                 <FavoriteCard
                   recipe={recipe}
-                  // handleDelete może zostać zaimplementowany analogicznie do Twojego poprzedniego kodu
+
                 />
               </FavoriteItem>
             ))
