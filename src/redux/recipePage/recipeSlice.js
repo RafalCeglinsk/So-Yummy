@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toggleFavorite, getRecipeId } from "./operations";
-
+import { getFavorites } from "../Favorites/operations";
 const initialState = {
   favorites: [],
   recipe: null,
@@ -42,7 +42,18 @@ const getRecipesSlice = createSlice({
       .addCase(getRecipeId.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
-      });
+      })
+      .addCase(getFavorites.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.favorites = action.payload;
+      })
+      .addCase(getFavorites.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+      .addCase(getFavorites.pending, (state) => {
+        state.status = "loading";
+      })
   },
 });
 
