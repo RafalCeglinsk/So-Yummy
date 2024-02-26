@@ -13,7 +13,7 @@ import NoImage from "../../../images/NoImage/NoImageSmall.png";
 export const PreviewCategories = ({ categoryRecipes, viewMode }) => {
   const renderRecipes = (recipes, limit) => {
     return recipes.slice(0, limit).map((recipe, _id) => (
-      <Link to={`/recipes/${recipe.id}`} key={_id}>
+      <Link to={`/recipes/${recipe._id}`} key={_id}>
       <ElementWrapper>
         <RecipeImg
           src={recipe.thumb ? recipe.thumb : NoImage}

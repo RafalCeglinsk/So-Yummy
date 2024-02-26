@@ -86,6 +86,10 @@ export const RemoveIngredientButton = styled.button`
 `;
 
 export const unitSelect = {
+  menuList: (provided) => ({
+    ...provided,
+    maxHeight: "185px",
+  }),
   control: (provided, state) => ({
     ...provided,
     padding: "0",
@@ -125,6 +129,10 @@ export const unitSelect = {
 };
 
 export const ingredientSelect = {
+  menuList: (provided) => ({
+    ...provided,
+    maxHeight: "185px",
+  }),
   control: (provided, state) => ({
     ...provided,
     border: state.isFocused ? "0px solid white" : "none",

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { GalleryUl, MainGalleryH2, ButtonWrapper } from "./MainGallery.styled";
 import { PreviewCategories } from "./PreviewCategories";
 import { fetchCategories } from "../../../api/mainRecipesApi";
-import { getRecipesLimit , getViewMode} from "../../../api/viewModeUtils";
+import { getViewMode} from "../../../api/viewModeUtils";
 import { ButtonSeeAll } from "../../Buttons/GalleryButtonSeeAll";
 
 export const MainGallery = () => {

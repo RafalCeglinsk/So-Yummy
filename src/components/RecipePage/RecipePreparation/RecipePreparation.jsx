@@ -30,10 +30,10 @@ export const RecipePreparation = ({ recipe }) => {
             ))}
           </StyledOl>
         ) : (
-          <Placeholder>Brak instrukcji do wyświetlenia</Placeholder>
+          <Placeholder>No instructions to display</Placeholder>
         )}
+        <RecipeImage src={recipe.thumb} alt="Recipe" />
       </Description>
-      <RecipeImage src={recipe.thumb} alt="Recipe" />
     </RecipeWrapper>
   );
 };

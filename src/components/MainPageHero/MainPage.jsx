@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ChooseYourBreakfast } from "./ChooseYourBreakfast/ChooseYourBreakfast";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../SearchPage/SearchBar/SearchBar";
 
 import {
   HeroWrapper,
@@ -10,7 +10,6 @@ import {
   TitleWrapper,
   SbTabletStyle,
 } from "./MainPage.styled";
-
 
 export function MainPage() {
   return (
