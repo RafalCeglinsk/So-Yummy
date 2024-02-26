@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import {
   PopularRecipeContainer,
   RecipeCard,
@@ -11,7 +10,7 @@ import {
   PopularRecipeTitle,
   RecipeInfo,
   StyledLink,
-} from "./styles"; // Uwzględnij odpowiednie style
+} from "./styles";
 
 const PopularRecipe = () => {
   const [recipes, setRecipes] = useState([]);
@@ -20,10 +19,8 @@ const PopularRecipe = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        // Użyj zmiennej środowiskowej z pliku .env
         const baseUrl = process.env.REACT_APP_API_BASE_URL;
         const response = await axios.get(`${baseUrl}/popular`);
-        // Dostosuj ścieżkę do właściwego formatu odpowiedzi
         setRecipes(response.data.recipes.recipes);
       } catch (error) {
         setError("No popular recipes at the moment.");
@@ -38,24 +35,22 @@ const PopularRecipe = () => {
       <PopularRecipeTitle>Popular Recipes</PopularRecipeTitle>
       <RecipeCardContainer>
         {recipes.length > 0 ? (
-          recipes
-            .slice(0, 4) // Pobierz tylko pierwsze 4 przepisy
-            .map((recipe, index) => (
-              <RecipeCard key={recipe.title}>
-                <StyledLink to={`/recipe/${encodeURIComponent(recipe.title)}`}>
-                  {/* content */}
-                  <RecipeImage src={recipe.thumb} alt={recipe.title} />
-                  <RecipeInfo>
-                    <RecipeTitle>{recipe.title}</RecipeTitle>
-                    <RecipeDescription>
-                      {recipe.description.length > 100
-                        ? recipe.description.substring(0, 100) + "..."
-                        : recipe.description}
-                    </RecipeDescription>
-                  </RecipeInfo>
-                </StyledLink>
-              </RecipeCard>
-            ))
+          recipes.slice(0, 4).map((recipe, index) => (
+            <RecipeCard key={recipe.title}>
+              <StyledLink to={`/recipe/${encodeURIComponent(recipe.title)}`}>
+                {/* content */}
+                <RecipeImage src={recipe.thumb} alt={recipe.title} />
+                <RecipeInfo>
+                  <RecipeTitle>{recipe.title}</RecipeTitle>
+                  <RecipeDescription>
+                    {recipe.description.length > 100
+                      ? recipe.description.substring(0, 100) + "..."
+                      : recipe.description}
+                  </RecipeDescription>
+                </RecipeInfo>
+              </StyledLink>
+            </RecipeCard>
+          ))
         ) : (
           <p>{error || "Loading..."}</p>
         )}
