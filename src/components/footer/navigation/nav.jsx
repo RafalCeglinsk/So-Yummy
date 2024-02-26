@@ -5,11 +5,11 @@ import { StyledNav } from './nav.styled';
 export const Nav = () => {
   return (
     <StyledNav>
-      <Link to="/search">Ingredients</Link>
-      <Link to="/add">Add recipes</Link>
-      <Link to="/my">My recipes</Link>
-      <Link to="/favorite">Favorite</Link>
-      <Link to="/shopping-list">Shopping list</Link>
+      <Link to="/SearchTypeSelector">Ingredients</Link>
+      <Link to="/AddRecipies">Add recipes</Link>
+      <Link to="/MyRecipies">My recipes</Link>
+      <Link to="/Favorites">Favorite</Link>
+      <Link to="/ShoppingList">Shopping list</Link>
     </StyledNav>
   );
 };
