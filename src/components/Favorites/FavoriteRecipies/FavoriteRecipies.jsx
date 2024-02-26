@@ -31,7 +31,7 @@ const FavoriteRecipes = () => {
   return (
     <Container>
       <FavoriteContainer>
-        <FavoriteTitle>Favorite Recipes</FavoriteTitle>
+
         <FavoriteList>
           {favorites.length !== 0 ? (
             favorites.map(recipe => (
