@@ -13,7 +13,8 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { getRecipesRecuder } from "./recipePage/recipeSlice.js";
+import { searchReducer } from "./searchBar/searchBarSlice.js";
+import { getRecipesRecuder } from "./recipes/GetRecipes/recipeSlice.js";
 
 const authPersistConfig = {
   key: "auth",
