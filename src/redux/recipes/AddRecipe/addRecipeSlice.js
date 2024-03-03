@@ -1,5 +1,34 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getCategoriesThunk, addRecipeThunk } from "./operations";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+// Thunk do pobierania kategorii przepisów
+export const getCategoriesThunk = createAsyncThunk(
+  "recipes/getCategories",
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await axios.get("/recipes/categories");
+      return response.data.categories.map((category) => ({
+        value: category,
+        label: category,
+      }));
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+// Thunk do dodawania nowego przepisu
+export const addRecipeThunk = createAsyncThunk(
+  "recipes/addRecipe",
+  async (recipeData, { rejectWithValue }) => {
+    try {
+      const response = await axios.post("/recipes", recipeData);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
 
 const initialState = {
   categories: [],
@@ -22,6 +51,7 @@ const recipesSlice = createSlice({
   initialState,
   reducers: {
     updateField(state, action) {
+      console.log("Updating field with", action.payload);
       const { name, value } = action.payload;
       if (!state.recipeData) {
         state.recipeData = {};

@@ -1,10 +1,12 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFavorites } from '../../../redux/Favorites/operations';
+import { selectFavorites } from '../../../redux/recipePage/selectors';
+
 import NotFoundRecipe from '../NotFoundRecipe/NotFoundRecipe';
 import FavoriteCard from '../FavoriteCard/FavoriteCard';
 
 import {
-  FavoriteTitle,
   Container,
   FavoriteContainer,
   FavoriteList,
@@ -12,46 +14,40 @@ import {
 } from './FavoriteRecipies.styled';
 
 const FavoriteRecipes = () => {
-  const [allRecipes, setAllRecipes] = useState([]);
+  const dispatch = useDispatch();
+  const { token } = useSelector((state) => state.auth);
+  const  favorites  = useSelector(selectFavorites)
+  console.log(token)
+  console.log(favorites) 
 
-  const handleDelete = async id => {
-    const newRecipes = allRecipes.filter(({ _id }) => _id !== id);
-    setAllRecipes(newRecipes);
-  };
+  useEffect(() => {
+    dispatch(getFavorites(token));
+    console.log(getFavorites)
+  }, [token, dispatch]);
 
+
+ 
   return (
     <Container>
-    <FavoriteContainer>
-      <FavoriteTitle>Favorites</FavoriteTitle>
-      <FavoriteList>
-        {allRecipes.length !== 0 ? (
-          allRecipes.map(recipe => {
-            return (
+      <FavoriteContainer>
+
+        <FavoriteList>
+          {favorites.length !== 0 ? (
+            favorites.map(recipe => (
               <FavoriteItem key={recipe._id}>
                 <FavoriteCard
                   recipe={recipe}
-                  onDelete={() => {
-                    handleDelete(recipe._id);
-                  }}
-                  to={`/recipe/${recipe._id}`}
+
                 />
               </FavoriteItem>
-            );
-          })
-        ) : (
-          <NotFoundRecipe
-            message={"You don't have favorites recipes yet..."}
-          />
-        )}
-      </FavoriteList>
-    </FavoriteContainer>
-  </Container>
-  
+            ))
+          ) : (
+            <NotFoundRecipe message={"You don't have favorite recipes yet..."} />
+          )}
+        </FavoriteList>
+      </FavoriteContainer>
+    </Container>
   );
 };
 
 export default FavoriteRecipes;
-
-
-{/* <>
- */}

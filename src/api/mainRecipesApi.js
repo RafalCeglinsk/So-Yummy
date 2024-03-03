@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const baseAxiosURL = "http://localhost:5001/api";
-axios.defaults.baseURL = baseAxiosURL;
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 
 export const fetchCategories = async () => {
   try {
@@ -11,6 +10,3 @@ export const fetchCategories = async () => {
     throw new Error("Error fetching categories");
   }
 };
-
-
-

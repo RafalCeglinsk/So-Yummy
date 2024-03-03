@@ -20,6 +20,10 @@ export const ButtonColor = styled.button`
     padding: 22px 44px;
     font-size: 16px;
   }
+
+  & .ListGallery{
+color: black;
+  }
 `;
 
 export const ButtonTransparent = styled.button`

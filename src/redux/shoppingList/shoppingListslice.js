@@ -5,44 +5,12 @@ import {
   addShoppingThunk,
 } from "./operations.js";
 
-const handleFulfilledAdd = (state, { payload }) => {
-  if (payload) {
-    state.shopping.isLoading = false;
-    state.shopping.items = [...payload];
-    state.shopping.error = "";
-  }
-};
-const handlePending = (state) => {
-  state.shopping.isLoading = true;
-};
-
-const handleRejected = (state, { payload }) => {
-  state.shopping.isLoading = false;
-  state.shopping.error = payload;
-};
-
-const handleFulfilledDel = (state, { payload }) => {
-  state.shopping.isLoading = false;
-  state.shopping.items = state.shopping.items.filter(
-    (el) => el.indegredientId !== payload
-  );
-  state.shopping.error = "";
-};
-
-const handleFulfilledGet = (state, { payload }) => {
-  state.shopping.isLoading = false;
-  state.shopping.items = payload || state.shopping.items;
-  state.shopping.error = "";
-};
-
 export const shoppingSlice = createSlice({
   name: "shopping",
   initialState: {
-    shopping: {
-      items: [],
-      isLoading: false,
-      error: null,
-    },
+    items: [],
+    isLoading: false,
+    error: null,
   },
   extraReducers: (builder) => {
     builder
@@ -68,5 +36,35 @@ export const shoppingSlice = createSlice({
       );
   },
 });
+
+const handleFulfilledAdd = (state, { payload }) => {
+  if (payload) {
+    state.isLoading = false;
+    state.items.push(payload);
+    state.error = "";
+  }
+};
+const handlePending = (state) => {
+  state.isLoading = true;
+};
+
+const handleRejected = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = payload;
+};
+
+const handleFulfilledDel = (state, { payload }) => {
+  state.isLoading = false;
+  state.items = state.items.filter((el) => el.indegredientId !== payload);
+  state.error = "";
+};
+
+const handleFulfilledGet = (state, { payload }) => {
+  state.isLoading = false;
+  if (payload) {
+    state.items = payload;
+  }
+  state.error = "";
+};
 
 export default shoppingSlice.reducer;

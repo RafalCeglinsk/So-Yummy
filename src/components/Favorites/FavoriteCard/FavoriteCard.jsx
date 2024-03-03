@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
+import { CurvedButtonColor } from '../../Buttons/CurvedButton';
+import { Trash } from '../../RenderSvg/RenderSvg';
 import {
   FavoriteCardContainer,
   FavoriteCardRemoveButton,
@@ -12,6 +13,7 @@ import {
   FavoriteCardTitle,
   FavoriteCardStyle,
   FavoriteCardWrapper,
+  TitleWrapper
 } from './FavoriteCard.stytled';
 
 export default function FavoriteCard({ owner, to, onDelete, recipe }) {
@@ -19,7 +21,7 @@ export default function FavoriteCard({ owner, to, onDelete, recipe }) {
   const navigate = useNavigate();
 
   const seeRecipeHandler = () => {
-    navigate(to);
+    navigate(`/recipes/${recipe.id}`);
   };
 
   const removeHandler = async () => {
@@ -31,6 +33,8 @@ export default function FavoriteCard({ owner, to, onDelete, recipe }) {
     }
   };
 
+
+
   return (
     <FavoriteCardStyle owner={owner}>
       <FavoriteCardWrapper>
@@ -39,24 +43,27 @@ export default function FavoriteCard({ owner, to, onDelete, recipe }) {
         </FavoriteCardThumb>
 
         <FavoriteCardContainer>
+<TitleWrapper>
           <FavoriteCardTitle>{title}</FavoriteCardTitle>
-          <FavoriteCardDesc>{description}</FavoriteCardDesc>
-          <FavoriteCardTime>{time} min</FavoriteCardTime>
-
           <FavoriteCardRemoveButton
             type="button"
             onClick={removeHandler}
             aria-label="Delete recipe from favorite"
           >
-            Delete
+    <Trash/>
           </FavoriteCardRemoveButton>
+</TitleWrapper>
 
-          <FavoriteCardSeeMoreButton type="button" onClick={seeRecipeHandler}>
-            See recipe
-          </FavoriteCardSeeMoreButton>
+          <FavoriteCardDesc>{description}</FavoriteCardDesc>
+          <CurvedButtonColor className="ListGallery" text="See Recipe" onClick={seeRecipeHandler}></CurvedButtonColor>
+          <FavoriteCardTime>{time} min</FavoriteCardTime>
+
+       
+
+     
         </FavoriteCardContainer>
       </FavoriteCardWrapper>
-      Deleting recipe...
+
     </FavoriteCardStyle>
   );
 }

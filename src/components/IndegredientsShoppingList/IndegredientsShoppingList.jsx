@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { nanoid } from "nanoid";
+import {nanoid} from "nanoid"
 import { useSelector, useDispatch } from "react-redux";
 import vegetableBasket from "../../images/IndegredientsShoppingList/vegetableBasket.jpg";
 import vegetableBasket2x from "../../images/IndegredientsShoppingList/vegetableBasket2x.jpg";
@@ -55,6 +55,7 @@ const IngredientsShoppingList = () => {
                 <EmptyStyled>Shopping list is empty</EmptyStyled>
               </PictrueContainerStyled>
             ) : (
+<<<<<<< HEAD
               shopping.items?.map((item) => {
                 return (
                   <li key={item.Id}>
@@ -80,6 +81,41 @@ const IngredientsShoppingList = () => {
         </>
       )}
     </div>
+=======
+              <>
+                {shoppingItems.map((item) => {
+                  const id = item.ingredientId._id;
+                  const ttl = item.ingredientId.ttl;
+                  const thb = item.ingredientId.thb;
+                  return (
+                    <StyledIngridientsItem key={nanoid()}>
+                      <StyledImageCardThumb>
+                        <StyledImage src={thb} alt={item.desc} height="60" />
+                        <p>{ttl}</p>
+                      </StyledImageCardThumb>
+                      <StyledFlexQuantity>
+                        <StyledFlexRow>
+                          {item.measure &&
+                            item.measure.split("/r/n").map((el, index) => (
+                              <StyledQuantity key={index}>
+                                <p>{el}</p>
+                                < StyledCloseIcon onClick={() => deleteButton(id)}>
+                                  Delete
+                                </ StyledCloseIcon>
+                              </StyledQuantity>
+                            ))}
+                        </StyledFlexRow>
+                      </StyledFlexQuantity>
+                    </StyledIngridientsItem>
+                  );
+                })}
+              </>
+            )}
+          </StyledListContainerIngridient>
+        </>
+      )}
+    </StyledIngridientsContainer>
+>>>>>>> 658c609190743df9a2523a38f5ebddc73425a0b5
   );
 };
 

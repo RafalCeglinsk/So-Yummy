@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
-const FetchName = ({}) => {
+const FetchName = () => {
   const [name, setName] = useState("");
+  const { token } = useSelector((state) => state.auth);
 
   useEffect(() => {
     const fetchUserName = async () => {
       try {
-        const token =
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDllYzMxOTVmNTc1OWEyYzc3NmNlOCIsImlhdCI6MTcwODc4MTcwOCwiZXhwIjoxNzA5Mzg2NTA4fQ.0pKjE4ku7Dr2QN94lRKkMBNUy_2w3IvSLnEpnqMYuiU"; // Twój token JWT
         const response = await axios.get(
           "http://localhost:5001/api/auth/current",
           {
             headers: {
-              Authorization: `Bearer ${token}`, // Dodanie nagłówka Authorization z tokenem JWT
+              Authorization: `Bearer ${token}`,
             },
           }
         );
@@ -25,9 +25,9 @@ const FetchName = ({}) => {
     };
 
     fetchUserName();
-  }, []); // useEffect będzie wywoływany tylko raz po załadowaniu komponentu
+  }, [token]);
 
-  return <span>{name}</span>;
+  return name;
 };
 
 export default FetchName;

@@ -2,19 +2,21 @@ import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { refreshUser } from "./redux/auth/operations.js";
-
-import { HomePage } from "./pages/HomePage/HomePage";
-// import Footer from './components/footer/footer'
-import Favorite from "./pages/FavoritePage/Favorite.jsx";
-import ShoppingListPage from "./pages/ShoppingListPage/ShoppingListPage.jsx";
+// import  Footer  from "./components/footer/footer.jsx";
 import Main from "./pages/Main";
-import RegisterPage from "./pages/RegisterPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
-import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute.jsx";
-import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute.jsx";
+import RegisterPage from "./pages/RegisterPage.jsx";
+import { HomePage } from "./pages/HomePage/HomePage";
 import { HeaderPage } from "./pages/Header/Header.jsx";
+import SearchPage from "./pages/SearchPage/SearchPage.jsx";
 import { AddRecipe } from "./pages/AddRecipe/AddRecipe.jsx";
-import { RecipesPage } from "./pages/RecipePage.jsx";
+import FavoritePage from "./pages/FavoritePage/Favorite.jsx";
+import { RecipePage } from "./components/RecipePage/RecipePage.jsx";
+import ShoppingListPage from "./pages/ShoppingListPage/ShoppingListPage.jsx";
+import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute.jsx";
+import { CategoryPage } from "./pages/CategoryPage/CategoryPage.jsx";
+import { MyRecipePage } from "./components/MyRecipies/MyRecipePage.jsx";
+import Error404 from "./components/404/error_404.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,15 +40,18 @@ function App() {
           <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
         }
       />
-      <Route path="/shopping-list" element={<ShoppingListPage />} />
-      <Route />
-      <Route
-        path="/main"
-        element={<PrivateRoute redirectTo="/main" component={<Main />} />}
-      />
-      <Route path="/favorite" element={<Favorite />} />
-      <Route path="recipes/:recipeId" element={<RecipesPage/>} />
-      {/* <Route path='/footer' element={<Footer/>} /> */}
+      <Route path="/" element={<HeaderPage />}>
+        <Route path="/main" element={<Main />} />
+        <Route path="/categories" element={<CategoryPage />} />
+        <Route path="/add" element={<AddRecipe />} />
+        <Route path="/favorite" element={<FavoritePage />} />
+        <Route path="/myrecipes" element={<MyRecipePage />} />
+        <Route path="/recipes/:recipeId" element={<RecipePage />} />
+        <Route path="/shopping-list" element={<ShoppingListPage />} />
+        <Route path="/search" element={<SearchPage />} />
+        {/* <Route path="/footer" element={<Footer />} /> */}
+        <Route path="/error_404" element={<Error404 />} />
+      </Route>
     </Routes>
   );
 }

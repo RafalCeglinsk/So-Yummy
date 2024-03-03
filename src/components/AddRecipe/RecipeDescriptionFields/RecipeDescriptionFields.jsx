@@ -44,16 +44,23 @@ const timeOptions = [
   { value: "120", label: "120 min" },
 ];
 
-const ImageUploadField = () => {
-  const dispatch = useDispatch();
+const ImageUploadField = ({ onImageUpload, setRecipeData }) => {
   const fileInputRef = useRef(null);
   const [imagePreviewUrl, setImagePreviewUrl] = useState("");
 
-  const handleImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      console.log(file);
-      dispatch(updateField({ name: "recipeImg", value: file }));
+  const handleImageChange = (e) => {
+    if (e.target.files[0]) {
+      const fileReader = new FileReader();
+
+      fileReader.onloadend = () => {
+        setImagePreviewUrl(fileReader.result);
+        setRecipeData((prevRecipeData) => ({
+          ...prevRecipeData,
+          recipeImg: e.target.files[0],
+        }));
+      };
+
+      fileReader.readAsDataURL(e.target.files[0]);
     }
   };
 
@@ -63,6 +70,7 @@ const ImageUploadField = () => {
 
   useEffect(() => {
     return () => {
+      // Oczyszczenie URL obrazka, aby uniknąć wycieków pamięci
       imagePreviewUrl && URL.revokeObjectURL(imagePreviewUrl);
     };
   }, [imagePreviewUrl]);

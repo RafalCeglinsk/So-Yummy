@@ -17,7 +17,7 @@ export const MainWrapper = styled.div`
   flex-direction: column;
 gap:30px;
   align-items: center;
-  padding: 132px 10px 83px 10px;
+  padding: 132px 10px 83px 0px;
   background-image: -webkit-image-set(url(${BgMbLeft}) 2x),
     -webkit-image-set(url(${BgMbDown}) 2x), url(${BgMbTri});
 

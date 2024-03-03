@@ -18,6 +18,7 @@ export const getCategoriesThunk = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await axios.get("/api/recipes/categories");
+      // Przetwarzanie odpowiedzi do formatu oczekiwanego przez komponent Select
       return response.data.categories.map((categoryName) => ({
         value: categoryName,
         label: categoryName,
