@@ -11,10 +11,6 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = "";
 };
 
-/*
- * POST @ /api/users/register
- * body: { name, email, password }
- */
 export const register = createAsyncThunk(
   "auth/register",
   async (credentials, thunkAPI) => {
@@ -29,10 +25,6 @@ export const register = createAsyncThunk(
   }
 );
 
-/*
- * POST @ /api/users/login
- * body: { email, password }
- */
 export const login = createAsyncThunk(
   "auth/login",
   async (credentials, thunkAPI) => {

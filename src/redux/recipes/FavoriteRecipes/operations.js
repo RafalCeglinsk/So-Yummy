@@ -1,24 +1,5 @@
-import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
-axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
-
-export const getRecipeId = createAsyncThunk(
-  "recipes/getRecipeId",
-  async (id, thunkAPI) => {
-    try {
-      const response = await axios.get(`recipes/${id}`);
-      console.log("response", response);
-      const data = response.data;
-      console.log("data", data);
-      const recipe = data.recipe;
-      console.log("recipe", recipe);
-      return recipe;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
+import axios from "axios";
 
 export const toggleFavorite = createAsyncThunk(
   "favorites/toggle",

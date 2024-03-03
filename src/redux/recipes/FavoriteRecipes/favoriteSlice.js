@@ -1,15 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { toggleFavorite, getRecipeId } from "./operations";
+import { toggleFavorite } from "../operations";
 
 const initialState = {
-  favorites: [],
-  recipe: null,
+  isFavorite: false,
   status: "idle",
   error: null,
 };
 
-const getRecipesSlice = createSlice({
-  name: "getRecipes",
+const favoriteSlice = createSlice({
+  name: "favorite",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -31,19 +30,8 @@ const getRecipesSlice = createSlice({
       .addCase(toggleFavorite.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
-      })
-      .addCase(getRecipeId.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(getRecipeId.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.recipe = action.payload;
-      })
-      .addCase(getRecipeId.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
       });
   },
 });
 
-export const getRecipesRecuder = getRecipesSlice.reducer;
+export const favoriteReducer = favoriteSlice.reducer;

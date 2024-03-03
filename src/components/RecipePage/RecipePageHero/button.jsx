@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   removeFavorite,
   toggleFavorite,
-} from "../../../redux/recipePage/operations";
-import { selectFavorites } from "../../../redux/recipePage/selectors";
+} from "../../../redux/recipes/FavoriteRecipes/operations";
+import { selectFavorites } from "../../../redux/recipes/FavoriteRecipes/selectors";
 import { selectUser } from "../../../redux/auth/selectors";
 
 export const AddButton = ({ recipe }) => {

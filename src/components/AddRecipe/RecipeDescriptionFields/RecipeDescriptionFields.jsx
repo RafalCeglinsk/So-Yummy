@@ -1,10 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
-import {
-  getCategoriesThunk,
-  updateField,
-} from "../../../redux/AddRecipe/sliceAddRecipe";
+import { updateField } from "../../../redux/recipes/AddRecipe/addRecipeSlice";
+import { getCategoriesThunk } from "../../../redux/recipes/AddRecipe/operations";
 import { CameraIcon } from "../../RenderSvg/RenderSvg";
 import {
   FieldContainer,
@@ -37,7 +35,7 @@ const timeOptions = [
 ];
 
 const ImageUploadField = () => {
-  const dispatch = useDispatch(); // Używamy hooka useDispatch
+  const dispatch = useDispatch();
   const fileInputRef = useRef(null);
 
   const handleImageChange = (event) => {

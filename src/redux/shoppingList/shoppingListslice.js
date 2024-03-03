@@ -3,7 +3,7 @@ import {
   deleteShoppingThunk,
   getShoppingThunk,
   addShoppingThunk,
-} from "./thunkShopping.js";
+} from "./operations.js";
 
 const handleFulfilledAdd = (state, { payload }) => {
   if (payload) {

@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
-import shoppingReducer from "./shoppingList/sliceShopping.js";
-import recipesReducer from "./AddRecipe/sliceAddRecipe.js";
+import shoppingReducer from "../redux/shoppingList/shoppingListslice.js";
+import recipesReducer from "./recipes/AddRecipe/addRecipeSlice.js";
 import { authReducer } from "./auth/authSlice";
 import {
   persistStore,
@@ -13,7 +13,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { getRecipesRecuder } from "./recipePage/recipeSlice.js";
+import { getRecipesRecuder } from "./recipes/GetRecipes/recipeSlice.js";
 
 const authPersistConfig = {
   key: "auth",

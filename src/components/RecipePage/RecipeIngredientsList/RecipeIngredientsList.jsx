@@ -11,7 +11,7 @@ import {
   IngredientsListLi,
   Checkbox,
 } from "./RecipeIngredients.styled";
-import { addShoppingThunk } from "../../../redux/shoppingList/thunkShopping";
+import { addShoppingThunk } from "../../../redux/shoppingList/operations";
 
 export const RecipeIngredientsList = ({ recipe }) => {
   const ingredients = recipe.ingredients;
