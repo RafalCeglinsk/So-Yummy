@@ -22,7 +22,6 @@ const recipesSlice = createSlice({
   initialState,
   reducers: {
     updateField(state, action) {
-      console.log("Updating field with", action.payload);
       const { name, value } = action.payload;
       if (!state.recipeData) {
         state.recipeData = {};
