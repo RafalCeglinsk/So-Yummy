@@ -48,6 +48,12 @@ export const LogoWrapper = styled.div`
   line-height: 1;
   align-items: center;
   gap:8px;
+  @media (min-width: 768px) {
+gap: 12px;
+font-size: 28px;;
+    
+  }
+
 
 `
 export const FooterText = styled.ul`
@@ -69,6 +75,7 @@ export const FooterText = styled.ul`
     font-size: 18px;
     line-height: 24px;
     padding-left: 30px;
+    padding-right: 30px;
   }
 `;
 
