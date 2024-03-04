@@ -2,6 +2,7 @@ import React from "react";
 
 import { SocialMediaBar } from "../SocialMediaBar/SocialMediaBar";
 import { StartLogoSmall } from "../RenderSvg/RenderSvg";
+import SubscribeForm from "./SubscribeForm/SubscribeForm";
 import Nav from "../Nav/Nav";
 
 import {
@@ -34,7 +35,7 @@ function Footer() {
             </FooterText>
           </div>
           <Nav />
-          {/* <SubscribeForm /> */}
+          <SubscribeForm />
         </FooterTextContainer>
         <SocialMediaBar />
       </FooterContent>
