@@ -15,7 +15,11 @@ export const GalleryElement = () => {
       <GalleryLi>
         {/* <link> */}
         {/* <RecipeImg  src={thumb ? thumb : NoImage}>  */}
-        <RecipeImg src={NoImage} alt='no img template' loading="lazy"></RecipeImg>
+        <RecipeImg
+          src={NoImage}
+          alt="no img template"
+          loading="lazy"
+        ></RecipeImg>
 
         <RecipeDescription>
           <p>TEST DESCRIPTION</p>
