@@ -31,6 +31,6 @@ export const NavLinkStyled = styled(NavLink)`
   transition: color var(--transition-time) var(--cubic);
 
   &:hover {
-    color: var(--color-accent-black);
+    color: var(--color-icons-3);
   }
 `;
