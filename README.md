@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+#  ✨SoYummy ✨
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SoYummy is a web application designed to help users discover, save, and organize recipes. With SoYummy, you can explore various recipes, save your favorites, create your own recipes, manage your shopping list, and more.
 
-## Available Scripts
 
-In the project directory, you can run:
+![Homepage](./public/readmeImg/homePage.png)
 
-### `npm start`
+## Installation
+To run SoYummy locally on your machine, follow these steps:
+- Clone this repository to your local machine.
+- Navigate to the project directory in your terminal.
+- Run npm install to install all dependencies.
+- Run npm start to start the development server.
+- Open your web browser and navigate to http://localhost:3000 to view the application.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![Mainpage](./public/readmeImg/Main.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Authentication
+SoYummy provides user authentication functionalities, including user registration and login. Users can create an account to access personalized features and save their preferences.
 
-### `npm run build`
+- Recipe Exploration
+Explore a wide range of recipes from various categories. SoYummy offers a user-friendly interface to browse through recipes, view details, and get inspired to try new dishes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Recipe Management
+Save your favorite recipes for quick access. With SoYummy, you can easily manage your collection of recipes, mark them as favorites, and organize them according to your preferences.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Recipe Creation
+Create and share your own recipes with the SoYummy community. Share your culinary creations, including ingredients, instructions, and images, to inspire others and showcase your cooking skills.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Shopping List
+Plan your grocery shopping efficiently with SoYummy's built-in shopping list feature. Add ingredients from recipes directly to your shopping list, making it easy to gather everything you need for your next culinary adventure.
 
-### `npm run eject`
+- Error Handling
+SoYummy includes error handling mechanisms to provide users with a seamless browsing experience. If a page or resource is not found, the application gracefully handles errors and guides users back on track.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## API Repository
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The API for SoYummy is maintained in a separate repository. You can find it here [ --> SoYummy-api](https://github.com/RafalCeglinsk/SoYummy-api).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Technologies Used
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Dillinger uses a number of open source projects to work properly:
 
-### Code Splitting
+- [React.js] - A JavaScript library for building user interfaces.
+- [React Router] - Declarative routing for React applications.
+- [Redux] - State management library for JavaScript applications.
+- [Node.js] -JavaScript runtime environment for server-side development.
+- [Express.js] -Web application framework for Node.js.
+- [MongoDB] - NoSQL database for storing application data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Contributors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- github: [Rafał Cegliński](https://www.github.com/RafalCeglinsk)
+- github: [Krzysztof Kryczka](https://www.github.com/krzysztof-kryczka) 
+- github: [Michał Stanaszek](https://www.github.com/MichalStanaszek)
+- github: [Zuzanna Maciejczyk](https://www.github.com/Zjadlbyscos) 
+- github: [Marta Kowalska](https://www.github.com/KowalskaMarta) 
+- github: [Mikołaj Bajdalski](https://www.github.com/MikolajBajdalski) 
+- github: [Michał Szmajduch](https://www.github.com/MichalSzmajduch) 
+- github: [Piotr Dubiel](https://www.github.com/PiotrD1994) 
+- github: [Stefan Bielak](https://www.github.com/StefanBielak) 
+- github: [Kamil Kucharczyk](https://www.github.com/KamilKucharczyk) 
