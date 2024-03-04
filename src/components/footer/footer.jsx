@@ -2,6 +2,7 @@ import React from "react";
 
 import { SocialMediaBar } from "../SocialMediaBar/SocialMediaBar";
 import { StartLogoSmall } from "../RenderSvg/RenderSvg";
+import Nav from "../Nav/Nav";
 
 import {
   FooterContent,
@@ -13,6 +14,9 @@ import {
 } from "./footer.styled";
 
 function Footer() {
+
+
+
   return (
     <>
       <FooterContent>
@@ -29,7 +33,7 @@ function Footer() {
               <li>Convenient and easy to use</li>
             </FooterText>
           </div>
-          {/* <Nav handleNavClick={handleNavClick} /> */}
+          <Nav />
           {/* <SubscribeForm /> */}
         </FooterTextContainer>
         <SocialMediaBar />
