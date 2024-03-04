@@ -1,49 +1,46 @@
-import React from 'react';
-import { Nav } from './navigation/nav';
-import { FollowUs } from './social_media/followUs';
-import { SubscribeForm } from './subscribe_form/subscribeForm';
-import { StartLogoSmall } from '../RenderSvg/RenderSvg';
+import React from "react";
+
+import { SocialMediaBar } from "../SocialMediaBar/SocialMediaBar";
+import { StartLogoSmall } from "../RenderSvg/RenderSvg";
+
 import {
-  StyledFooter,
-  FooterContainer,
-  Column,
-  CopyrightText,
-  SoYummyHeading,
-  FeaturesList,
-  FeatureListItem,
-  SubscribeHeading,
-  SubscribeText,
-} from './footer.styled';
+  FooterContent,
+  FooterTextContainer,
+  LogoWrapper,
+  FooterText,
+  FooterBarText,
+  RightText,
+} from "./footer.styled";
 
-const Footer = () => {
+function Footer() {
   return (
-    <StyledFooter>
-      <FooterContainer>
-        <Column>
-          <SoYummyHeading><StartLogoSmall />So Yummy</SoYummyHeading>
-          <FeaturesList>
-            <FeatureListItem>Baza przepisów, którą można uzupełniać</FeatureListItem>
-            <FeatureListItem>Elastyczne wyszukiwanie pożądanych i niechcianych składników</FeatureListItem>
-            <FeatureListItem>Możliwość dodawania własnych przepisów z zdjęciami</FeatureListItem>
-            <FeatureListItem>Wygodne i łatwe w użyciu</FeatureListItem>
-          </FeaturesList>
-        </Column>
+    <>
+      <FooterContent>
+        <FooterTextContainer className="container">
+          <div>
+            <LogoWrapper>
+              <StartLogoSmall/>
+              <span>So Yummy</span>
+            </LogoWrapper>
+            <FooterText>
+              <li>Database of recipes that can be replenished</li>
+              <li>Flexible search for desired and unwanted ingredients</li>
+              <li>Ability to add your own recipes with photos</li>
+              <li>Convenient and easy to use</li>
+            </FooterText>
+          </div>
+          {/* <Nav handleNavClick={handleNavClick} /> */}
+          {/* <SubscribeForm /> */}
+        </FooterTextContainer>
+        <SocialMediaBar />
+      </FooterContent>
 
-        <Column>
-          <Nav />
-          <FollowUs />
-        </Column>
-
-        <Column>
-          <SubscribeHeading>Zapisz się do naszego biuletynu</SubscribeHeading>
-          <SubscribeText>Zapisz się do naszego biuletynu. Bądź na bieżąco z najnowszymi informacjami i ofertami specjalnymi, itp.</SubscribeText>
-          <SubscribeForm />
-        </Column>
-      </FooterContainer>
-
-      <CopyrightText>© 2023 Wszelkie prawa zastrzeżone. <p className="regulations">Regulamin</p></CopyrightText>
-    </StyledFooter>
+      <FooterBarText>
+        <span>© 2024 All Rights Reserved.</span>
+        <RightText>Terms of Service</RightText>
+      </FooterBarText>
+    </>
   );
-};
+}
 
 export default Footer;
