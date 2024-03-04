@@ -1,31 +1,31 @@
 import React from 'react';
 import { NavList, NavLinkStyled } from './Nav.styled';
 
-const Nav = ({ handleNavClick }) => {
+const Nav = () => {
   return (
     <NavList>
       <li>
-        <NavLinkStyled to="/search?ingredients=" onClick={handleNavClick}>
+        <NavLinkStyled to="/search?ingredients=" >
           Ingredients
         </NavLinkStyled>
       </li>
       <li>
-        <NavLinkStyled to="/add" onClick={handleNavClick}>
+        <NavLinkStyled to="/add">
           Add Recipe
         </NavLinkStyled>
       </li>
       <li>
-        <NavLinkStyled to="/my" onClick={handleNavClick}>
+        <NavLinkStyled to="/my">
           My Recipes
         </NavLinkStyled>
       </li>
       <li>
-        <NavLinkStyled to="/favorite" onClick={handleNavClick}>
+        <NavLinkStyled to="/favorite" >
           Favorite
         </NavLinkStyled>
       </li>
       <li>
-        <NavLinkStyled to="/shopping-list" onClick={handleNavClick}>
+        <NavLinkStyled to="/shopping-list">
           Shopping List
         </NavLinkStyled>
       </li>
