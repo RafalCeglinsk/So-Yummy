@@ -14,7 +14,6 @@ export const HorizontalScrollList = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const categories = useSelector(selectCategories);
   const navigate = useNavigate();
-  console.log(categories);
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCategories } from "./operations";
+import { getCategories, getCategory } from "./operations";
 
 const initialState = {
   items: [],
+  category: [],
   isLoading: false,
   error: null,
 };
@@ -24,6 +25,19 @@ export const categoriesSlice = createSlice({
         state.isLoading = false;
         state.error = true;
         state.items = [];
+      })
+      .addCase(getCategory.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getCategory.fulfilled, (state, { payload }) => {
+        state.error = null;
+        state.category = payload;
+        state.isLoading = false;
+      })
+      .addCase(getCategory.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = true;
+        state.category = [];
       });
   },
 });
