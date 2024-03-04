@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { refreshUser } from "./redux/auth/operations.js";
-// import  Footer  from "./components/footer/footer.jsx";
 import Main from "./pages/Main";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
@@ -49,7 +48,6 @@ function App() {
         <Route path="/recipes/:recipeId" element={<RecipePage />} />
         <Route path="/shopping-list" element={<ShoppingListPage />} />
         <Route path="/search" element={<SearchPage />} />
-        {/* <Route path="/footer" element={<Footer />} /> */}
         <Route path="/error_404" element={<Error404 />} />
       </Route>
     </Routes>
