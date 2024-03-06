@@ -15,6 +15,7 @@ import {
 } from "redux-persist";
 import { searchReducer } from "./searchBar/searchBarSlice.js";
 import { getRecipesRecuder } from "./recipePage/recipeSlice.js";
+import { categoriesReducer } from "./Categories/categoriesSlice.js";
 
 const authPersistConfig = {
   key: "auth",
@@ -29,6 +30,7 @@ export const store = configureStore({
     getRecipes: getRecipesRecuder,
     auth: persistReducer(authPersistConfig, authReducer),
     search: searchReducer,
+    categories: categoriesReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

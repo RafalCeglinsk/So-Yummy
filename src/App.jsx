@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { refreshUser } from "./redux/auth/operations.js";
@@ -41,7 +41,11 @@ function App() {
       />
       <Route path="/" element={<HeaderPage />}>
         <Route path="/main" element={<Main />} />
-        <Route path="/categories" element={<CategoryPage />} />
+        <Route
+          path="/categories"
+          element={<Navigate to="/categories/beef" replace />}
+        />
+        <Route path="/categories/:category" element={<CategoryPage />} />
         <Route path="/add" element={<AddRecipe />} />
         <Route path="/favorite" element={<FavoritePage />} />
         <Route path="/myrecipes" element={<MyRecipePage />} />
