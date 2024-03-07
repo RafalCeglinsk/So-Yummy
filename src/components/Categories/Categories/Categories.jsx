@@ -8,7 +8,6 @@ export const Categories = () => {
     <div>
       <CategoriesWrapper>
         <HorizontalScrollList />
-
         <GalleryElement />
       </CategoriesWrapper>
     </div>
