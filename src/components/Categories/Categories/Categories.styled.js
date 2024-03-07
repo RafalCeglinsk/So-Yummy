@@ -1,6 +1,16 @@
 import styled from "styled-components";
 
-export const H2 = styled.h2`
-  padding: 50px 16px;
-  color: var(--color-text-1);
-`;
+export const CategoriesWrapper = styled.div`
+
+    padding: 0px 40px;
+    display: flex;
+    flex-direction: column;
+    gap:32px;
+
+    @media screen and (min-width: 768px) {
+gap:50px;
+    }
+    
+
+  
+`
