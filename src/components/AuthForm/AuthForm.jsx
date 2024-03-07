@@ -120,9 +120,9 @@ export const AuthForm = () => {
             </FormButton>
           </Container>
           {location === "/auth/login" ? (
-            <StyledLink to="/auth/register">Sign up</StyledLink>
+            <StyledLink to="/auth/login">Sign up</StyledLink>
           ) : (
-            <StyledLink to="/auth/login">Sign in</StyledLink>
+            <StyledLink to="/main">Sign in</StyledLink>
           )}
         </Desktop>
         <Background
