@@ -51,6 +51,7 @@ export const RecipeImg = styled.img`
 export const RecipeDescription = styled.div`
   position: absolute;
   top: 250px;
+  left: 5%;
   width: 90%;
   border-radius: 8px;
   background-color: var(--color-bg-modal);
