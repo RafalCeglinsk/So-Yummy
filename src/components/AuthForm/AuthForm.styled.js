@@ -76,6 +76,7 @@ export const StyledInput = styled.input`
   border-radius: 6px;
   padding: 12px;
   width: 70vw;
+  color: var(    --color-default-1);
 
   &::placeholder {
     color: var(--color-default-1);
