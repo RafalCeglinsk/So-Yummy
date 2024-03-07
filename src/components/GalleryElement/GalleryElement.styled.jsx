@@ -4,6 +4,7 @@ export const GalleryUl = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 32px;
 
   @media screen and (min-width: 768px) {
@@ -11,7 +12,7 @@ export const GalleryUl = styled.ul`
     flex-wrap: wrap;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
     gap: 14px;
   }
 `;
@@ -29,7 +30,7 @@ export const GalleryLi = styled.li`
     max-width: 336px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
     max-width: 300px;
   }
 `;
@@ -49,11 +50,13 @@ export const RecipeImg = styled.img`
 
 export const RecipeDescription = styled.div`
   position: absolute;
-  top: 250px;
+  top:75%;
+  left: 5%;
   width: 90%;
   border-radius: 8px;
   background-color: var(--color-bg-modal);
   transition: transform var(--transition-time) var(--cubic);
+
 
   &:hover,
   &:focus  {
@@ -62,9 +65,10 @@ export const RecipeDescription = styled.div`
   p {
     font-weight: 500;
     font-size: 16px;
-    line-height: 1.2;
+    line-height: 1;
     color: var(--color-text-3);
     padding: 16px;
     letter-spacing: -0.24px;
+  
   }
 `;

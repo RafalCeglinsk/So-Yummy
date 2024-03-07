@@ -3,6 +3,7 @@ import spinachFooterLeft from "../../images/Footer/spinach-footer-left.jpg";
 import spinachFooterRight from "../../images/Footer/spinach-footer-right.jpg";
 
 export const FooterContent = styled.footer`
+margin-top: 100px;
   background-color: var(--color-bg-footer);
   padding: 28px 32px 18px 32px;
   align-items: center;
@@ -11,6 +12,7 @@ export const FooterContent = styled.footer`
   color: var(--color-default-1);
 
   @media (min-width: 768px) {
+    margin-top: 200px;
     padding-top: 50px;
     padding-bottom: 24px;
   }

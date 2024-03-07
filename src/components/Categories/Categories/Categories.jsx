@@ -1,13 +1,15 @@
-import { H2 } from "./Categories.styled";
 import { HorizontalScrollList } from "../HorizontalScrollList/HorizontalScrollList";
 import { GalleryElement } from "../../GalleryElement/GalleryElement";
+
+import { CategoriesWrapper } from "./Categories.styled";
 
 export const Categories = () => {
   return (
     <div>
-      <H2>Categories</H2>
-      <HorizontalScrollList />
-      <GalleryElement />
+      <CategoriesWrapper>
+        <HorizontalScrollList />
+        <GalleryElement />
+      </CategoriesWrapper>
     </div>
   );
 };

@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const Title = styled.div`
   position: relative;
   padding-top: 65px;
-  height: 100px;
+  padding-bottom: 65px;
+
   @media screen and (min-width: 768px) {
-    height: 150px;
+
     padding-top: 136px;
   }
 

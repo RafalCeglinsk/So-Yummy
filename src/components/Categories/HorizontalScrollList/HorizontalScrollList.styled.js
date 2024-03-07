@@ -21,6 +21,7 @@ export const ScrollContainer = styled.div`
 `;
 
 export const StyledUl = styled.ul`
+padding: 20px 0px;
   display: flex;
 `;
 
