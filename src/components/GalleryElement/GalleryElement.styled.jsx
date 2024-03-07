@@ -50,12 +50,13 @@ export const RecipeImg = styled.img`
 
 export const RecipeDescription = styled.div`
   position: absolute;
-  top: 250px;
+  top:75%;
   left: 5%;
   width: 90%;
   border-radius: 8px;
   background-color: var(--color-bg-modal);
   transition: transform var(--transition-time) var(--cubic);
+
 
   &:hover,
   &:focus  {
@@ -64,9 +65,10 @@ export const RecipeDescription = styled.div`
   p {
     font-weight: 500;
     font-size: 16px;
-    line-height: 1.2;
+    line-height: 1;
     color: var(--color-text-3);
     padding: 16px;
     letter-spacing: -0.24px;
+  
   }
 `;
