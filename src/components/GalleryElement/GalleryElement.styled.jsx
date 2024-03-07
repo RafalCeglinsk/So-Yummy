@@ -4,6 +4,7 @@ export const GalleryUl = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 32px;
 
   @media screen and (min-width: 768px) {
@@ -11,7 +12,7 @@ export const GalleryUl = styled.ul`
     flex-wrap: wrap;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
     gap: 14px;
   }
 `;
@@ -29,7 +30,7 @@ export const GalleryLi = styled.li`
     max-width: 336px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
     max-width: 300px;
   }
 `;
