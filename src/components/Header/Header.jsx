@@ -19,7 +19,6 @@ import Modal2 from "./HeaderModalMenu/HeaderModalMenu";
 import Modal1 from "./HeaderModalProfile/HeaderModalProfile";
 import Modal3 from "./ModalUserProfile/ModalUserProfile";
 import Modal4 from "./ModalLogOut/ModalLogOut";
-import { Home } from "../Home/Home";
 
 const SharedLayout = () => {
   const location = useLocation();

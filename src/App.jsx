@@ -16,7 +16,6 @@ import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute.js
 import { CategoryPage } from "./pages/CategoryPage/CategoryPage.jsx";
 import { MyRecipePage } from "./components/MyRecipies/MyRecipePage.jsx";
 import Error404 from "./components/404/error_404.jsx";
-import { Header } from "./components/RecipePage/RecipePageHero/RecipePage.styled.jsx";
 
 function App() {
   const dispatch = useDispatch();
