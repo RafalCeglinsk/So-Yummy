@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login, register } from "../../redux/auth/operations";
 
@@ -36,10 +36,9 @@ export const AuthForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation().pathname;
-
   const handleChangeInput = (event) => {
     const input = event.target;
 
@@ -60,6 +59,7 @@ export const AuthForm = () => {
       if (email === "" || password === "") return;
       try {
         dispatch(login({ email, password }));
+        navigate("/main");
       } catch (error) {
         console.error("Błąd logowania:", error);
       }
@@ -78,7 +78,7 @@ export const AuthForm = () => {
         />
         <Desktop>
           <Container>
-            <H2>{location === "/auth/login" ? "Sign In" : "Registration"}</H2>
+            <H2>{location === "/auth/login" ? "Sign In" : "Register"}</H2>
             {location === "/auth/register" && (
               <StyledLabel>
                 <StyledInput
@@ -116,13 +116,13 @@ export const AuthForm = () => {
               />
             </StyledLabel>
             <FormButton type="submit">
-              {location === "/auth/register" ? "Sign up" : "Sign In"}
+              {location === "/auth/register" ? "Sign Up" : "Sign In"}
             </FormButton>
           </Container>
           {location === "/auth/login" ? (
-            <StyledLink to="/auth/login">Sign up</StyledLink>
+            <StyledLink to="/auth/register">Sign Up</StyledLink>
           ) : (
-            <StyledLink to="/main">Sign in</StyledLink>
+            <StyledLink to="/auth/login">Sign In</StyledLink>
           )}
         </Desktop>
         <Background

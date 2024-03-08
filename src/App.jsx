@@ -16,6 +16,7 @@ import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute.js
 import { CategoryPage } from "./pages/CategoryPage/CategoryPage.jsx";
 import { MyRecipePage } from "./components/MyRecipies/MyRecipePage.jsx";
 import Error404 from "./components/404/error_404.jsx";
+import { Header } from "./components/RecipePage/RecipePageHero/RecipePage.styled.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,21 +26,22 @@ function App() {
   }, [dispatch]);
 
   return (
-    <Routes>
-      <Route index element={<HomePage />} />
-      <Route
-        path="/auth/register"
-        element={
-          <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
-        }
-      />
-      <Route
-        path="/auth/login"
-        element={
-          <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
-        }
-      />
-      <Route path="/" element={<HeaderPage />}>
+    <>
+      <HeaderPage />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/auth/register"
+          element={
+            <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
+          }
+        />
+        <Route
+          path="/auth/login"
+          element={
+            <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
+          }
+        />
         <Route path="/main" element={<Main />} />
         <Route
           path="/categories"
@@ -53,8 +55,8 @@ function App() {
         <Route path="/shopping-list" element={<ShoppingListPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/error_404" element={<Error404 />} />
-      </Route>
-    </Routes>
+      </Routes>
+    </>
   );
 }
 
