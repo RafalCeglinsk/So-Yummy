@@ -25,21 +25,22 @@ function App() {
   }, [dispatch]);
 
   return (
-    <Routes>
-      <Route index element={<HomePage />} />
-      <Route
-        path="/auth/register"
-        element={
-          <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
-        }
-      />
-      <Route
-        path="/auth/login"
-        element={
-          <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
-        }
-      />
-      <Route path="/" element={<HeaderPage />}>
+    <>
+      <HeaderPage />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/auth/register"
+          element={
+            <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
+          }
+        />
+        <Route
+          path="/auth/login"
+          element={
+            <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
+          }
+        />
         <Route path="/main" element={<Main />} />
         <Route
           path="/categories"
@@ -53,8 +54,8 @@ function App() {
         <Route path="/shopping-list" element={<ShoppingListPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/error_404" element={<Error404 />} />
-      </Route>
-    </Routes>
+      </Routes>
+    </>
   );
 }
 

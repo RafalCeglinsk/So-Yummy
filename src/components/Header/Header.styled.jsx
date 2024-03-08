@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 import { ReactComponent as Pencil } from "./SVG/Icon.svg";
 import { RenderIcon } from "./HeaderRenderSvg";
 import { SearchLens } from "../RenderSvg/RenderSvg";
-import FetchAvatar from "./helpers/Avatar";
 
 export const Leaf = styled.div`
   position: absolute;
@@ -169,7 +168,7 @@ export const Profile = styled.div`
   }
 `;
 export const Photo = styled.div`
-  background-image: url(${FetchAvatar});
+  background-image: url(${(props) => props.backgroundimage});
   background-size: 34px 34px;
   border-radius: 50%;
   width: 34px;
