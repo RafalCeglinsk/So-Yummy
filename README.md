@@ -13,6 +13,9 @@ To run SoYummy locally on your machine, follow these steps:
 - Run npm start to start the development server.
 - Open your web browser and navigate to http://localhost:3000 to view the application.
 
+🔨 Please note that upon launching the application, it may take a moment for the server to fetch data to populate the elements on the page. 🔨
+
+
 ![Mainpage](./public/readmeImg/Main.png)
 
 
