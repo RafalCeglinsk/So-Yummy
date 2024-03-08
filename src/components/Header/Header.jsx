@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { RenderHamburger } from "./HeaderRenderSvg";
-import Name from "./helpers/UserName";
 import {
   Logo,
   Profile,
@@ -19,9 +18,12 @@ import Modal2 from "./HeaderModalMenu/HeaderModalMenu";
 import Modal1 from "./HeaderModalProfile/HeaderModalProfile";
 import Modal3 from "./ModalUserProfile/ModalUserProfile";
 import Modal4 from "./ModalLogOut/ModalLogOut";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/auth/selectors";
 
 const SharedLayout = () => {
   const location = useLocation();
+  const user = useSelector(selectUser);
 
   const [modal1IsOpen, setModal1IsOpen] = useState(false);
   const [modal2IsOpen, setModal2IsOpen] = useState(false);
@@ -79,11 +81,8 @@ const SharedLayout = () => {
                 </NavLinks>
               </Nav>
               <Main>
-                <Photo onClick={openModal1}></Photo>
-                <UserName>
-                  <Name />
-                </UserName>
-                <UserName></UserName>
+                <Photo onClick={openModal1} backgroundimage={user.avatarURL} />
+                <UserName>{user.name}</UserName>
                 <LogoBurger onClick={openModal2}>
                   <RenderHamburger />
                 </LogoBurger>
