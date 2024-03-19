@@ -5,16 +5,12 @@ import {
 } from "../HorizontalScrollList/HorizontalScrollList.styled";
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectCategories,
-  selectCategory,
-} from "../../../redux/Categories/selectors";
+import { selectCategories } from "../../../redux/Categories/selectors";
 import { getCategories } from "../../../redux/Categories/operations";
 import { useNavigate } from "react-router-dom";
 
 export const HorizontalScrollList = () => {
   const scrollRef = useRef();
-  const category = useSelector(selectCategory);
   const categories = useSelector(selectCategories);
   const navigate = useNavigate();
   const dispatch = useDispatch();
