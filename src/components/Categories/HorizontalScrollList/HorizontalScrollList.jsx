@@ -3,15 +3,18 @@ import {
   ScrollItem,
   StyledUl,
 } from "../HorizontalScrollList/HorizontalScrollList.styled";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCategories } from "../../../redux/Categories/selectors";
+import {
+  selectCategories,
+  selectCategory,
+} from "../../../redux/Categories/selectors";
 import { getCategories } from "../../../redux/Categories/operations";
 import { useNavigate } from "react-router-dom";
 
 export const HorizontalScrollList = () => {
   const scrollRef = useRef();
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const category = useSelector(selectCategory);
   const categories = useSelector(selectCategories);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -27,7 +30,6 @@ export const HorizontalScrollList = () => {
   };
 
   const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
     navigate(`/categories/${category}`);
   };
 
